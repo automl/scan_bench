@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scan-bench"
+version = "0.1.0"
+description = "Surrogate benchmark library"
+requires-python = ">=3.10"
+dependencies = [
+    "xgboost==3.1.3",
+    "scikit-learn==1.7.2",
+    "tabpfn==6.4.1",
+    "matplotlib",
+    "seaborn",
+    "torch==2.9.1",
+    "tqdm"
+]
+
+[tool.setuptools.packages.find]
+include = [
+    "surrogate_benchmark",
+    "surrogate_benchmark.predictors_core",
+    "surrogate_benchmark.metrics",
+    "surrogate_benchmark.vlm.*",
+    "surrogate_benchmark.tabpfn.*"
+]
+
+exclude = [
+    "surrogate_benchmark.vlm.performance_surrogate.plots",
+    "surrogate_benchmark.vlm.performance_surrogate.results",
+    "surrogate_benchmark.vlm.divergence_surrogate.results",
+    "surrogate_benchmark.*.performance_surrogate.train"
+]
+[tool.setuptools.package-data]
+"surrogate_benchmark.vlm" = ["*.json"]
+"surrogate_benchmark.vlm.performance_surrogate" = ["splits/*.csv"]
+"surrogate_benchmark.vlm.divergence_surrogate" = ["xgb_models/*.json"]
