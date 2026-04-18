@@ -23,7 +23,8 @@ include = [
     "surrogate_benchmark.predictors_core",
     "surrogate_benchmark.metrics",
     "surrogate_benchmark.vlm.*",
-    "surrogate_benchmark.tabpfn.*"
+    "surrogate_benchmark.tabpfn.*",
+    "surrogate_benchmark.llm.*"
 ]
 
 exclude = [
@@ -36,3 +37,4 @@ exclude = [
 "surrogate_benchmark.vlm" = ["*.json"]
 "surrogate_benchmark.vlm.performance_surrogate" = ["splits/*.csv"]
 "surrogate_benchmark.vlm.divergence_surrogate" = ["xgb_models/*.json"]
+"surrogate_benchmark.llm" = ["surrogate_data/*.csv"]
