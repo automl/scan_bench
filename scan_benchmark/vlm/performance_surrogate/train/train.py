@@ -1,6 +1,6 @@
-from surrogate_benchmark.commons.train.args import get_base_parser, finalize_args
-from surrogate_benchmark.commons.train.train_base import run_benchmark
-from surrogate_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
+from scan_benchmark.commons.train.args import get_base_parser, finalize_args
+from scan_benchmark.commons.train.train_base import run_benchmark
+from scan_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
 
 
 def parse_args():

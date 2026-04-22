@@ -19,22 +19,23 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 include = [
-    "surrogate_benchmark",
-    "surrogate_benchmark.predictors_core",
-    "surrogate_benchmark.metrics",
-    "surrogate_benchmark.vlm.*",
-    "surrogate_benchmark.tabpfn.*",
-    "surrogate_benchmark.llm.*"
+    "scan_benchmark",
+    "scan_benchmark.commons.*",
+    "scan_benchmark.vlm",
+    "scan_benchmark.vlm.*",
 ]
 
 exclude = [
-    "surrogate_benchmark.vlm.performance_surrogate.plots",
-    "surrogate_benchmark.vlm.performance_surrogate.results",
-    "surrogate_benchmark.vlm.divergence_surrogate.results",
-    "surrogate_benchmark.*.performance_surrogate.train"
+    "scan_benchmark.commons.plotting",
+    "scan_benchmark.commons.predictors",
+    "scan_benchmark.commons.train",
+    "scan_benchmark.*.performance_surrogate.results",
+    "scan_benchmark.vlm.divergence_surrogate.results",
+    "scan_benchmark.*.performance_surrogate.train",
+    "scan_benchmark.tabpfn.*"
+
 ]
 [tool.setuptools.package-data]
-"surrogate_benchmark.vlm" = ["*.json"]
-"surrogate_benchmark.vlm.performance_surrogate" = ["splits/*.csv"]
-"surrogate_benchmark.vlm.divergence_surrogate" = ["xgb_models/*.json"]
-"surrogate_benchmark.llm" = ["surrogate_data/*.csv"]
+"scan_benchmark.vlm" = ["*.json"]
+"scan_benchmark.vlm.performance_surrogate" = ["splits/*.csv"]
+"scan_benchmark.vlm.divergence_surrogate" = ["xgb_models/*.json"]

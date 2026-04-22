@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from autogluon.tabular import TabularPredictor
 
-from surrogate_benchmark.commons.predictors_core.base import SurrogateModel
+from scan_benchmark.commons.predictors_core.base import SurrogateModel
 
 
 class AutoGluonModel(SurrogateModel):

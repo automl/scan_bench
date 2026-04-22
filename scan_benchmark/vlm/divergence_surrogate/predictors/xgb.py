@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 from xgboost import XGBClassifier
 
-from surrogate_benchmark.vlm.divergence_surrogate.metrics import classification_metrics
+from scan_benchmark.vlm.divergence_surrogate.metrics import classification_metrics
 
 
 def binary_xgb_ensemble(seed):

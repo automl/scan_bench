@@ -1,6 +1,6 @@
 import numpy as np
 
-from surrogate_benchmark.base_config import BaseConfig
+from scan_benchmark.base_config import BaseConfig
 
 
 class ConfigFeatureMapper:

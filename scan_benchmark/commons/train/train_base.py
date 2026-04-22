@@ -4,10 +4,10 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from surrogate_benchmark.commons.predictors.autogluon import AutoGluonModel
-from surrogate_benchmark.commons.predictors.ensembles import BaggingEnsemble, EnsembleType
-from surrogate_benchmark.commons.predictors_core.base import MultiLabelSurrogateModel
-from surrogate_benchmark.commons.predictors_core.pfn import TabPFNModel
+from scan_benchmark.commons.predictors.autogluon import AutoGluonModel
+from scan_benchmark.commons.predictors.ensembles import BaggingEnsemble, EnsembleType
+from scan_benchmark.commons.predictors_core.base import MultiLabelSurrogateModel
+from scan_benchmark.commons.predictors_core.pfn import TabPFNModel
 
 
 def set_seed(seed: int = 42):
