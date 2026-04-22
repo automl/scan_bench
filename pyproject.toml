@@ -23,6 +23,8 @@ include = [
     "scan_benchmark.commons.*",
     "scan_benchmark.vlm",
     "scan_benchmark.vlm.*",
+    "scan_benchmark.llm",
+    "scan_benchmark.llm.*"
 ]
 
 exclude = [
@@ -39,3 +41,4 @@ exclude = [
 "scan_benchmark.vlm" = ["*.json"]
 "scan_benchmark.vlm.performance_surrogate" = ["splits/*.csv"]
 "scan_benchmark.vlm.divergence_surrogate" = ["xgb_models/*.json"]
+"scan_benchmark.llm" = ["data/*.csv"]
