@@ -103,7 +103,7 @@ class VLMConfig(BaseConfig):
                 raise ValueError(f"{name}={val} not in allowed choices {cfg['choices']}")
 
 
-class Target(str, Enum):
+class VLMTarget(str, Enum):
     # upstream
     VAL_LOSS = "val_loss"
     TEST_LOSS = "test_loss"

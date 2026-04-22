@@ -1,4 +1,5 @@
 from dataclasses import dataclass, asdict
+from enum import Enum
 
 from surrogate_benchmark.base_config import BaseConfig
 from surrogate_benchmark.tabpfn.spaces import TABPFN_SEARCH_SPACE
@@ -48,3 +49,12 @@ class TabPFNConfig(BaseConfig):
 
             if "choices" in cfg and val not in cfg["choices"]:
                 raise ValueError(f"{name}={val} not in allowed choices {cfg['choices']}")
+
+class TabPFNTarget(str, Enum):
+    VAL_LOSS = "val/val_loss"
+    NLL = "real_data/nll"
+    ROC_AUC = "real_data/roc_auc"
+
+    @classmethod
+    def all(cls):
+        return [t.value for t in cls]

@@ -3,43 +3,32 @@ from importlib.resources import files
 from pprint import pprint
 
 import numpy as np
-from tqdm import tqdm
 
+from surrogate_benchmark.base_performance_benchmark import BasePerformanceBenchmark
 from surrogate_benchmark.config_feature_mapper import ConfigFeatureMapper
-from surrogate_benchmark.predictors_core.pfn import TabPFNModel
-from surrogate_benchmark.vlm.config import VLMConfig, Target
+from surrogate_benchmark.vlm.config import VLMConfig, VLMTarget
 from surrogate_benchmark.vlm.divergence_surrogate.data import DivergenceDataset
 from surrogate_benchmark.vlm.divergence_surrogate.predictors.xgb import BinaryBaggingEnsemble
-from surrogate_benchmark.vlm.performance_surrogate.data import SurrogateDataset
+from surrogate_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
 
 
-class VLMBenchmark:
-    def __init__(
-            self,
-            targets: list[Target] | None = None,
-            device: str = "auto",
-    ):
-        targets = Target.all() if targets is None else [t.value for t in targets]
+class VLMBenchmark(BasePerformanceBenchmark):
+    TARGET_ENUM = VLMTarget
 
-        train_path = files("surrogate_benchmark.vlm.performance_surrogate") \
-            .joinpath("splits/train.csv")
+    def __init__(self, targets=None, device="auto"):
+        targets = self._normalize_targets(targets)
 
-        test_path = files("surrogate_benchmark.vlm.performance_surrogate") \
-            .joinpath("splits/test.csv")
+        train_path = files("surrogate_benchmark.vlm.performance_surrogate").joinpath("splits/train.csv")
+        test_path = files("surrogate_benchmark.vlm.performance_surrogate").joinpath("splits/test.csv")
 
-        self.surrogate_dataset = SurrogateDataset(
+        dataset = VLMSurrogateDataset(
             train_csv_path=str(train_path),
             test_csv_path=str(test_path),
             targets=targets,
             seed=42,
             include_intermediate_points=True,
         )
-
-        self.performance_config_feature_mapper = ConfigFeatureMapper(
-            feature_order=self.surrogate_dataset.features,
-            apply_log=self.surrogate_dataset.apply_log_transform,
-            log_columns=self.surrogate_dataset.DEFAULT_LOG_COLUMNS,
-        )
+        super().__init__(surrogate_dataset=dataset, device=device)
 
         self.divergence_config_feature_mapper = ConfigFeatureMapper(
             feature_order=DivergenceDataset.DEFAULT_FEATURES,
@@ -47,35 +36,27 @@ class VLMBenchmark:
             log_columns=self.surrogate_dataset.DEFAULT_LOG_COLUMNS,
         )
 
-        self.targets = self.surrogate_dataset.targets
-
-        model_dir = files("surrogate_benchmark.vlm.divergence_surrogate") \
-            .joinpath("xgb_models")
-
+        model_dir = files("surrogate_benchmark.vlm.divergence_surrogate").joinpath("xgb_models")
         self.divergence_surrogate = BinaryBaggingEnsemble(model_dir=str(model_dir))
-
-        self.performance_surrogate = TabPFNModel(device=device)
 
     def query(self, config: VLMConfig) -> dict:
         divergence_prob, failed = self._predict_divergence(config)
         stats = self.get_model_stats(config)
 
         return {
-            "failed": failed,
-            "divergence_probability": round(divergence_prob, 3),
+            "failed": bool(failed),
+            "divergence_probability": round(float(divergence_prob), 3),
             "predictions": None if failed else self._predict_performance(config),
             "model_stats": stats,
         }
 
     def get_model_stats(self, config: VLMConfig) -> dict:
         stats_key = f"text_{config.text_width}_vision_{config.vision_width}"
-
         path = files("surrogate_benchmark.vlm").joinpath("gflops_params.json")
 
-        with open(str(path), "r", encoding="utf-8") as f:
-            models_stats = json.load(f)
+        with open(path, encoding="utf-8") as f:
+            model_stats = json.load(f).get(stats_key)
 
-        model_stats = models_stats.get(stats_key)
         if model_stats is None:
             return {}
 
@@ -95,31 +76,8 @@ class VLMBenchmark:
         prob = float(self.divergence_surrogate.predict_proba(row)[0])
         return prob, prob >= 0.5
 
-    def _predict_performance(self, config: VLMConfig) -> dict:
-        row = self.performance_config_feature_mapper.to_features(config)
-        X, y = self.surrogate_dataset.get_all_data()
-
-        predictions = {}
-
-        for i, target in enumerate(tqdm(self.targets, desc="Evaluating targets")):
-            y_target = y[:, i]
-
-            self.performance_surrogate.fit(X, y_target)
-            pred = self.performance_surrogate.predict_with_uncertainty(row)
-
-            predictions[target] = {
-                "mean": round(float(pred["mean"][0]), 3),
-                "uncertainty": round(float(pred["uncertainty_width"][0]), 3)
-            }
-
-        return predictions
-
     def _configs_to_divergence_matrix(self, configs: list[VLMConfig]) -> np.ndarray:
         rows = [self.divergence_config_feature_mapper.to_features(cfg) for cfg in configs]
-        return np.vstack(rows)
-
-    def _configs_to_surrogate_matrix(self, configs: list[VLMConfig]) -> np.ndarray:
-        rows = [self.performance_config_feature_mapper.to_features(cfg) for cfg in configs]
         return np.vstack(rows)
 
     def _predict_divergence_many(self, configs: list[VLMConfig]) -> tuple[np.ndarray, np.ndarray]:
@@ -127,29 +85,6 @@ class VLMBenchmark:
         probs = np.asarray(self.divergence_surrogate.predict_proba(X)).reshape(-1)
         failed = probs >= 0.5
         return probs, failed
-
-    def _predict_performance_many(self, configs: list[VLMConfig]) -> list[dict]:
-        X_query = self._configs_to_surrogate_matrix(configs)
-        X_train, y_train = self.surrogate_dataset.get_all_data()
-
-        predictions_per_config = [{} for _ in configs]
-
-        for i, target in enumerate(tqdm(self.targets, desc="Evaluating targets")):
-            y_target = y_train[:, i]
-
-            self.performance_surrogate.fit(X_train, y_target)
-            pred = self.performance_surrogate.predict_with_uncertainty(X_query)
-
-            means = pred["mean"]
-            widths = pred.get("uncertainty_width")
-
-            for j in range(len(configs)):
-                predictions_per_config[j][target] = {
-                    "mean": round(float(means[j]), 3),
-                    "uncertainty": round(float(widths[j]), 3) if widths is not None else None,
-                }
-
-        return predictions_per_config
 
     def query_many(self, configs: list[VLMConfig]) -> list[dict]:
         divergence_probs, failed_mask = self._predict_divergence_many(configs)
@@ -174,7 +109,7 @@ class VLMBenchmark:
 
 # simple example on how to use the surrogate
 if __name__ == "__main__":
-    vlm_bench = VLMBenchmark(targets=[Target.VAL_LOSS])
+    vlm_bench = VLMBenchmark(targets=[VLMTarget.VAL_LOSS])
 
     config = VLMConfig(
         lr=1e-4,
