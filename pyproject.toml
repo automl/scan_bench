@@ -24,7 +24,9 @@ include = [
     "scan_benchmark.vlm",
     "scan_benchmark.vlm.*",
     "scan_benchmark.llm",
-    "scan_benchmark.llm.*"
+    "scan_benchmark.llm.*",
+    "scan_benchmark.tabpfn",
+    "scan_benchmark.tabpfn.*"
 ]
 
 exclude = [
@@ -34,11 +36,11 @@ exclude = [
     "scan_benchmark.*.performance_surrogate.results",
     "scan_benchmark.vlm.divergence_surrogate.results",
     "scan_benchmark.*.performance_surrogate.train",
-    "scan_benchmark.tabpfn.*"
-
 ]
+
 [tool.setuptools.package-data]
 "scan_benchmark.vlm" = ["*.json"]
 "scan_benchmark.vlm.performance_surrogate" = ["splits/*.csv"]
 "scan_benchmark.vlm.divergence_surrogate" = ["xgb_models/*.json"]
 "scan_benchmark.llm" = ["data/*.csv"]
+"scan_benchmark.tabpfn.performance_surrogate" = ["splits/*.csv"]
