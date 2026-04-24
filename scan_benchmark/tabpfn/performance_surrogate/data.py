@@ -16,7 +16,7 @@ class TabPFNSurrogateDataset(BaseSurrogateDataset):
         "config/num_datapoints_max",
     ]
 
-    DEFAULT_LOG_COLUMNS = []
+    DEFAULT_LOG_COLUMNS = ["total_cells", "config/lr"]
 
     def _prepare_train_df(self, df: pd.DataFrame) -> pd.DataFrame:
         return df.sample(frac=1, random_state=self.seed).reset_index(drop=True)

@@ -3,7 +3,7 @@
 #SBATCH --output=surrogate_logs/%x_%j.out
 #SBATCH --error=surrogate_logs/%x_%j.err
 #SBATCH --time=05:00:00
-#SBATCH --partition=alldlc_gpu-rtx3080
+#SBATCH --partition=mldlc2_cpu-epyc9655
 #SBATCH --cpus-per-task=8
 
 source ~/miniconda3/etc/profile.d/conda.sh && conda activate surrogate
