@@ -3,18 +3,16 @@
 #SBATCH --output=surrogate_logs/%x_%j.out
 #SBATCH --error=surrogate_logs/%x_%j.err
 #SBATCH --time=05:00:00
-#SBATCH --partition=alldlc_gpu-rtx2080
+#SBATCH --partition=alldlc_gpu-rtx3080
 #SBATCH --cpus-per-task=8
 
 source ~/miniconda3/etc/profile.d/conda.sh && conda activate surrogate
 
-export PYTHONPATH="/work/dlclarge1/sinanid-VLM-scaling-law/repository/scaling_studies_vlm:$PYTHONPATH"
+export PYTHONPATH="/work/dlclarge1/sinanid-VLM-scaling-law/scan_bench_suite:$PYTHONPATH"
 
 SCRIPT="train.py"
 SEEDS=(42 73 94)
 ENSEMBLE_TYPES=("xgb" "lightgbm" "mix")
-
-export PYTHONPATH="C:\Users\Donat\Documents\Master\Thesis\vlm scaling laws repository;$PYTHONPATH"
 
 # tabpfn
 for SEED in "${SEEDS[@]}"; do
@@ -32,3 +30,7 @@ for SEED in "${SEEDS[@]}"; do
             --seed "$SEED"
     done
 done
+
+python "$SCRIPT" --model autogluon --seed 42
+
+python "$SCRIPT" --model autogluon --seed 42 --use_manual_ag_settings

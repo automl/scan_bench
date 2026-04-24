@@ -1,27 +1,40 @@
 TABPFN_SEARCH_SPACE = {
     "hp_space": {
         "lr": {
-            "choices": [5e-05, 1.44e-04, 4.16e-04, 1.2e-03, 3.47e-03, 1e-02],
+            "type": "float",
+            "lower": 0.0001,
+            "upper": 0.05,
+            "log": True,
         },
         "effective_batch_size": {
-            "choices": [32, 64],
-        },
-        "weight_decay": {
-            "choices": [0.0, 1e-4, 1e-1],
+            "type": "int",
+            "lower": 16,
+            "upper": 256,
         },
     },
     "scale_space": {
+        "total_cells": {
+            "type": "int",
+            "lower": 1048576,
+            "upper": 1073741824,
+        },
         "embedding_size": {
             "choices": [16, 32, 64],
         },
         "num_layers": {
-            "choices": [1, 2, 4],
+            "type": "int",
+            "lower": 1,
+            "upper": 8,
         },
         "max_features": {
-            "choices": [2, 4, 8],
+            "type": "int",
+            "lower": 32,
+            "upper": 128,
         },
         "num_datapoints_max": {
-            "choices": [100, 200, 400],
+            "type": "int",
+            "lower": 128,
+            "upper": 512,
         },
     },
 }
