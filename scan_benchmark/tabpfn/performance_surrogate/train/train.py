@@ -1,6 +1,6 @@
-from surrogate_benchmark.commons.train.args import get_base_parser, finalize_args
-from surrogate_benchmark.commons.train.train_base import run_benchmark
-from surrogate_benchmark.tabpfn.performance_surrogate.data import TabPFNSurrogateDataset
+from scan_benchmark.commons.train.args import get_base_parser, finalize_args
+from scan_benchmark.commons.train.train_base import run_benchmark
+from scan_benchmark.tabpfn.performance_surrogate.data import TabPFNSurrogateDataset
 
 
 def parse_args():
@@ -8,8 +8,8 @@ def parse_args():
     args = p.parse_args()
 
     defaults = {
-        "train_csv": "../splits/train_small.csv",
-        "test_csv": "../splits/test_small.csv",
+        "train_csv": "../splits/train.csv",
+        "test_csv": "../splits/test.csv",
         "labels": ["val/val_loss"],
     }
 

@@ -4,8 +4,8 @@ from typing import Sequence, Callable
 
 import numpy as np
 
-from scan_benchmark.dataset import BaseSurrogateDataset
 from scan_benchmark.commons.metrics.metrics import compute_regression_metrics
+from scan_benchmark.dataset import BaseSurrogateDataset
 
 
 class SurrogateModel:
@@ -44,19 +44,26 @@ class MultiLabelSurrogateModel:
 
     def validate(self, dataset: BaseSurrogateDataset, sizes, out_path: Path):
         X_test, y_test = dataset.get_test_data()
+        test_bins = dataset._get_test_bins()
+        has_bins = test_bins is not None
+
+        max_n_cfg = max(sizes)
 
         for i, label in enumerate(self.labels):
             safe_label = label.replace("/", "_")
-            file_path = out_path / f"{safe_label}.json"
 
-            if file_path.exists():
+            overall_file_path = out_path / f"{safe_label}.json"
+            by_bin_file_path = out_path / f"{safe_label}_by_bin.json"
+
+            if overall_file_path.exists() and by_bin_file_path.exists():
                 print(f"Skipping {label}, already exists.")
                 continue
 
             model = self.models[label]
             print(f"Processing label '{label}' ({i + 1}/{len(self.labels)})")
 
-            label_results = {}
+            overall_results = {}
+            by_bin_results = None
 
             for n_cfg in sizes:
                 print(f"[{label}] Training with n_cfg={n_cfg}")
@@ -66,12 +73,41 @@ class MultiLabelSurrogateModel:
                 model.fit(X_sub, y_sub[:, i])
 
                 y_pred = model.predict(X_test)
-                metrics = compute_regression_metrics(y_test[:, i], y_pred)
 
-                label_results[int(n_cfg)] = metrics
+                overall_metrics = compute_regression_metrics(y_test[:, i], y_pred)
+                overall_results[int(n_cfg)] = overall_metrics
 
-            with open(file_path, "w") as f:
-                json.dump(label_results, f, indent=4)
+                if has_bins and n_cfg == max_n_cfg:
+                    by_bin_results = {
+                        "n_cfg": int(n_cfg),
+                        "metrics_by_bin": self.compute_metrics_by_group(
+                            y_true=y_test[:, i],
+                            y_pred=y_pred,
+                            groups=test_bins,
+                        ),
+                    }
+                    with open(by_bin_file_path, "w") as f:
+                        json.dump(by_bin_results, f, indent=4)
+
+            with open(overall_file_path, "w") as f:
+                json.dump(overall_results, f, indent=4)
+
+    def compute_metrics_by_group(self, y_true, y_pred, groups):
+        results = {}
+        groups = np.asarray(groups)
+
+        for group in sorted(np.unique(groups)):
+            mask = groups == group
+            n = int(mask.sum())
+
+            if n == 0:
+                continue
+
+            metrics = compute_regression_metrics(y_true[mask], y_pred[mask])
+            metrics["n_samples"] = n
+            results[str(group)] = metrics
+
+        return results
 
     def fit(self, X: np.ndarray, y: np.ndarray):
         X = np.asarray(X)

@@ -37,6 +37,9 @@ class BaseSurrogateDataset(ABC):
     def _prepare_test_df(self, df: pd.DataFrame) -> pd.DataFrame:
         return df
 
+    def _get_test_bins(self):
+        return None
+
     def _apply_log_transform(self):
         for col in self.DEFAULT_LOG_COLUMNS:
             if col in self.train_df.columns:

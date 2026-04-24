@@ -1,6 +1,6 @@
 import pandas as pd
 
-from surrogate_benchmark.dataset import BaseSurrogateDataset
+from scan_benchmark.dataset import BaseSurrogateDataset
 
 
 class TabPFNSurrogateDataset(BaseSurrogateDataset):
@@ -14,7 +14,6 @@ class TabPFNSurrogateDataset(BaseSurrogateDataset):
         "config/model_config.embedding_size",
         "config/model_config.num_layers",
         "config/num_datapoints_max",
-        "config/weight_decay",
     ]
 
     DEFAULT_LOG_COLUMNS = []
@@ -27,3 +26,6 @@ class TabPFNSurrogateDataset(BaseSurrogateDataset):
 
     def _get_size_base(self) -> int:
         return len(self.train_df)
+
+    def _get_test_bins(self):
+        return self.test_df["flops_bin"].to_numpy()
