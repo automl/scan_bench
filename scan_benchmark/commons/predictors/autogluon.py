@@ -55,6 +55,8 @@ class AutoGluonModel(SurrogateModel):
             "train_data": train_df,
             "time_limit": self.time_limit,
             "presets": self.presets,
+            "fit_strategy": "sequential",
+            "excluded_model_types": ["FASTAI"],
         }
 
         if self.use_manual_bagging:

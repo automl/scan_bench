@@ -75,6 +75,7 @@ class TabPFNTarget(str, Enum):
     VAL_LOSS = "val/val_loss"
     NLL = "real_data/nll"
     ROC_AUC = "real_data/roc_auc"
+    FLOPS = "total_flops"
 
     @classmethod
     def all(cls):

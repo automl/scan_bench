@@ -1,4 +1,5 @@
 from importlib.resources import files
+from pprint import pprint
 
 from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark
 from scan_benchmark.tabpfn.config import TabPFNConfig, TabPFNTarget
@@ -10,6 +11,8 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
 
     def __init__(self, targets=None, device="auto"):
         targets = self._normalize_targets(targets)
+        if TabPFNTarget.FLOPS.value not in targets:
+            targets.append(TabPFNTarget.FLOPS.value)
 
         train_path = files("scan_benchmark.tabpfn.performance_surrogate").joinpath("splits/train.csv")
         test_path = files("scan_benchmark.tabpfn.performance_surrogate").joinpath("splits/test.csv")
@@ -23,11 +26,44 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
         super().__init__(surrogate_dataset=dataset, device=device)
 
     def query(self, config: TabPFNConfig) -> dict:
-        return {"predictions": self._predict_performance(config)}
+        preds = self._predict_performance(config)
+
+        flops_val = preds.get(TabPFNTarget.FLOPS.value)
+
+        if isinstance(flops_val, dict):
+            flops_val = flops_val.get("mean")
+
+        return {
+            "predictions": {
+                k: v for k, v in preds.items()
+                if k != TabPFNTarget.FLOPS.value
+            },
+            "model_stats": {
+                "flops": flops_val
+            },
+        }
 
     def query_many(self, configs: list[TabPFNConfig]) -> list[dict]:
-        preds = self._predict_performance_many(configs)
-        return [{"predictions": p} for p in preds]
+        preds_list = self._predict_performance_many(configs)
+
+        results = []
+        for preds in preds_list:
+            flops_val = preds.get(TabPFNTarget.FLOPS.value)
+
+            if isinstance(flops_val, dict):
+                flops_val = flops_val.get("mean")
+
+            results.append({
+                "predictions": {
+                    k: v for k, v in preds.items()
+                    if k != TabPFNTarget.FLOPS.value
+                },
+                "model_stats": {
+                    "flops": flops_val
+                },
+            })
+
+        return results
 
 
 if __name__ == "__main__":
@@ -44,4 +80,4 @@ if __name__ == "__main__":
     )
 
     result = tabpfn_bench.query_many([config])
-    print(result)
+    pprint(result)
