@@ -46,6 +46,8 @@ class BasePerformanceBenchmark:
 
     def _configs_to_surrogate_matrix(self, configs):
         rows = [self.config_feature_mapper.to_features(cfg) for cfg in configs]
+        if len(rows) == 0:
+            raise ValueError("No valid configurations provided.")
         return np.vstack(rows)
 
     def _predict_performance_many(self, configs):
