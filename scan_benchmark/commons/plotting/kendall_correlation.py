@@ -2,8 +2,8 @@ import argparse
 
 import pandas as pd
 
-from surrogate_benchmark.metrics.metrics import calculate_correlation_matrix
-from surrogate_benchmark.plotting.utils import plot_correlation_matrix
+from scan_benchmark.commons.metrics.metrics import calculate_correlation_matrix
+from scan_benchmark.commons.plotting.utils import plot_correlation_matrix
 
 METRIC_MAP = {
     "vtab_caltech101": "mean_per_class_recall",

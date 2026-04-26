@@ -6,11 +6,11 @@ from sklearn.ensemble import RandomForestRegressor
 from ConfigSpace import ConfigurationSpace
 from ConfigSpace.hyperparameters import UniformFloatHyperparameter, UniformIntegerHyperparameter
 from fanova import fANOVA
-from surrogate_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
+from scan_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
 
 if __name__ == "__main__":
-    train_path = files("surrogate_benchmark.vlm.performance_surrogate").joinpath("splits/train.csv")
-    test_path = files("surrogate_benchmark.vlm.performance_surrogate").joinpath("splits/test.csv")
+    train_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/train.csv")
+    test_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/test.csv")
 
     dataset = VLMSurrogateDataset(
         train_csv_path=str(train_path),

@@ -6,8 +6,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 from tabpfn_extensions import interpretability
 
-from surrogate_benchmark.commons.predictors_core.pfn import TabPFNModel
-from surrogate_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
+from scan_benchmark.commons.predictors_core.pfn import TabPFNModel
+from scan_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
 
 
 def plot_shap(shap_values: np.ndarray) -> None:
@@ -71,8 +71,8 @@ def plot_shap_feature(
 
 
 if __name__ == "__main__":
-    train_path = files("surrogate_benchmark.vlm.performance_surrogate").joinpath("splits/train.csv")
-    test_path = files("surrogate_benchmark.vlm.performance_surrogate").joinpath("splits/test.csv")
+    train_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/train.csv")
+    test_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/test.csv")
 
     dataset = VLMSurrogateDataset(
         train_csv_path=str(train_path),
