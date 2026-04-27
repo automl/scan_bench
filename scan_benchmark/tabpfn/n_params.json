@@ -1,0 +1,122 @@
+[
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 1,
+            "num_outputs": 10
+        },
+        "n_parameters": 6202
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 2,
+            "num_outputs": 10
+        },
+        "n_parameters": 10602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 4,
+            "num_outputs": 10
+        },
+        "n_parameters": 19402
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 8,
+            "num_outputs": 10
+        },
+        "n_parameters": 37002
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 1,
+            "num_outputs": 10
+        },
+        "n_parameters": 22634
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 2,
+            "num_outputs": 10
+        },
+        "n_parameters": 39626
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 4,
+            "num_outputs": 10
+        },
+        "n_parameters": 73610
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 8,
+            "num_outputs": 10
+        },
+        "n_parameters": 141578
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 1,
+            "num_outputs": 10
+        },
+        "n_parameters": 86218
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 2,
+            "num_outputs": 10
+        },
+        "n_parameters": 152970
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 4,
+            "num_outputs": 10
+        },
+        "n_parameters": 286474
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 8,
+            "num_outputs": 10
+        },
+        "n_parameters": 553482
+    }
+]

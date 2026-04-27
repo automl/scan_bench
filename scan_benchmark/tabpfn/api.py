@@ -1,3 +1,4 @@
+import json
 from importlib.resources import files
 from pprint import pprint
 
@@ -39,7 +40,8 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
                 if k != TabPFNTarget.FLOPS.value
             },
             "model_stats": {
-                "flops": flops_val
+                "flops": flops_val,
+                "params": self._model_params(config),
             },
         }
 
@@ -47,11 +49,13 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
         preds_list = self._predict_performance_many(configs)
 
         results = []
-        for preds in preds_list:
+        for config, preds in zip(configs, preds_list):
             flops_val = preds.get(TabPFNTarget.FLOPS.value)
 
             if isinstance(flops_val, dict):
                 flops_val = flops_val.get("mean")
+
+            n_params = self._model_params(config)
 
             results.append({
                 "predictions": {
@@ -59,11 +63,30 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
                     if k != TabPFNTarget.FLOPS.value
                 },
                 "model_stats": {
-                    "flops": flops_val
+                    "flops": flops_val,
+                    "n_parameters": n_params,
                 },
             })
 
         return results
+
+    def _model_params(self, config: TabPFNConfig):
+        with open("n_params.json", "r") as f:
+            data = json.load(f)
+
+        for entry in data:
+            cfg = entry["model_config"]
+
+            if (
+                    cfg["embedding_size"] == config.embedding_size and
+                    cfg["num_layers"] == config.num_layers
+            ):
+                return entry["n_parameters"]
+
+        raise ValueError(
+            f"No n_parameters found for embedding_size={config.embedding_size}, "
+            f"num_layers={config.num_layers}"
+        )
 
 
 if __name__ == "__main__":
