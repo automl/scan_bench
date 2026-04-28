@@ -44,3 +44,4 @@ exclude = [
 "scan_benchmark.vlm.divergence_surrogate" = ["xgb_models/*.json"]
 "scan_benchmark.llm" = ["data/*.csv"]
 "scan_benchmark.tabpfn.performance_surrogate" = ["splits/*.csv"]
+"scan_benchmark.tabpfn.performance_surrogate" = ["*.json"]

@@ -41,7 +41,7 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
             },
             "model_stats": {
                 "flops": flops_val,
-                "params": self._model_params(config),
+                "params": self.model_params(config),
             },
         }
 
@@ -55,7 +55,7 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
             if isinstance(flops_val, dict):
                 flops_val = flops_val.get("mean")
 
-            n_params = self._model_params(config)
+            n_params = self.model_params(config)
 
             results.append({
                 "predictions": {
@@ -70,8 +70,9 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
 
         return results
 
-    def _model_params(self, config: TabPFNConfig):
-        with open("n_params.json", "r") as f:
+    def model_params(self, config: TabPFNConfig):
+        n_params_path = files("scan_benchmark.tabpfn").joinpath("n_params.json")
+        with open(n_params_path, encoding="utf-8") as f:
             data = json.load(f)
 
         for entry in data:
