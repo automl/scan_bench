@@ -7,12 +7,12 @@ from sklearn.model_selection import train_test_split
 def create_log_bins(
         df: pd.DataFrame,
         flops_col: str,
-        num_bins: int = 5,
+        num_bins: int = 7,
 ):
     x = df[flops_col].values
     log_x = np.log10(x)
 
-    bins = np.linspace(log_x.min(), log_x.max(), num_bins + 1)
+    bins = np.quantile(log_x, np.linspace(0, 1, num_bins + 1))
 
     def print_bin_boundaries(bins):
         print("\nBin boundaries:")
@@ -65,7 +65,6 @@ def plot_gflops_distribution(df, flops_col, bins):
     plt.title("Log10-spaced bins")
     plt.show()
 
-
 def prepare_splits(
         df: pd.DataFrame,
         flops_col: str,
@@ -94,6 +93,7 @@ def prepare_splits(
 
     return train_df, test_df
 
+
 def save_bin_boundaries(bins, filepath="performance_surrogate/splits/bin_boundaries.txt"):
     with open(filepath, "w") as f:
         f.write("Bin boundaries:\n\n")
@@ -112,6 +112,7 @@ def save_bin_boundaries(bins, filepath="performance_surrogate/splits/bin_boundar
             )
 
             f.write(line)
+
 
 if __name__ == "__main__":
     df = pd.read_csv("data.csv")

@@ -19,12 +19,10 @@ TABPFN_SEARCH_SPACE = {
             "upper": 1073741824,
         },
         "embedding_size": {
-            "choices": [16, 32, 64],
+            "choices": [16, 32, 64, 128, 256],
         },
         "num_layers": {
-            "type": "int",
-            "lower": 1,
-            "upper": 8,
+            "choices": [1, 2, 4, 8, 16, 32],
         },
         "max_features": {
             "type": "int",

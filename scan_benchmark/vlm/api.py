@@ -125,16 +125,16 @@ if __name__ == "__main__":
     )
 
     config2 = VLMConfig(
-        lr=0.03,
+        lr=0.003,
         wd=0.01,
         beta1=0.9,
         beta2=0.98,
         warmup_fraction=0.05,
         eps=1e-8,
-        vision_width=384,
-        text_width=256,
-        total_samples_planned=12800000,
-        training_progress=0.5
+        vision_width=32,
+        text_width=32,
+        total_samples_planned=600_000,
+        training_progress=1.0
     )
 
     results = vlm_bench.query_many([config, config2])

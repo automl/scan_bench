@@ -115,27 +115,18 @@ def prepare_performance_predictor_data(
         train_output_csv: str,
         test_output_csv: str,
         num_bins: int = 4,
-        merge_first_two: bool = True,
         random_state: int = 42,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     x = df[flops_col].values
     log_x = np.log10(x)
 
-    raw_bins = np.linspace(log_x.min(), log_x.max(), num_bins + 1)
-    save_bin_boundaries(raw_bins, filepath="performance_surrogate/splits/raw_bins.txt")
+    bins = np.quantile(log_x, np.linspace(0, 1, num_bins + 1))
 
-    if merge_first_two:
-        bins = np.concatenate([
-            [raw_bins[0]],
-            [raw_bins[2]],
-            raw_bins[3:],
-        ])
-        labels = ["bin_01"] + [f"bin_{i}" for i in range(2, num_bins)]
-    else:
-        bins = raw_bins
-        labels = [f"bin_{i}" for i in range(num_bins)]
+    bins = np.unique(bins)
 
-    save_bin_boundaries(bins, labels, filepath="performance_surrogate/splits/merged_bins.txt")
+    labels = [f"bin_{i}" for i in range(len(bins) - 1)]
+
+    save_bin_boundaries(bins, labels, filepath="performance_surrogate/splits/bin_boundaries.txt")
 
     df = df.copy()
     df["flops_bin"] = pd.cut(
@@ -145,7 +136,7 @@ def prepare_performance_predictor_data(
         include_lowest=True,
     )
 
-    plot_gflops_distribution(df, flops_col=flops_col, bins=raw_bins)
+    plot_gflops_distribution(df, flops_col=flops_col, bins=bins)
 
     train_last_df, test_last_df = train_test_split(
         df,
@@ -317,7 +308,6 @@ def main() -> None:
         train_output_csv=performance_train_csv,
         test_output_csv=performance_test_csv,
         num_bins=4,
-        merge_first_two=True,
         random_state=42,
     )
 
