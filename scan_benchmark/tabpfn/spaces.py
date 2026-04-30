@@ -22,7 +22,9 @@ TABPFN_SEARCH_SPACE = {
             "choices": [16, 32, 64, 128, 256],
         },
         "num_layers": {
-            "choices": [1, 2, 4, 8, 16, 32],
+            "type": "int",
+            "lower": 1,
+            "upper": 32,
         },
         "max_features": {
             "type": "int",
