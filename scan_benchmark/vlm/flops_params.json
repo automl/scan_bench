@@ -1,7 +1,7 @@
 {
   "text_32_vision_32": {
     "arch": "text_32_vision_32",
-    "gflops_per_sample": 0.06,
+    "flops_per_sample": 60083712.0,
     "params": 2013121,
     "vision_params": 264800,
     "text_params": 1748321,
@@ -9,7 +9,7 @@
   },
   "text_32_vision_64": {
     "arch": "text_32_vision_64",
-    "gflops_per_sample": 0.12,
+    "flops_per_sample": 117818880.0,
     "params": 2572833,
     "vision_params": 824512,
     "text_params": 1748321,
@@ -17,7 +17,7 @@
   },
   "text_32_vision_128": {
     "arch": "text_32_vision_128",
-    "gflops_per_sample": 0.32,
+    "flops_per_sample": 321762816.0,
     "params": 4576993,
     "vision_params": 2828672,
     "text_params": 1748321,
@@ -25,7 +25,7 @@
   },
   "text_32_vision_192": {
     "arch": "text_32_vision_192",
-    "gflops_per_sample": 0.64,
+    "flops_per_sample": 643671552.0,
     "params": 7760801,
     "vision_params": 6012480,
     "text_params": 1748321,
@@ -33,7 +33,7 @@
   },
   "text_32_vision_256": {
     "arch": "text_32_vision_256",
-    "gflops_per_sample": 1.08,
+    "flops_per_sample": 1083545088.0,
     "params": 12124257,
     "vision_params": 10375936,
     "text_params": 1748321,
@@ -41,7 +41,7 @@
   },
   "text_32_vision_320": {
     "arch": "text_32_vision_320",
-    "gflops_per_sample": 1.64,
+    "flops_per_sample": 1641383424.0,
     "params": 17667361,
     "vision_params": 15919040,
     "text_params": 1748321,
@@ -49,7 +49,7 @@
   },
   "text_32_vision_384": {
     "arch": "text_32_vision_384",
-    "gflops_per_sample": 2.32,
+    "flops_per_sample": 2317186560.0,
     "params": 24390113,
     "vision_params": 22641792,
     "text_params": 1748321,
@@ -57,7 +57,7 @@
   },
   "text_32_vision_448": {
     "arch": "text_32_vision_448",
-    "gflops_per_sample": 3.11,
+    "flops_per_sample": 3110954496.0,
     "params": 32292513,
     "vision_params": 30544192,
     "text_params": 1748321,
@@ -65,7 +65,7 @@
   },
   "text_32_vision_512": {
     "arch": "text_32_vision_512",
-    "gflops_per_sample": 4.02,
+    "flops_per_sample": 4022687232.0,
     "params": 41374561,
     "vision_params": 39626240,
     "text_params": 1748321,
@@ -73,7 +73,7 @@
   },
   "text_64_vision_32": {
     "arch": "text_64_vision_32",
-    "gflops_per_sample": 0.14,
+    "flops_per_sample": 137339904.0,
     "params": 4056353,
     "vision_params": 264800,
     "text_params": 3791553,
@@ -81,7 +81,7 @@
   },
   "text_64_vision_64": {
     "arch": "text_64_vision_64",
-    "gflops_per_sample": 0.2,
+    "flops_per_sample": 195075072.0,
     "params": 4616065,
     "vision_params": 824512,
     "text_params": 3791553,
@@ -89,7 +89,7 @@
   },
   "text_64_vision_128": {
     "arch": "text_64_vision_128",
-    "gflops_per_sample": 0.4,
+    "flops_per_sample": 399019008.0,
     "params": 6620225,
     "vision_params": 2828672,
     "text_params": 3791553,
@@ -97,7 +97,7 @@
   },
   "text_64_vision_192": {
     "arch": "text_64_vision_192",
-    "gflops_per_sample": 0.72,
+    "flops_per_sample": 720927744.0,
     "params": 9804033,
     "vision_params": 6012480,
     "text_params": 3791553,
@@ -105,7 +105,7 @@
   },
   "text_64_vision_256": {
     "arch": "text_64_vision_256",
-    "gflops_per_sample": 1.16,
+    "flops_per_sample": 1160801280.0,
     "params": 14167489,
     "vision_params": 10375936,
     "text_params": 3791553,
@@ -113,7 +113,7 @@
   },
   "text_64_vision_320": {
     "arch": "text_64_vision_320",
-    "gflops_per_sample": 1.72,
+    "flops_per_sample": 1718639616.0,
     "params": 19710593,
     "vision_params": 15919040,
     "text_params": 3791553,
@@ -121,7 +121,7 @@
   },
   "text_64_vision_384": {
     "arch": "text_64_vision_384",
-    "gflops_per_sample": 2.39,
+    "flops_per_sample": 2394442752.0,
     "params": 26433345,
     "vision_params": 22641792,
     "text_params": 3791553,
@@ -129,7 +129,7 @@
   },
   "text_64_vision_448": {
     "arch": "text_64_vision_448",
-    "gflops_per_sample": 3.19,
+    "flops_per_sample": 3188210688.0,
     "params": 34335745,
     "vision_params": 30544192,
     "text_params": 3791553,
@@ -137,7 +137,7 @@
   },
   "text_64_vision_512": {
     "arch": "text_64_vision_512",
-    "gflops_per_sample": 4.1,
+    "flops_per_sample": 4099943424.0,
     "params": 43417793,
     "vision_params": 39626240,
     "text_params": 3791553,
@@ -145,7 +145,7 @@
   },
   "text_128_vision_32": {
     "arch": "text_128_vision_32",
-    "gflops_per_sample": 0.43,
+    "flops_per_sample": 428101632.0,
     "params": 9027553,
     "vision_params": 264800,
     "text_params": 8762753,
@@ -153,7 +153,7 @@
   },
   "text_128_vision_64": {
     "arch": "text_128_vision_64",
-    "gflops_per_sample": 0.49,
+    "flops_per_sample": 485836800.0,
     "params": 9587265,
     "vision_params": 824512,
     "text_params": 8762753,
@@ -161,7 +161,7 @@
   },
   "text_128_vision_128": {
     "arch": "text_128_vision_128",
-    "gflops_per_sample": 0.69,
+    "flops_per_sample": 689780736.0,
     "params": 11591425,
     "vision_params": 2828672,
     "text_params": 8762753,
@@ -169,7 +169,7 @@
   },
   "text_128_vision_192": {
     "arch": "text_128_vision_192",
-    "gflops_per_sample": 1.01,
+    "flops_per_sample": 1011689472.0,
     "params": 14775233,
     "vision_params": 6012480,
     "text_params": 8762753,
@@ -177,7 +177,7 @@
   },
   "text_128_vision_256": {
     "arch": "text_128_vision_256",
-    "gflops_per_sample": 1.45,
+    "flops_per_sample": 1451563008.0,
     "params": 19138689,
     "vision_params": 10375936,
     "text_params": 8762753,
@@ -185,7 +185,7 @@
   },
   "text_128_vision_320": {
     "arch": "text_128_vision_320",
-    "gflops_per_sample": 2.01,
+    "flops_per_sample": 2009401344.0,
     "params": 24681793,
     "vision_params": 15919040,
     "text_params": 8762753,
@@ -193,7 +193,7 @@
   },
   "text_128_vision_384": {
     "arch": "text_128_vision_384",
-    "gflops_per_sample": 2.69,
+    "flops_per_sample": 2685204480.0,
     "params": 31404545,
     "vision_params": 22641792,
     "text_params": 8762753,
@@ -201,7 +201,7 @@
   },
   "text_128_vision_448": {
     "arch": "text_128_vision_448",
-    "gflops_per_sample": 3.48,
+    "flops_per_sample": 3478972416.0,
     "params": 39306945,
     "vision_params": 30544192,
     "text_params": 8762753,
@@ -209,7 +209,7 @@
   },
   "text_128_vision_512": {
     "arch": "text_128_vision_512",
-    "gflops_per_sample": 4.39,
+    "flops_per_sample": 4390705152.0,
     "params": 48388993,
     "vision_params": 39626240,
     "text_params": 8762753,
@@ -217,7 +217,7 @@
   },
   "text_192_vision_32": {
     "arch": "text_192_vision_32",
-    "gflops_per_sample": 0.9,
+    "flops_per_sample": 900529152.0,
     "params": 15178401,
     "vision_params": 264800,
     "text_params": 14913601,
@@ -225,7 +225,7 @@
   },
   "text_192_vision_64": {
     "arch": "text_192_vision_64",
-    "gflops_per_sample": 0.96,
+    "flops_per_sample": 958264320.0,
     "params": 15738113,
     "vision_params": 824512,
     "text_params": 14913601,
@@ -233,7 +233,7 @@
   },
   "text_192_vision_128": {
     "arch": "text_192_vision_128",
-    "gflops_per_sample": 1.16,
+    "flops_per_sample": 1162208256.0,
     "params": 17742273,
     "vision_params": 2828672,
     "text_params": 14913601,
@@ -241,7 +241,7 @@
   },
   "text_192_vision_192": {
     "arch": "text_192_vision_192",
-    "gflops_per_sample": 1.48,
+    "flops_per_sample": 1484116992.0,
     "params": 20926081,
     "vision_params": 6012480,
     "text_params": 14913601,
@@ -249,7 +249,7 @@
   },
   "text_192_vision_256": {
     "arch": "text_192_vision_256",
-    "gflops_per_sample": 1.92,
+    "flops_per_sample": 1923990528.0,
     "params": 25289537,
     "vision_params": 10375936,
     "text_params": 14913601,
@@ -257,7 +257,7 @@
   },
   "text_192_vision_320": {
     "arch": "text_192_vision_320",
-    "gflops_per_sample": 2.48,
+    "flops_per_sample": 2481828864.0,
     "params": 30832641,
     "vision_params": 15919040,
     "text_params": 14913601,
@@ -265,7 +265,7 @@
   },
   "text_192_vision_384": {
     "arch": "text_192_vision_384",
-    "gflops_per_sample": 3.16,
+    "flops_per_sample": 3157632000.0,
     "params": 37555393,
     "vision_params": 22641792,
     "text_params": 14913601,
@@ -273,7 +273,7 @@
   },
   "text_192_vision_448": {
     "arch": "text_192_vision_448",
-    "gflops_per_sample": 3.95,
+    "flops_per_sample": 3951399936.0,
     "params": 45457793,
     "vision_params": 30544192,
     "text_params": 14913601,
@@ -281,7 +281,7 @@
   },
   "text_192_vision_512": {
     "arch": "text_192_vision_512",
-    "gflops_per_sample": 4.86,
+    "flops_per_sample": 4863132672.0,
     "params": 54539841,
     "vision_params": 39626240,
     "text_params": 14913601,
@@ -289,7 +289,7 @@
   },
   "text_256_vision_32": {
     "arch": "text_256_vision_32",
-    "gflops_per_sample": 1.55,
+    "flops_per_sample": 1554622464.0,
     "params": 22508897,
     "vision_params": 264800,
     "text_params": 22244097,
@@ -297,7 +297,7 @@
   },
   "text_256_vision_64": {
     "arch": "text_256_vision_64",
-    "gflops_per_sample": 1.61,
+    "flops_per_sample": 1612357632.0,
     "params": 23068609,
     "vision_params": 824512,
     "text_params": 22244097,
@@ -305,7 +305,7 @@
   },
   "text_256_vision_128": {
     "arch": "text_256_vision_128",
-    "gflops_per_sample": 1.82,
+    "flops_per_sample": 1816301568.0,
     "params": 25072769,
     "vision_params": 2828672,
     "text_params": 22244097,
@@ -313,7 +313,7 @@
   },
   "text_256_vision_192": {
     "arch": "text_256_vision_192",
-    "gflops_per_sample": 2.14,
+    "flops_per_sample": 2138210304.0,
     "params": 28256577,
     "vision_params": 6012480,
     "text_params": 22244097,
@@ -321,7 +321,7 @@
   },
   "text_256_vision_256": {
     "arch": "text_256_vision_256",
-    "gflops_per_sample": 2.58,
+    "flops_per_sample": 2578083840.0,
     "params": 32620033,
     "vision_params": 10375936,
     "text_params": 22244097,
@@ -329,7 +329,7 @@
   },
   "text_256_vision_320": {
     "arch": "text_256_vision_320",
-    "gflops_per_sample": 3.14,
+    "flops_per_sample": 3135922176.0,
     "params": 38163137,
     "vision_params": 15919040,
     "text_params": 22244097,
@@ -337,7 +337,7 @@
   },
   "text_256_vision_384": {
     "arch": "text_256_vision_384",
-    "gflops_per_sample": 3.81,
+    "flops_per_sample": 3811725312.0,
     "params": 44885889,
     "vision_params": 22641792,
     "text_params": 22244097,
@@ -345,7 +345,7 @@
   },
   "text_256_vision_448": {
     "arch": "text_256_vision_448",
-    "gflops_per_sample": 4.61,
+    "flops_per_sample": 4605493248.0,
     "params": 52788289,
     "vision_params": 30544192,
     "text_params": 22244097,
@@ -353,7 +353,7 @@
   },
   "text_256_vision_512": {
     "arch": "text_256_vision_512",
-    "gflops_per_sample": 5.52,
+    "flops_per_sample": 5517225984.0,
     "params": 61870337,
     "vision_params": 39626240,
     "text_params": 22244097,
@@ -361,7 +361,7 @@
   },
   "text_320_vision_32": {
     "arch": "text_320_vision_32",
-    "gflops_per_sample": 2.39,
+    "flops_per_sample": 2390381568.0,
     "params": 31019041,
     "vision_params": 264800,
     "text_params": 30754241,
@@ -369,7 +369,7 @@
   },
   "text_320_vision_64": {
     "arch": "text_320_vision_64",
-    "gflops_per_sample": 2.45,
+    "flops_per_sample": 2448116736.0,
     "params": 31578753,
     "vision_params": 824512,
     "text_params": 30754241,
@@ -377,7 +377,7 @@
   },
   "text_320_vision_128": {
     "arch": "text_320_vision_128",
-    "gflops_per_sample": 2.65,
+    "flops_per_sample": 2652060672.0,
     "params": 33582913,
     "vision_params": 2828672,
     "text_params": 30754241,
@@ -385,7 +385,7 @@
   },
   "text_320_vision_192": {
     "arch": "text_320_vision_192",
-    "gflops_per_sample": 2.97,
+    "flops_per_sample": 2973969408.0,
     "params": 36766721,
     "vision_params": 6012480,
     "text_params": 30754241,
@@ -393,7 +393,7 @@
   },
   "text_320_vision_256": {
     "arch": "text_320_vision_256",
-    "gflops_per_sample": 3.41,
+    "flops_per_sample": 3413842944.0,
     "params": 41130177,
     "vision_params": 10375936,
     "text_params": 30754241,
@@ -401,7 +401,7 @@
   },
   "text_320_vision_320": {
     "arch": "text_320_vision_320",
-    "gflops_per_sample": 3.97,
+    "flops_per_sample": 3971681280.0,
     "params": 46673281,
     "vision_params": 15919040,
     "text_params": 30754241,
@@ -409,7 +409,7 @@
   },
   "text_320_vision_384": {
     "arch": "text_320_vision_384",
-    "gflops_per_sample": 4.65,
+    "flops_per_sample": 4647484416.0,
     "params": 53396033,
     "vision_params": 22641792,
     "text_params": 30754241,
@@ -417,7 +417,7 @@
   },
   "text_320_vision_448": {
     "arch": "text_320_vision_448",
-    "gflops_per_sample": 5.44,
+    "flops_per_sample": 5441252352.0,
     "params": 61298433,
     "vision_params": 30544192,
     "text_params": 30754241,
@@ -425,7 +425,7 @@
   },
   "text_320_vision_512": {
     "arch": "text_320_vision_512",
-    "gflops_per_sample": 6.35,
+    "flops_per_sample": 6352985088.0,
     "params": 70380481,
     "vision_params": 39626240,
     "text_params": 30754241,
@@ -433,7 +433,7 @@
   },
   "text_384_vision_32": {
     "arch": "text_384_vision_32",
-    "gflops_per_sample": 3.41,
+    "flops_per_sample": 3407806464.0,
     "params": 40708833,
     "vision_params": 264800,
     "text_params": 40444033,
@@ -441,7 +441,7 @@
   },
   "text_384_vision_64": {
     "arch": "text_384_vision_64",
-    "gflops_per_sample": 3.47,
+    "flops_per_sample": 3465541632.0,
     "params": 41268545,
     "vision_params": 824512,
     "text_params": 40444033,
@@ -449,7 +449,7 @@
   },
   "text_384_vision_128": {
     "arch": "text_384_vision_128",
-    "gflops_per_sample": 3.67,
+    "flops_per_sample": 3669485568.0,
     "params": 43272705,
     "vision_params": 2828672,
     "text_params": 40444033,
@@ -457,7 +457,7 @@
   },
   "text_384_vision_192": {
     "arch": "text_384_vision_192",
-    "gflops_per_sample": 3.99,
+    "flops_per_sample": 3991394304.0,
     "params": 46456513,
     "vision_params": 6012480,
     "text_params": 40444033,
@@ -465,7 +465,7 @@
   },
   "text_384_vision_256": {
     "arch": "text_384_vision_256",
-    "gflops_per_sample": 4.43,
+    "flops_per_sample": 4431267840.0,
     "params": 50819969,
     "vision_params": 10375936,
     "text_params": 40444033,
@@ -473,7 +473,7 @@
   },
   "text_384_vision_320": {
     "arch": "text_384_vision_320",
-    "gflops_per_sample": 4.99,
+    "flops_per_sample": 4989106176.0,
     "params": 56363073,
     "vision_params": 15919040,
     "text_params": 40444033,
@@ -481,7 +481,7 @@
   },
   "text_384_vision_384": {
     "arch": "text_384_vision_384",
-    "gflops_per_sample": 5.66,
+    "flops_per_sample": 5664909312.0,
     "params": 63085825,
     "vision_params": 22641792,
     "text_params": 40444033,
@@ -489,7 +489,7 @@
   },
   "text_384_vision_448": {
     "arch": "text_384_vision_448",
-    "gflops_per_sample": 6.46,
+    "flops_per_sample": 6458677248.0,
     "params": 70988225,
     "vision_params": 30544192,
     "text_params": 40444033,
@@ -497,7 +497,7 @@
   },
   "text_384_vision_512": {
     "arch": "text_384_vision_512",
-    "gflops_per_sample": 7.37,
+    "flops_per_sample": 7370409984.0,
     "params": 80070273,
     "vision_params": 39626240,
     "text_params": 40444033,
@@ -505,7 +505,7 @@
   },
   "text_448_vision_32": {
     "arch": "text_448_vision_32",
-    "gflops_per_sample": 4.61,
+    "flops_per_sample": 4606897152.0,
     "params": 51578273,
     "vision_params": 264800,
     "text_params": 51313473,
@@ -513,7 +513,7 @@
   },
   "text_448_vision_64": {
     "arch": "text_448_vision_64",
-    "gflops_per_sample": 4.66,
+    "flops_per_sample": 4664632320.0,
     "params": 52137985,
     "vision_params": 824512,
     "text_params": 51313473,
@@ -521,7 +521,7 @@
   },
   "text_448_vision_128": {
     "arch": "text_448_vision_128",
-    "gflops_per_sample": 4.87,
+    "flops_per_sample": 4868576256.0,
     "params": 54142145,
     "vision_params": 2828672,
     "text_params": 51313473,
@@ -529,7 +529,7 @@
   },
   "text_448_vision_192": {
     "arch": "text_448_vision_192",
-    "gflops_per_sample": 5.19,
+    "flops_per_sample": 5190484992.0,
     "params": 57325953,
     "vision_params": 6012480,
     "text_params": 51313473,
@@ -537,7 +537,7 @@
   },
   "text_448_vision_256": {
     "arch": "text_448_vision_256",
-    "gflops_per_sample": 5.63,
+    "flops_per_sample": 5630358528.0,
     "params": 61689409,
     "vision_params": 10375936,
     "text_params": 51313473,
@@ -545,7 +545,7 @@
   },
   "text_448_vision_320": {
     "arch": "text_448_vision_320",
-    "gflops_per_sample": 6.19,
+    "flops_per_sample": 6188196864.0,
     "params": 67232513,
     "vision_params": 15919040,
     "text_params": 51313473,
@@ -553,7 +553,7 @@
   },
   "text_448_vision_384": {
     "arch": "text_448_vision_384",
-    "gflops_per_sample": 6.86,
+    "flops_per_sample": 6864000000.0,
     "params": 73955265,
     "vision_params": 22641792,
     "text_params": 51313473,
@@ -561,7 +561,7 @@
   },
   "text_448_vision_448": {
     "arch": "text_448_vision_448",
-    "gflops_per_sample": 7.66,
+    "flops_per_sample": 7657767936.0,
     "params": 81857665,
     "vision_params": 30544192,
     "text_params": 51313473,
@@ -569,7 +569,7 @@
   },
   "text_448_vision_512": {
     "arch": "text_448_vision_512",
-    "gflops_per_sample": 8.57,
+    "flops_per_sample": 8569500672.0,
     "params": 90939713,
     "vision_params": 39626240,
     "text_params": 51313473,
@@ -577,7 +577,7 @@
   },
   "text_512_vision_32": {
     "arch": "text_512_vision_32",
-    "gflops_per_sample": 5.99,
+    "flops_per_sample": 5987653632.0,
     "params": 63627361,
     "vision_params": 264800,
     "text_params": 63362561,
@@ -585,7 +585,7 @@
   },
   "text_512_vision_64": {
     "arch": "text_512_vision_64",
-    "gflops_per_sample": 6.05,
+    "flops_per_sample": 6045388800.0,
     "params": 64187073,
     "vision_params": 824512,
     "text_params": 63362561,
@@ -593,7 +593,7 @@
   },
   "text_512_vision_128": {
     "arch": "text_512_vision_128",
-    "gflops_per_sample": 6.25,
+    "flops_per_sample": 6249332736.0,
     "params": 66191233,
     "vision_params": 2828672,
     "text_params": 63362561,
@@ -601,7 +601,7 @@
   },
   "text_512_vision_192": {
     "arch": "text_512_vision_192",
-    "gflops_per_sample": 6.57,
+    "flops_per_sample": 6571241472.0,
     "params": 69375041,
     "vision_params": 6012480,
     "text_params": 63362561,
@@ -609,7 +609,7 @@
   },
   "text_512_vision_256": {
     "arch": "text_512_vision_256",
-    "gflops_per_sample": 7.01,
+    "flops_per_sample": 7011115008.0,
     "params": 73738497,
     "vision_params": 10375936,
     "text_params": 63362561,
@@ -617,7 +617,7 @@
   },
   "text_512_vision_320": {
     "arch": "text_512_vision_320",
-    "gflops_per_sample": 7.57,
+    "flops_per_sample": 7568953344.0,
     "params": 79281601,
     "vision_params": 15919040,
     "text_params": 63362561,
@@ -625,7 +625,7 @@
   },
   "text_512_vision_384": {
     "arch": "text_512_vision_384",
-    "gflops_per_sample": 8.24,
+    "flops_per_sample": 8244756480.0,
     "params": 86004353,
     "vision_params": 22641792,
     "text_params": 63362561,
@@ -633,7 +633,7 @@
   },
   "text_512_vision_448": {
     "arch": "text_512_vision_448",
-    "gflops_per_sample": 9.04,
+    "flops_per_sample": 9038524416.0,
     "params": 93906753,
     "vision_params": 30544192,
     "text_params": 63362561,
@@ -641,7 +641,7 @@
   },
   "text_512_vision_512": {
     "arch": "text_512_vision_512",
-    "gflops_per_sample": 9.95,
+    "flops_per_sample": 9950257152.0,
     "params": 102988801,
     "vision_params": 39626240,
     "text_params": 63362561,

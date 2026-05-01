@@ -52,7 +52,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
 
     def get_model_stats(self, config: VLMConfig) -> dict:
         stats_key = f"text_{config.text_width}_vision_{config.vision_width}"
-        path = files("scan_benchmark.vlm").joinpath("gflops_params.json")
+        path = files("scan_benchmark.vlm").joinpath("flops_params.json")
 
         with open(path, encoding="utf-8") as f:
             model_stats = json.load(f).get(stats_key)
@@ -60,11 +60,11 @@ class VLMBenchmark(BasePerformanceBenchmark):
         if model_stats is None:
             return {}
 
-        gflops_per_sample = model_stats.get("gflops_per_sample")
+        flops_per_sample = model_stats.get("flops_per_sample")
 
         return {
-            "gflops_per_sample": gflops_per_sample,
-            "total_gflops": gflops_per_sample * config.total_samples_planned * config.training_progress,
+            "flops_per_sample": flops_per_sample,
+            "total_flops": flops_per_sample * config.total_samples_planned * config.training_progress,
             "params": model_stats.get("params"),
             "vision_params": model_stats.get("vision_params"),
             "text_params": model_stats.get("text_params"),
