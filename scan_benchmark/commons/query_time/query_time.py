@@ -3,6 +3,8 @@ import time
 
 import numpy as np
 
+from scan_benchmark.llm.api import LLMBenchmark
+from scan_benchmark.llm.config import LLMTarget, LLMConfig
 from scan_benchmark.vlm.api import VLMBenchmark
 from scan_benchmark.vlm.config import VLMConfig, VLMTarget
 
@@ -19,44 +21,57 @@ def surrogate_runtime(
 ):
     if warmup:
         rng = np.random.default_rng(0)
-        if use_batch:
-            surrogate.query_many([config_sampler(rng) for _ in range(10)])
-        else:
-            surrogate.query(config_sampler(rng))
+        surrogate.query(config_sampler(rng))
 
-    times = []
+    seed_stats = []
+    all_query_times = []
 
     for seed in range(n_seeds):
         rng = np.random.default_rng(seed)
 
-        start = time.perf_counter()
+        query_times = []
 
         if use_batch:
-            # batch mode
             configs = [config_sampler(rng) for _ in range(n_evals)]
+
+            start = time.perf_counter()
             surrogate.query_many(configs)
+            end = time.perf_counter()
+
+            total_time = end - start
+            per_query = total_time / n_evals
+
+            query_times = [per_query] * n_evals
         else:
-            # sequential mode
             for _ in range(n_evals):
                 config = config_sampler(rng)
+
+                t0 = time.perf_counter()
                 surrogate.query(config)
+                t1 = time.perf_counter()
 
-        end = time.perf_counter()
-        times.append(end - start)
+                query_times.append(t1 - t0)
 
-    times = np.asarray(times)
+        query_times = np.asarray(query_times)
+        all_query_times.append(query_times)
+
+        seed_stats.append({
+            "mean": float(query_times.mean()),
+            "std": float(query_times.std()),
+            "min": float(query_times.min()),
+            "max": float(query_times.max()),
+        })
+
+    all_query_times = np.concatenate(all_query_times)
 
     return {
-        "mode": "batch" if use_batch else "sequential",
-        "search_time_seconds": {
-            "mean": float(times.mean()),
-            "std": float(times.std()),
-            "min": float(times.min()),
-            "max": float(times.max()),
+        "per_seed": seed_stats,
+        "overall": {
+            "mean": float(all_query_times.mean()),
+            "std": float(all_query_times.std()),
+            "min": float(all_query_times.min()),
+            "max": float(all_query_times.max()),
         },
-        "time_per_query_seconds": float(times.mean() / n_evals),
-        "n_evals": n_evals,
-        "n_seeds": n_seeds,
     }
 
 
@@ -80,25 +95,46 @@ def sample_vlm_config(rng: np.random.Generator) -> VLMConfig:
         training_progress=1.0,
     )
 
+def sample_llm_config(rng: np.random.Generator) -> LLMConfig:
+    d_model_factor = rng.integers(4, 19)
+    d_model = d_model_factor * 64
+    valid_n_heads = [n for n in range(3, 13) if d_model % (n * 2) == 0]
+    n_heads = rng.choice(valid_n_heads) * 2
+
+    return LLMConfig(
+        d_model=d_model,
+        n_layers=int(rng.uniform(4, 24)),
+        n_heads=n_heads,
+        lr=sample_log_uniform(rng, 1.0e-5, 1.0e-2),
+        weight_decay=sample_log_uniform(rng, 1.0e-3, 2.0e-1),
+        beta1=sample_log_uniform(rng, 0.9, 0.99),
+        beta2=sample_log_uniform(rng, 0.95, 0.999),
+        cooldown_steps=float(rng.uniform(0.0, 0.3)),
+        n_tokens=int(sample_log_uniform(rng, 2e8, 1.6e10)),
+        training_progress=1.0,
+    )
+
 
 if __name__ == "__main__":
     vlm_bench = VLMBenchmark(targets=[VLMTarget.VAL_LOSS], device="cpu")
 
-    seq_results = surrogate_runtime(
+    vlm_seq_results = surrogate_runtime(
         vlm_bench,
         sample_vlm_config,
         use_batch=False,
     )
 
-    batch_results = surrogate_runtime(
-        vlm_bench,
-        sample_vlm_config,
-        use_batch=True,
+    llm_bench = LLMBenchmark(targets=[LLMTarget.VAL_LOSS], device="cpu")
+
+    llm_seq_results = surrogate_runtime(
+        llm_bench,
+        sample_llm_config,
+        use_batch=False,
     )
 
     results = {
-        "sequential": seq_results,
-        "batch": batch_results,
+        "vlm": vlm_seq_results,
+        "llm": llm_seq_results,
     }
 
     with open("runtime_results.json", "w") as f:
