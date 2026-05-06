@@ -26,7 +26,8 @@ def binary_xgb_ensemble(seed):
 
 
 class BinaryBaggingEnsemble:
-    def __init__(self, seed: int = 42, model_dir: str = "xgb_models", load: bool = True):
+    def __init__(self, seed: int = 42, model_dir: str = "scan_benchmark/vlm/divergence_surrogate/xgb_models",
+                 load: bool = True):
         self.seed = seed
         self.model_dir = Path(model_dir)
         os.makedirs(self.model_dir, exist_ok=True)
@@ -38,7 +39,7 @@ class BinaryBaggingEnsemble:
         else:
             self.models = binary_xgb_ensemble(self.seed)
 
-    def __fit(self, X: np.ndarray, y: np.ndarray):
+    def __fit(self, X: np.ndarray, y: np.ndarray, save_models: bool = False):
         X = np.asarray(X)
         y = np.asarray(y)
 
@@ -50,8 +51,9 @@ class BinaryBaggingEnsemble:
             model.set_params(scale_pos_weight=scale_pos_weight)
             model.fit(X, y)
 
-            model_filename = os.path.join(self.model_dir, f"xgb_model_{i}.json")
-            model.save_model(model_filename)
+            if save_models:
+                model_filename = os.path.join(self.model_dir, f"xgb_model_{i}.json")
+                model.save_model(model_filename)
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         X = np.asarray(X)
@@ -72,7 +74,7 @@ class BinaryBaggingEnsemble:
     def validate(self, X: np.ndarray, y: np.ndarray, threshold: float = 0.5):
         y_prob = self.predict_proba(X)
         y_pred_class = (y_prob >= threshold).astype(int)
-        classification_metrics(y, y_pred_class, y_prob)
+        classification_metrics(y, y_pred_class, y_prob, output_dir="scan_benchmark/vlm/divergence_surrogate/results")
 
     def load_models(self):
         model_files = sorted(self.model_dir.glob("xgb_model_*.json"))

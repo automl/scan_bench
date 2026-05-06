@@ -4,8 +4,6 @@ SCRIPT="scan_benchmark.vlm.performance_surrogate.train.train"
 SEEDS=(42 73 94)
 ENSEMBLE_TYPES=("xgb" "lightgbm" "mix")
 
-export PYTHONPATH="C:\Users\Donat\Documents\Master\Thesis\vlm scaling laws repository;$PYTHONPATH"
-
 # tabpfn
 for SEED in "${SEEDS[@]}"; do
     python -m "$SCRIPT" \

@@ -18,8 +18,14 @@ To train and get the performance results for the surrogate benchmarks, run the p
 
 ### VLM pipeline
 
+#### VLM performance predictor surrogate
 ```bash
 bash scan_benchmark/vlm/performance_surrogate/train/train_surrogates.sh
+```
+
+#### VLM divergences predictor surrogate
+```bash
+bash scan_benchmark/vlm/divergence_surrogate/train.sh
 ```
 
 ### LLM pipeline
@@ -49,6 +55,10 @@ bash scan_benchmark/llm/train_surrogates.sh
 | XGB       | 0.196 | 0.086 | 0.036 | 3.780 | 0.831 | 0.913 | 0.964 |
 | Mix       | 0.199 | 0.107 | 0.063 | 4.776 | 0.826 | 0.919 | 0.967 |
 | LGB       | 0.207 | 0.122 | 0.080 | 5.591 | 0.811 | 0.917 | 0.958 |
+
+## API usage
+
+Refer to [VLM API](scan_benchmark/vlm/api.py)  and [LLM API](scan_benchmark/llm/api.py) for API usages.
 
 ## Additional
 
