@@ -4,18 +4,21 @@ SCRIPT="scan_benchmark.llm.train"
 SEEDS=(42 73 94)
 ENSEMBLE_TYPES=("xgb" "lightgbm" "mix")
 LABEL="test_loss"
+DEVICE="cpu"
 
 # tabpfn
 for SEED in "${SEEDS[@]}"; do
     python -m "$SCRIPT" \
         --model tabpfn \
         --seed "$SEED" \
+        --device "$DEVICE" \
         --labels "$LABEL"
 
     python -m "$SCRIPT" \
         --model tabpfn \
         --seed "$SEED" \
         --labels "$LABEL" \
+        --device "$DEVICE" \
         --include_intermediate_points
 
     python -m "$SCRIPT" \
@@ -23,6 +26,7 @@ for SEED in "${SEEDS[@]}"; do
         --seed "$SEED" \
         --labels "$LABEL" \
         --include_intermediate_points \
+        --device "$DEVICE" \
         --eval_on_intermediate_points
 done
 
@@ -33,6 +37,7 @@ for SEED in "${SEEDS[@]}"; do
             --model ensemble \
             --ensemble_type "$ENSEMBLE_TYPE" \
             --seed "$SEED" \
+            --device "$DEVICE" \
             --labels "$LABEL"
 
         python -m "$SCRIPT" \
@@ -40,6 +45,7 @@ for SEED in "${SEEDS[@]}"; do
             --ensemble_type "$ENSEMBLE_TYPE" \
             --seed "$SEED" \
             --labels "$LABEL" \
+            --device "$DEVICE" \
             --include_intermediate_points
 
         python -m "$SCRIPT" \
@@ -47,6 +53,7 @@ for SEED in "${SEEDS[@]}"; do
             --ensemble_type "$ENSEMBLE_TYPE" \
             --seed "$SEED" \
             --labels "$LABEL" \
+            --device "$DEVICE" \
             --include_intermediate_points \
             --eval_on_intermediate_points
     done
