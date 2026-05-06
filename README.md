@@ -50,6 +50,28 @@ bash scan_benchmark/llm/train_surrogates.sh
 | Mix       | 0.199 | 0.107 | 0.063 | 4.776 | 0.826 | 0.919 | 0.967 |
 | LGB       | 0.207 | 0.122 | 0.080 | 5.591 | 0.811 | 0.917 | 0.958 |
 
+## Additional
+
+### Data
+
+The repository includes pre-collected configuration-performance datasets used to train the surrogate models.
+
+- **VLM data**:  
+  `scan_benchmark/vlm/performance_surrogate/splits`  
+  Contains training and test splits for VLM surrogate modeling.
+- **VLM divergence data**:  
+  `scan_benchmark/vlm/divergence_surrogate/splits`  
+  Contains data and models for predicting failed (divergent) configurations.
+- **LLM data**:  
+  `scan_benchmark/llm/splits`  
+  Contains configuration-performance datasets for LLM surrogate training.
+
+### Plotting
+For additional plottings on comparing the surrogate predictors, run bash sript:
+```bash
+bash scan_benchmark/commons/plotting/plotting.sh
+```
+
 ## Contributing
 
 >📋  Pick a licence and describe how to contribute to your code repository. 
