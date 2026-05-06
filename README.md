@@ -1,5 +1,7 @@
 # ScAn-Bench: Evaluating Scaling Analysis Methodology
 
+This repository provides surrogate benchmarks for evaluating scaling analysis (ScAn) methodology on vision-language models (VLMs) and large language models (LLMs). The benchmarks approximate the mapping from training configurations to performance, enabling fast evaluation without training full models.
+
 ## Requirements
 
 We recommend using a conda environment.
