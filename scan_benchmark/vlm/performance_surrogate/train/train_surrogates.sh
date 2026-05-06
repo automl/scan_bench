@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT="train.py"
+SCRIPT="scan_benchmark.vlm.performance_surrogate.train.train"
 SEEDS=(42 73 94)
 ENSEMBLE_TYPES=("xgb" "lightgbm" "mix")
 
@@ -8,18 +8,18 @@ export PYTHONPATH="C:\Users\Donat\Documents\Master\Thesis\vlm scaling laws repos
 
 # tabpfn
 for SEED in "${SEEDS[@]}"; do
-    python "$SCRIPT" \
+    python -m "$SCRIPT" \
         --model tabpfn \
         --seed "$SEED" \
         --labels val_loss
 
-    python "$SCRIPT" \
+    python -m "$SCRIPT" \
         --model tabpfn \
         --seed "$SEED" \
         --labels val_loss \
         --include_intermediate_points
 
-    python "$SCRIPT" \
+    python -m "$SCRIPT" \
         --model tabpfn \
         --seed "$SEED" \
         --labels val_loss \
@@ -30,20 +30,20 @@ done
 # ensembles
 for SEED in "${SEEDS[@]}"; do
     for ENSEMBLE_TYPE in "${ENSEMBLE_TYPES[@]}"; do
-        python "$SCRIPT" \
+        python -m "$SCRIPT" \
             --model ensemble \
             --ensemble_type "$ENSEMBLE_TYPE" \
             --seed "$SEED" \
             --labels val_loss
 
-        python "$SCRIPT" \
+        python -m "$SCRIPT" \
             --model ensemble \
             --ensemble_type "$ENSEMBLE_TYPE" \
             --seed "$SEED" \
             --labels val_loss \
             --include_intermediate_points
 
-        python "$SCRIPT" \
+        python -m "$SCRIPT" \
             --model ensemble \
             --ensemble_type "$ENSEMBLE_TYPE" \
             --seed "$SEED" \
@@ -52,3 +52,5 @@ for SEED in "${SEEDS[@]}"; do
             --eval_on_intermediate_points
     done
 done
+
+python -m "$SCRIPT" --model autogluon --seed 42 --include_intermediate_points --eval_on_intermediate_points

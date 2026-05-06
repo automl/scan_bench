@@ -13,8 +13,8 @@ class LLMBenchmark(BasePerformanceBenchmark):
         device: str = "auto",
     ):
         targets = self._normalize_targets(targets)
-        train_path = files("scan_benchmark.llm").joinpath("data/train.csv")
-        test_path = files("scan_benchmark.llm").joinpath("data/test.csv")
+        train_path = files("scan_benchmark.llm").joinpath("splits/train.csv")
+        test_path = files("scan_benchmark.llm").joinpath("splits/test.csv")
 
         dataset = LLMSurrogateDataset(
             train_csv_path=str(train_path),

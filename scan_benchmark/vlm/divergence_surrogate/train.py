@@ -13,6 +13,6 @@ if __name__ == "__main__":
 
     ensemble_model = BinaryBaggingEnsemble()
 
-    # ensemble_model._BinaryBaggingEnsemble__fit(X_all, y_all)
-
     ensemble_model.validate(X_test, y_test)
+
+    ensemble_model._BinaryBaggingEnsemble__fit(X_all, y_all)

@@ -1,6 +1,6 @@
 from scan_benchmark.commons.train.args import get_base_parser, finalize_args
 from scan_benchmark.commons.train.train_base import run_benchmark
-from scan_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
+from scan_benchmark.llm.data import LLMSurrogateDataset
 
 
 def parse_args():
@@ -12,9 +12,9 @@ def parse_args():
     args = p.parse_args()
 
     defaults = {
-        "train_csv": "scan_benchmark/vlm/performance_surrogate/splits/train.csv",
-        "test_csv": "scan_benchmark/vlm/performance_surrogate/splits/test.csv",
-        "labels": ["val_loss"],
+        "train_csv": "scan_benchmark/llm/splits/train.csv",
+        "test_csv": "scan_benchmark/llm/splits/test.csv",
+        "labels": ["test_loss"],
     }
 
     return finalize_args(args, defaults)
@@ -24,6 +24,6 @@ if __name__ == "__main__":
     args = parse_args()
     run_benchmark(
         args=args,
-        dataset_cls=VLMSurrogateDataset,
+        dataset_cls=LLMSurrogateDataset,
         supports_intermediate_points=True,
     )
