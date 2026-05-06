@@ -13,11 +13,10 @@ pip install -e .[dev]
 ```
 
 Install pytorch with CUDA, if you want to utilize the GPU.
-Change DEVICE to 'cuda' in train_surrogates.sh to use the GPU.
 
 ## Training and evaluation
 
-To train and get the performance results for the surrogate benchmarks, run the provided shell scripts.
+To train and get the performance results for the surrogate benchmarks, run the provided shell scripts. Change DEVICE to 'cuda' in train_surrogates.sh to use the GPU.
 
 ### VLM pipeline
 
