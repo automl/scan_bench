@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, StratifiedKFold
 
 FEATURE_COLS = [
     "config_id",
@@ -94,6 +94,13 @@ def enrich_with_all_epochs(
     selected_config_ids = selected_configs_df["config_id"].unique()
     enriched_df = full_df[full_df["config_id"].isin(selected_config_ids)].copy()
 
+    if "flops_bin" in selected_configs_df.columns:
+        enriched_df = enriched_df.merge(
+            selected_configs_df[["config_id", "flops_bin"]].drop_duplicates(),
+            on="config_id",
+            how="left",
+        )
+
     if keep_only_nonfailed:
         fail_df = build_failure_labels(full_df)
         enriched_df = enriched_df.merge(fail_df, on="config_id", how="left")
@@ -112,11 +119,10 @@ def prepare_performance_predictor_data(
         full_df: pd.DataFrame,
         df: pd.DataFrame,
         flops_col: str,
-        train_output_csv: str,
-        test_output_csv: str,
         num_bins: int = 4,
+        num_folds: int = 5,
         random_state: int = 42,
-) -> tuple[pd.DataFrame, pd.DataFrame]:
+):
     x = df[flops_col].values
     log_x = np.log10(x)
 
@@ -138,27 +144,33 @@ def prepare_performance_predictor_data(
 
     plot_gflops_distribution(df, flops_col=flops_col, bins=bins)
 
-    train_last_df, test_last_df = train_test_split(
-        df,
-        test_size=0.2,
-        random_state=random_state,
-        stratify=df["flops_bin"],
+    skf = StratifiedKFold(
+        n_splits=num_folds,
         shuffle=True,
+        random_state=random_state,
     )
 
-    print("\nPerformance train split:")
-    print_bin_counts(train_last_df)
+    for fold_idx, (train_idx, test_idx) in enumerate(
+            skf.split(df, df["flops_bin"]),
+            start=1,
+    ):
+        train_last_df = df.iloc[train_idx].copy()
+        test_last_df = df.iloc[test_idx].copy()
 
-    print("\nPerformance test split:")
-    print_bin_counts(test_last_df)
+        print(f"\nFold {fold_idx} performance train split:")
+        print_bin_counts(train_last_df)
 
-    train_df = enrich_with_all_epochs(full_df, train_last_df)
-    test_df = enrich_with_all_epochs(full_df, test_last_df)
+        print(f"\nFold {fold_idx} performance test split:")
+        print_bin_counts(test_last_df)
 
-    train_df.to_csv(train_output_csv, index=False)
-    test_df.to_csv(test_output_csv, index=False)
+        train_df = enrich_with_all_epochs(full_df, train_last_df)
+        test_df = enrich_with_all_epochs(full_df, test_last_df)
 
-    return train_df, test_df
+        train_output_csv = f"performance_surrogate/splits/train_fold_{fold_idx}.csv"
+        test_output_csv = f"performance_surrogate/splits/test_fold_{fold_idx}.csv"
+
+        train_df.to_csv(train_output_csv, index=False)
+        test_df.to_csv(test_output_csv, index=False)
 
 
 def build_feature_table(
@@ -291,8 +303,8 @@ def main() -> None:
     full_csv = "data.csv"
     flops_col = "Total compute(GLOPs)"
 
-    performance_train_csv = "performance_surrogate/splits/train.csv"
-    performance_test_csv = "performance_surrogate/splits/test.csv"
+    performance_train_csv = "performance_surrogate/splits/train_fold_1.csv"
+    performance_test_csv = "performance_surrogate/splits/test_fold_1.csv"
 
     divergence_train_csv = "divergence_surrogate/splits/train.csv"
     divergence_test_csv = "divergence_surrogate/splits/test.csv"
@@ -301,15 +313,16 @@ def main() -> None:
 
     nonfailed_last_epoch_df = keep_only_nonfailed_last_epoch(full_df)
 
-    performance_train_df, performance_test_df = prepare_performance_predictor_data(
+    prepare_performance_predictor_data(
         full_df=full_df,
         df=nonfailed_last_epoch_df,
         flops_col=flops_col,
-        train_output_csv=performance_train_csv,
-        test_output_csv=performance_test_csv,
         num_bins=4,
         random_state=42,
     )
+
+    performance_train_df = pd.read_csv(performance_train_csv)
+    performance_test_df = pd.read_csv(performance_test_csv)
 
     prepare_divergence_predictor_data(
         full_df=full_df,

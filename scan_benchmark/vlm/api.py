@@ -18,8 +18,8 @@ class VLMBenchmark(BasePerformanceBenchmark):
     def __init__(self, targets=None, device="auto"):
         targets = self._normalize_targets(targets)
 
-        train_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/train.csv")
-        test_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/test.csv")
+        train_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/train_fold_1.csv")
+        test_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/test_fold_1.csv")
 
         dataset = VLMSurrogateDataset(
             train_csv_path=str(train_path),

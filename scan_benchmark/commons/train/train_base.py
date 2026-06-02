@@ -92,7 +92,7 @@ def build_dataset_kwargs(args, supports_intermediate_points: bool):
 def run_benchmark(args, dataset_cls, supports_intermediate_points: bool = False):
     set_seed(args.seed)
 
-    out_path = build_out_path(args)
+    out_path = build_out_path(args) if args.out_dir is None else Path(args.out_dir)
     out_path.mkdir(parents=True, exist_ok=True)
 
     dataset_kwargs = build_dataset_kwargs(args, supports_intermediate_points)

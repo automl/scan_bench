@@ -74,3 +74,14 @@ class AutoGluonModel(SurrogateModel):
         X_df = pd.DataFrame(X, columns=self.features)
 
         return self.predictor.predict(X_df).to_numpy()
+
+    def predict_with_uncertainty(self, X: np.ndarray):
+        X = np.asarray(X)
+        X_df = pd.DataFrame(X, columns=self.features)
+
+        mean = self.predictor.predict(X_df).to_numpy()
+
+        return {
+            "mean": mean,
+            "uncertainty": None
+        }

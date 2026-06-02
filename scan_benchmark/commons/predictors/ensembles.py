@@ -92,3 +92,15 @@ class BaggingEnsemble(SurrogateModel):
         preds = [m.predict(X) for m in self.models]
         preds = np.asarray(preds).T
         return np.mean(preds, axis=1)
+
+    def predict_with_uncertainty(self, X: np.ndarray):
+        preds = [m.predict(X) for m in self.models]
+        preds = np.asarray(preds).T
+
+        mean_pred = np.mean(preds, axis=1)
+        uncertainty = np.std(preds, axis=1)
+
+        return {
+            "mean": mean_pred,
+            "std": uncertainty
+        }

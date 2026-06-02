@@ -8,6 +8,7 @@ def get_base_parser():
     p.add_argument("--test_csv", type=str, default=None)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--labels", nargs="+", default=None)
+    p.add_argument("--out_dir", type=str, default=None)
 
     p.add_argument(
         "--model",

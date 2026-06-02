@@ -15,6 +15,9 @@ class SurrogateModel:
     def predict(self, X: np.ndarray) -> np.ndarray:
         raise NotImplementedError
 
+    def predict_with_uncertainty(self, X: np.ndarray) -> np.ndarray:
+        raise NotImplementedError
+
     def validate(self, dataset: BaseSurrogateDataset, sizes):
         X_test, y_test = dataset.get_test_data()
         results = {}
@@ -63,7 +66,6 @@ class MultiLabelSurrogateModel:
             print(f"Processing label '{label}' ({i + 1}/{len(self.labels)})")
 
             overall_results = {}
-            by_bin_results = None
 
             for n_cfg in sizes:
                 print(f"[{label}] Training with n_cfg={n_cfg}")
@@ -72,7 +74,8 @@ class MultiLabelSurrogateModel:
 
                 model.fit(X_sub, y_sub[:, i])
 
-                y_pred = model.predict(X_test)
+                full_pred = model.predict_with_uncertainty(X_test)
+                y_pred = full_pred["mean"]
 
                 overall_metrics = compute_regression_metrics(y_test[:, i], y_pred)
                 overall_results[int(n_cfg)] = overall_metrics
@@ -88,6 +91,18 @@ class MultiLabelSurrogateModel:
                     }
                     with open(by_bin_file_path, "w") as f:
                         json.dump(by_bin_results, f, indent=4)
+
+                full_results_path = out_path / "full_pred.json"
+
+                full_pred_json = {
+                    k: v.tolist() if isinstance(v, np.ndarray) else v
+                    for k, v in full_pred.items()
+                }
+
+                full_pred_json["y_true"] = y_test[:, i].tolist()
+
+                with open(full_results_path, "w") as f:
+                    json.dump(full_pred_json, f, indent=4)
 
             with open(overall_file_path, "w") as f:
                 json.dump(overall_results, f, indent=4)

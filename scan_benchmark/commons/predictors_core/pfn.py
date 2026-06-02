@@ -54,6 +54,7 @@ class TabPFNModel(SurrogateModel):
 
         if "quantiles" in outputs:
             quantiles = self._align_quantiles_by_sample(outputs["quantiles"], n_samples)
+            result["quantiles"] = quantiles
             result["uncertainty_width"] = quantiles[:, -1] - quantiles[:, 0]
 
         return result
