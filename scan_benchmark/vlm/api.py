@@ -4,7 +4,7 @@ from pprint import pprint
 
 import numpy as np
 
-from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark
+from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark, PerformancePredictorType
 from scan_benchmark.config_feature_mapper import ConfigFeatureMapper
 from scan_benchmark.vlm.config import VLMConfig, VLMTarget
 from scan_benchmark.vlm.divergence_surrogate.data import DivergenceDataset
@@ -15,7 +15,8 @@ from scan_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
 class VLMBenchmark(BasePerformanceBenchmark):
     TARGET_ENUM = VLMTarget
 
-    def __init__(self, targets=None, device="auto"):
+    def __init__(self, targets=None, predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
+                 device="auto"):
         targets = self._normalize_targets(targets)
 
         train_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/train_fold_1.csv")
@@ -27,8 +28,26 @@ class VLMBenchmark(BasePerformanceBenchmark):
             targets=targets,
             seed=42,
             include_intermediate_points=True,
+            eval_on_intermediate_points=True
         )
-        super().__init__(surrogate_dataset=dataset, device=device)
+
+        saved_model_path = None
+        if predictor_type != PerformancePredictorType.TABPFN:
+            saved_model_path = files("scan_benchmark.vlm.performance_surrogate").joinpath(
+                "saved_models",
+                "predictors",
+                predictor_type.value,
+                f"seed_42",
+                "fit_with_intermediate",
+                "pred_with_intermediate",
+            )
+
+        super().__init__(
+            surrogate_dataset=dataset,
+            model_path=saved_model_path,
+            predictor_type=predictor_type,
+            device=device,
+        )
 
         self.divergence_config_feature_mapper = ConfigFeatureMapper(
             feature_order=DivergenceDataset.DEFAULT_FEATURES,
@@ -109,7 +128,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
 
 # simple example on how to use the surrogate
 if __name__ == "__main__":
-    vlm_bench = VLMBenchmark(targets=[VLMTarget.VAL_LOSS])
+    vlm_bench = VLMBenchmark(targets=[VLMTarget.VAL_LOSS], predictor_type=PerformancePredictorType.ENSEMBLE_XGB, device="auto")
 
     config = VLMConfig(
         lr=1e-4,

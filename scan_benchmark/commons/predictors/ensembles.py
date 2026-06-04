@@ -104,10 +104,13 @@ class BaggingEnsemble(SurrogateModel):
 
         return {
             "mean": mean_pred,
-            "std": uncertainty
+            "uncertainty": uncertainty
         }
 
     def save(self, path: Path):
         path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
         joblib.dump(self.models, path)
+
+    def load(self, path: Path):
+        self.models = joblib.load(path)
