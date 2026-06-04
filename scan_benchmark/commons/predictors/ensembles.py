@@ -1,5 +1,7 @@
 from enum import Enum
+from pathlib import Path
 
+import joblib
 import numpy as np
 import xgboost as xgb
 from lightgbm import LGBMRegressor
@@ -104,3 +106,8 @@ class BaggingEnsemble(SurrogateModel):
             "mean": mean_pred,
             "std": uncertainty
         }
+
+    def save(self, path: Path):
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        joblib.dump(self.models, path)

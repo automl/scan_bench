@@ -18,6 +18,9 @@ class SurrogateModel:
     def predict_with_uncertainty(self, X: np.ndarray) -> np.ndarray:
         raise NotImplementedError
 
+    def save(self, path: Path):
+        raise NotImplementedError
+
     def validate(self, dataset: BaseSurrogateDataset, sizes):
         X_test, y_test = dataset.get_test_data()
         results = {}
@@ -45,7 +48,7 @@ class MultiLabelSurrogateModel:
         }
         self.is_fitted = False
 
-    def validate(self, dataset: BaseSurrogateDataset, sizes, out_path: Path):
+    def validate(self, dataset: BaseSurrogateDataset, sizes, out_path: Path, final_model_out_path: Path):
         X_test, y_test = dataset.get_test_data()
         test_bins = dataset._get_test_bins()
         has_bins = test_bins is not None
@@ -106,6 +109,16 @@ class MultiLabelSurrogateModel:
 
             with open(overall_file_path, "w") as f:
                 json.dump(overall_results, f, indent=4)
+
+            if final_model_out_path.exists() and any(final_model_out_path.iterdir()):
+                print(f"Skipping final model save, it already exists: {final_model_out_path}")
+                return
+
+            print(f"{label} - Final training on all available data")
+            X_all, y_all = dataset.get_all_data()
+            print("Total checkpoints used:", len(X_all))
+            model.fit(X_all, y_all[:, i])
+            model.save(final_model_out_path / f"{safe_label}_models.joblib")
 
     def compute_metrics_by_group(self, y_true, y_pred, groups):
         results = {}

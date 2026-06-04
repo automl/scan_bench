@@ -12,6 +12,9 @@ class TabPFNModel(SurrogateModel):
     def fit(self, X: np.ndarray, y: np.ndarray):
         self.model.fit(X, y)
 
+    def save(self, path):
+        print("TabPFN performs in-context learning, no need to save models!")
+
     def predict(self, X: np.ndarray) -> np.ndarray:
         return self.model.predict(X)
 
