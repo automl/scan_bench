@@ -5,35 +5,10 @@ from typing import Sequence, Callable
 import numpy as np
 
 from scan_benchmark.commons.metrics.metrics import compute_regression_metrics
+from scan_benchmark.commons.predictors.autogluon import AutoGluonModel
+from scan_benchmark.commons.predictors.ensembles import BaggingEnsemble
+from scan_benchmark.commons.predictors_core.surrogate import SurrogateModel
 from scan_benchmark.dataset import BaseSurrogateDataset
-
-
-class SurrogateModel:
-    def fit(self, X: np.ndarray, y: np.ndarray):
-        raise NotImplementedError
-
-    def predict(self, X: np.ndarray) -> np.ndarray:
-        raise NotImplementedError
-
-    def predict_with_uncertainty(self, X: np.ndarray) -> np.ndarray:
-        raise NotImplementedError
-
-    def save(self, path: Path):
-        raise NotImplementedError
-
-    def validate(self, dataset: BaseSurrogateDataset, sizes):
-        X_test, y_test = dataset.get_test_data()
-        results = {}
-
-        for n_cfg in sizes:
-            X_sub, y_sub = dataset.get_train_subset(n_cfg)
-            self.fit(X_sub, y_sub)
-
-            y_pred = self.predict(X_test)
-
-            results[int(n_cfg)] = compute_regression_metrics(y_test, y_pred)
-
-        return results
 
 
 class MultiLabelSurrogateModel:
@@ -110,15 +85,29 @@ class MultiLabelSurrogateModel:
             with open(overall_file_path, "w") as f:
                 json.dump(overall_results, f, indent=4)
 
+            # for final model
+            X_all, y_all = dataset.get_all_data()
+            print(f"{label} - Final training on all available data")
+            print("Total checkpoints used:", len(X_all))
+
+            self.fit_and_save_model(model, X_all, y_all[:, i], final_model_out_path, safe_label)
+
+    def fit_and_save_model(self, model, X, y, final_model_out_path, safe_label):
+
+        if isinstance(model, BaggingEnsemble):
             if final_model_out_path.exists() and any(final_model_out_path.iterdir()):
                 print(f"Skipping final model save, it already exists: {final_model_out_path}")
                 return
 
-            print(f"{label} - Final training on all available data")
-            X_all, y_all = dataset.get_all_data()
-            print("Total checkpoints used:", len(X_all))
-            model.fit(X_all, y_all[:, i])
+            model.fit(X, y)
             model.save(final_model_out_path / f"{safe_label}_models.joblib")
+
+        if isinstance(model, AutoGluonModel):
+            final_autogluon_model_path = final_model_out_path / "final_run"
+            if final_autogluon_model_path.exists() and any(final_autogluon_model_path.iterdir()):
+                print(f"Skipping final model save, it already exists: {final_autogluon_model_path}")
+                return
+            model.fit(X, y, True)
 
     def compute_metrics_by_group(self, y_true, y_pred, groups):
         results = {}

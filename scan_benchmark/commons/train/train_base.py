@@ -70,7 +70,7 @@ def build_final_model_out_path(args):
     return path
 
 
-def build_model(args, dataset):
+def build_model(args, dataset, final_model_out_path):
     if args.model == "tabpfn":
         return MultiLabelSurrogateModel(
             labels=args.labels,
@@ -86,15 +86,14 @@ def build_model(args, dataset):
         )
 
     if args.model == "autogluon":
-        ag_flag = "manual" if args.use_manual_ag_settings else "auto"
-
         return MultiLabelSurrogateModel(
             labels=args.labels,
             model_factory=lambda label: AutoGluonModel(
                 features=dataset.features,
                 label=label,
                 time_limit=args.ag_time_limit,
-                base_path=f"AutogluonModels/{ag_flag}/seed_{args.seed}/{label}",
+                base_path=final_model_out_path,
+                fold=args.fold,
             ),
         )
 
@@ -135,7 +134,7 @@ def run_benchmark(args, dataset_cls, supports_intermediate_points: bool = False)
     if args.model == "autogluon":
         sizes = [sizes[-1]]
 
-    model = build_model(args, dataset)
+    model = build_model(args, dataset, final_model_out_path)
     results = model.validate(dataset, sizes, out_path, final_model_out_path)
 
     return results

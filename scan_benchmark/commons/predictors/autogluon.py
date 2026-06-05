@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from autogluon.tabular import TabularPredictor
 
-from scan_benchmark.commons.predictors_core.base import SurrogateModel
+from scan_benchmark.commons.predictors_core.surrogate import SurrogateModel
 
 
 class AutoGluonModel(SurrogateModel):
@@ -18,6 +18,7 @@ class AutoGluonModel(SurrogateModel):
             num_stack_levels: int = 1,
             num_bag_folds: int = 8,
             num_bag_sets: int = 2,
+            fold: int = 1,
     ):
         self.features = features
         self.label = label
@@ -31,18 +32,16 @@ class AutoGluonModel(SurrogateModel):
         self.num_bag_sets = num_bag_sets
 
         self.predictor = None
-        self.run_id = 0
+        self.fold = fold
 
-    def fit(self, X: np.ndarray, y: np.ndarray):
-        self.run_id += 1
-
+    def fit(self, X: np.ndarray, y: np.ndarray, final: bool = False):
         X = np.asarray(X)
         y = np.asarray(y)
 
         train_df = pd.DataFrame(X, columns=self.features)
         train_df[self.label] = y
 
-        path = f"{self.base_path}/run_{self.run_id}"
+        path = f"{self.base_path}/{self.label}/fold_{self.fold}" if not final else f"{self.base_path}/{self.label}/final_run"
 
         self.predictor = TabularPredictor(
             label=self.label,
