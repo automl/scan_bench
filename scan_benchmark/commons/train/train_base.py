@@ -89,7 +89,6 @@ def build_model(args, dataset, final_model_out_path):
         return MultiLabelSurrogateModel(
             labels=args.labels,
             model_factory=lambda label: AutoGluonModel(
-                features=dataset.features,
                 label=label,
                 time_limit=args.ag_time_limit,
                 base_path=final_model_out_path,

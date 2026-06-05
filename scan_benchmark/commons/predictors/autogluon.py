@@ -9,7 +9,6 @@ class AutoGluonModel(SurrogateModel):
 
     def __init__(
             self,
-            features: list[str],
             label: str = "val_loss",
             time_limit: int = 30 * 60,
             presets: str = "best_quality",
@@ -20,7 +19,6 @@ class AutoGluonModel(SurrogateModel):
             num_bag_sets: int = 2,
             fold: int = 1,
     ):
-        self.features = features
         self.label = label
         self.time_limit = time_limit
         self.presets = presets
@@ -38,7 +36,7 @@ class AutoGluonModel(SurrogateModel):
         X = np.asarray(X)
         y = np.asarray(y)
 
-        train_df = pd.DataFrame(X, columns=self.features)
+        train_df = pd.DataFrame(X)
         train_df[self.label] = y
 
         path = f"{self.base_path}/{self.label}/fold_{self.fold}" if not final else f"{self.base_path}/{self.label}/final_run"
@@ -70,17 +68,33 @@ class AutoGluonModel(SurrogateModel):
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         X = np.asarray(X)
-        X_df = pd.DataFrame(X, columns=self.features)
+        X_df = pd.DataFrame(X)
 
         return self.predictor.predict(X_df).to_numpy()
 
     def predict_with_uncertainty(self, X: np.ndarray):
         X = np.asarray(X)
-        X_df = pd.DataFrame(X, columns=self.features)
+        X_df = pd.DataFrame(X)
 
-        mean = self.predictor.predict(X_df).to_numpy()
+        preds = []
+
+        for model_name in self.predictor.model_names():
+            if model_name.startswith("WeightedEnsemble"):
+                continue
+
+            preds.append(
+                self.predictor.predict(X_df, model=model_name).to_numpy()
+            )
+
+        preds = np.array(preds)
+
+        mean = np.mean(preds, axis=0)
+        uncertainty = np.std(preds, axis=0)
 
         return {
             "mean": mean,
-            "uncertainty": None
+            "uncertainty": uncertainty,
         }
+
+    def load(self, path: str):
+        self.predictor = TabularPredictor.load(path)

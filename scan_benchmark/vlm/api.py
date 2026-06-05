@@ -31,8 +31,18 @@ class VLMBenchmark(BasePerformanceBenchmark):
             eval_on_intermediate_points=True
         )
 
-        saved_model_path = None
-        if predictor_type != PerformancePredictorType.TABPFN:
+        if predictor_type == PerformancePredictorType.AUTOGLUON:
+            saved_model_path = files("scan_benchmark.vlm.performance_surrogate").joinpath(
+                "saved_models",
+                "predictors",
+                predictor_type.value,
+                f"seed_42",
+                "fit_with_intermediate",
+                "pred_with_intermediate",
+                "auto"
+            )
+
+        else:
             saved_model_path = files("scan_benchmark.vlm.performance_surrogate").joinpath(
                 "saved_models",
                 "predictors",
@@ -128,7 +138,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
 
 # simple example on how to use the surrogate
 if __name__ == "__main__":
-    vlm_bench = VLMBenchmark(targets=[VLMTarget.VAL_LOSS], predictor_type=PerformancePredictorType.ENSEMBLE_XGB, device="auto")
+    vlm_bench = VLMBenchmark(targets=[VLMTarget.VAL_LOSS], predictor_type=PerformancePredictorType.AUTOGLUON, device="auto")
 
     config = VLMConfig(
         lr=1e-4,

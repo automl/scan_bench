@@ -3,6 +3,7 @@ from pathlib import Path
 
 import numpy as np
 
+from scan_benchmark.commons.predictors.autogluon import AutoGluonModel
 from scan_benchmark.commons.predictors.ensembles import BaggingEnsemble, EnsembleType
 from scan_benchmark.commons.predictors_core.pfn import TabPFNModel
 from scan_benchmark.config_feature_mapper import ConfigFeatureMapper
@@ -13,6 +14,7 @@ class PerformancePredictorType(Enum):
     ENSEMBLE_XGB = "ensemble_xgb"
     ENSEMBLE_LIGHTGBM = "ensemble_lightgbm"
     ENSEMBLE_MIX = "ensemble_mix"
+    AUTOGLUON = "autogluon"
 
 
 class BasePerformanceBenchmark:
@@ -52,6 +54,8 @@ class BasePerformanceBenchmark:
         if self.predictor_type == PerformancePredictorType.TABPFN:
             X_train, y_train = self.surrogate_dataset.get_all_data()
             self.performance_surrogate.fit(X_train, y_train[:, target_idx])
+        elif self.predictor_type == PerformancePredictorType.AUTOGLUON:
+            self.performance_surrogate.load(self.model_path / target / "final_run")
         else:
             self.performance_surrogate.load(self._get_model_path(target))
 
@@ -126,4 +130,5 @@ class BasePerformanceBenchmark:
                 ensemble_type=EnsembleType.MIX
             )
 
-        raise ValueError(f"Unknown predictor type: {predictor_type}")
+        if predictor_type == PerformancePredictorType.AUTOGLUON:
+            return AutoGluonModel()
