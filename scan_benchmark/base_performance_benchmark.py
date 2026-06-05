@@ -48,14 +48,30 @@ class BasePerformanceBenchmark:
             raise ValueError("model_path must be provided for saved surrogate predictors.")
 
         safe_target = target.replace("/", "_")
-        return self.model_path / f"{safe_target}_models.joblib"
+        model_path = self.model_path / f"{safe_target}_models.joblib"
+
+        if not model_path.exists():
+            raise FileNotFoundError(
+                f"No trained model found under: {model_path}. Consider using TabPFN as a surrogate predictor."
+            )
+
+        return model_path
 
     def _prepare_surrogate_for_target(self, target: str, target_idx: int):
         if self.predictor_type == PerformancePredictorType.TABPFN:
             X_train, y_train = self.surrogate_dataset.get_all_data()
             self.performance_surrogate.fit(X_train, y_train[:, target_idx])
+
         elif self.predictor_type == PerformancePredictorType.AUTOGLUON:
-            self.performance_surrogate.load(self.model_path / target / "final_run")
+            model_path = self.model_path / target / "final_run"
+
+            if not model_path.exists():
+                raise FileNotFoundError(
+                    f"No trained model found under: {model_path}. Consider using TabPFN as a surrogate predictor."
+                )
+
+            self.performance_surrogate.load(model_path)
+
         else:
             self.performance_surrogate.load(self._get_model_path(target))
 
