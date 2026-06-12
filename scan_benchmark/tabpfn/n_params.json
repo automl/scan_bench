@@ -1,0 +1,1922 @@
+[
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 1,
+            "num_outputs": 10
+        },
+        "n_parameters": 598
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 2,
+            "num_outputs": 10
+        },
+        "n_parameters": 930
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 3,
+            "num_outputs": 10
+        },
+        "n_parameters": 1262
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 4,
+            "num_outputs": 10
+        },
+        "n_parameters": 1594
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 5,
+            "num_outputs": 10
+        },
+        "n_parameters": 1926
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 6,
+            "num_outputs": 10
+        },
+        "n_parameters": 2258
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 7,
+            "num_outputs": 10
+        },
+        "n_parameters": 2590
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 8,
+            "num_outputs": 10
+        },
+        "n_parameters": 2922
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 9,
+            "num_outputs": 10
+        },
+        "n_parameters": 3254
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 10,
+            "num_outputs": 10
+        },
+        "n_parameters": 3586
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 11,
+            "num_outputs": 10
+        },
+        "n_parameters": 3918
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 12,
+            "num_outputs": 10
+        },
+        "n_parameters": 4250
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 13,
+            "num_outputs": 10
+        },
+        "n_parameters": 4582
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 14,
+            "num_outputs": 10
+        },
+        "n_parameters": 4914
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 15,
+            "num_outputs": 10
+        },
+        "n_parameters": 5246
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 16,
+            "num_outputs": 10
+        },
+        "n_parameters": 5578
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 17,
+            "num_outputs": 10
+        },
+        "n_parameters": 5910
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 18,
+            "num_outputs": 10
+        },
+        "n_parameters": 6242
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 19,
+            "num_outputs": 10
+        },
+        "n_parameters": 6574
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 20,
+            "num_outputs": 10
+        },
+        "n_parameters": 6906
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 21,
+            "num_outputs": 10
+        },
+        "n_parameters": 7238
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 22,
+            "num_outputs": 10
+        },
+        "n_parameters": 7570
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 23,
+            "num_outputs": 10
+        },
+        "n_parameters": 7902
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 24,
+            "num_outputs": 10
+        },
+        "n_parameters": 8234
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 25,
+            "num_outputs": 10
+        },
+        "n_parameters": 8566
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 26,
+            "num_outputs": 10
+        },
+        "n_parameters": 8898
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 27,
+            "num_outputs": 10
+        },
+        "n_parameters": 9230
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 28,
+            "num_outputs": 10
+        },
+        "n_parameters": 9562
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 29,
+            "num_outputs": 10
+        },
+        "n_parameters": 9894
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 30,
+            "num_outputs": 10
+        },
+        "n_parameters": 10226
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 31,
+            "num_outputs": 10
+        },
+        "n_parameters": 10558
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 4,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 32,
+            "num_outputs": 10
+        },
+        "n_parameters": 10890
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 1,
+            "num_outputs": 10
+        },
+        "n_parameters": 6202
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 2,
+            "num_outputs": 10
+        },
+        "n_parameters": 10602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 3,
+            "num_outputs": 10
+        },
+        "n_parameters": 15002
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 4,
+            "num_outputs": 10
+        },
+        "n_parameters": 19402
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 5,
+            "num_outputs": 10
+        },
+        "n_parameters": 23802
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 6,
+            "num_outputs": 10
+        },
+        "n_parameters": 28202
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 7,
+            "num_outputs": 10
+        },
+        "n_parameters": 32602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 8,
+            "num_outputs": 10
+        },
+        "n_parameters": 37002
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 9,
+            "num_outputs": 10
+        },
+        "n_parameters": 41402
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 10,
+            "num_outputs": 10
+        },
+        "n_parameters": 45802
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 11,
+            "num_outputs": 10
+        },
+        "n_parameters": 50202
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 12,
+            "num_outputs": 10
+        },
+        "n_parameters": 54602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 13,
+            "num_outputs": 10
+        },
+        "n_parameters": 59002
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 14,
+            "num_outputs": 10
+        },
+        "n_parameters": 63402
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 15,
+            "num_outputs": 10
+        },
+        "n_parameters": 67802
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 16,
+            "num_outputs": 10
+        },
+        "n_parameters": 72202
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 17,
+            "num_outputs": 10
+        },
+        "n_parameters": 76602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 18,
+            "num_outputs": 10
+        },
+        "n_parameters": 81002
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 19,
+            "num_outputs": 10
+        },
+        "n_parameters": 85402
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 20,
+            "num_outputs": 10
+        },
+        "n_parameters": 89802
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 21,
+            "num_outputs": 10
+        },
+        "n_parameters": 94202
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 22,
+            "num_outputs": 10
+        },
+        "n_parameters": 98602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 23,
+            "num_outputs": 10
+        },
+        "n_parameters": 103002
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 24,
+            "num_outputs": 10
+        },
+        "n_parameters": 107402
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 25,
+            "num_outputs": 10
+        },
+        "n_parameters": 111802
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 26,
+            "num_outputs": 10
+        },
+        "n_parameters": 116202
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 27,
+            "num_outputs": 10
+        },
+        "n_parameters": 120602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 28,
+            "num_outputs": 10
+        },
+        "n_parameters": 125002
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 29,
+            "num_outputs": 10
+        },
+        "n_parameters": 129402
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 30,
+            "num_outputs": 10
+        },
+        "n_parameters": 133802
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 31,
+            "num_outputs": 10
+        },
+        "n_parameters": 138202
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 16,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 32,
+            "num_outputs": 10
+        },
+        "n_parameters": 142602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 1,
+            "num_outputs": 10
+        },
+        "n_parameters": 22634
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 2,
+            "num_outputs": 10
+        },
+        "n_parameters": 39626
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 3,
+            "num_outputs": 10
+        },
+        "n_parameters": 56618
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 4,
+            "num_outputs": 10
+        },
+        "n_parameters": 73610
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 5,
+            "num_outputs": 10
+        },
+        "n_parameters": 90602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 6,
+            "num_outputs": 10
+        },
+        "n_parameters": 107594
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 7,
+            "num_outputs": 10
+        },
+        "n_parameters": 124586
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 8,
+            "num_outputs": 10
+        },
+        "n_parameters": 141578
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 9,
+            "num_outputs": 10
+        },
+        "n_parameters": 158570
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 10,
+            "num_outputs": 10
+        },
+        "n_parameters": 175562
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 11,
+            "num_outputs": 10
+        },
+        "n_parameters": 192554
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 12,
+            "num_outputs": 10
+        },
+        "n_parameters": 209546
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 13,
+            "num_outputs": 10
+        },
+        "n_parameters": 226538
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 14,
+            "num_outputs": 10
+        },
+        "n_parameters": 243530
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 15,
+            "num_outputs": 10
+        },
+        "n_parameters": 260522
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 16,
+            "num_outputs": 10
+        },
+        "n_parameters": 277514
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 17,
+            "num_outputs": 10
+        },
+        "n_parameters": 294506
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 18,
+            "num_outputs": 10
+        },
+        "n_parameters": 311498
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 19,
+            "num_outputs": 10
+        },
+        "n_parameters": 328490
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 20,
+            "num_outputs": 10
+        },
+        "n_parameters": 345482
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 21,
+            "num_outputs": 10
+        },
+        "n_parameters": 362474
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 22,
+            "num_outputs": 10
+        },
+        "n_parameters": 379466
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 23,
+            "num_outputs": 10
+        },
+        "n_parameters": 396458
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 24,
+            "num_outputs": 10
+        },
+        "n_parameters": 413450
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 25,
+            "num_outputs": 10
+        },
+        "n_parameters": 430442
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 26,
+            "num_outputs": 10
+        },
+        "n_parameters": 447434
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 27,
+            "num_outputs": 10
+        },
+        "n_parameters": 464426
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 28,
+            "num_outputs": 10
+        },
+        "n_parameters": 481418
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 29,
+            "num_outputs": 10
+        },
+        "n_parameters": 498410
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 30,
+            "num_outputs": 10
+        },
+        "n_parameters": 515402
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 31,
+            "num_outputs": 10
+        },
+        "n_parameters": 532394
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 32,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 32,
+            "num_outputs": 10
+        },
+        "n_parameters": 549386
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 1,
+            "num_outputs": 10
+        },
+        "n_parameters": 86218
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 2,
+            "num_outputs": 10
+        },
+        "n_parameters": 152970
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 3,
+            "num_outputs": 10
+        },
+        "n_parameters": 219722
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 4,
+            "num_outputs": 10
+        },
+        "n_parameters": 286474
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 5,
+            "num_outputs": 10
+        },
+        "n_parameters": 353226
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 6,
+            "num_outputs": 10
+        },
+        "n_parameters": 419978
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 7,
+            "num_outputs": 10
+        },
+        "n_parameters": 486730
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 8,
+            "num_outputs": 10
+        },
+        "n_parameters": 553482
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 9,
+            "num_outputs": 10
+        },
+        "n_parameters": 620234
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 10,
+            "num_outputs": 10
+        },
+        "n_parameters": 686986
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 11,
+            "num_outputs": 10
+        },
+        "n_parameters": 753738
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 12,
+            "num_outputs": 10
+        },
+        "n_parameters": 820490
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 13,
+            "num_outputs": 10
+        },
+        "n_parameters": 887242
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 14,
+            "num_outputs": 10
+        },
+        "n_parameters": 953994
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 15,
+            "num_outputs": 10
+        },
+        "n_parameters": 1020746
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 16,
+            "num_outputs": 10
+        },
+        "n_parameters": 1087498
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 17,
+            "num_outputs": 10
+        },
+        "n_parameters": 1154250
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 18,
+            "num_outputs": 10
+        },
+        "n_parameters": 1221002
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 19,
+            "num_outputs": 10
+        },
+        "n_parameters": 1287754
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 20,
+            "num_outputs": 10
+        },
+        "n_parameters": 1354506
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 21,
+            "num_outputs": 10
+        },
+        "n_parameters": 1421258
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 22,
+            "num_outputs": 10
+        },
+        "n_parameters": 1488010
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 23,
+            "num_outputs": 10
+        },
+        "n_parameters": 1554762
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 24,
+            "num_outputs": 10
+        },
+        "n_parameters": 1621514
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 25,
+            "num_outputs": 10
+        },
+        "n_parameters": 1688266
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 26,
+            "num_outputs": 10
+        },
+        "n_parameters": 1755018
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 27,
+            "num_outputs": 10
+        },
+        "n_parameters": 1821770
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 28,
+            "num_outputs": 10
+        },
+        "n_parameters": 1888522
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 29,
+            "num_outputs": 10
+        },
+        "n_parameters": 1955274
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 30,
+            "num_outputs": 10
+        },
+        "n_parameters": 2022026
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 31,
+            "num_outputs": 10
+        },
+        "n_parameters": 2088778
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 64,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 32,
+            "num_outputs": 10
+        },
+        "n_parameters": 2155530
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 1,
+            "num_outputs": 10
+        },
+        "n_parameters": 336266
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 2,
+            "num_outputs": 10
+        },
+        "n_parameters": 600842
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 3,
+            "num_outputs": 10
+        },
+        "n_parameters": 865418
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 4,
+            "num_outputs": 10
+        },
+        "n_parameters": 1129994
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 5,
+            "num_outputs": 10
+        },
+        "n_parameters": 1394570
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 6,
+            "num_outputs": 10
+        },
+        "n_parameters": 1659146
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 7,
+            "num_outputs": 10
+        },
+        "n_parameters": 1923722
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 8,
+            "num_outputs": 10
+        },
+        "n_parameters": 2188298
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 9,
+            "num_outputs": 10
+        },
+        "n_parameters": 2452874
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 10,
+            "num_outputs": 10
+        },
+        "n_parameters": 2717450
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 11,
+            "num_outputs": 10
+        },
+        "n_parameters": 2982026
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 12,
+            "num_outputs": 10
+        },
+        "n_parameters": 3246602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 13,
+            "num_outputs": 10
+        },
+        "n_parameters": 3511178
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 14,
+            "num_outputs": 10
+        },
+        "n_parameters": 3775754
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 15,
+            "num_outputs": 10
+        },
+        "n_parameters": 4040330
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 16,
+            "num_outputs": 10
+        },
+        "n_parameters": 4304906
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 17,
+            "num_outputs": 10
+        },
+        "n_parameters": 4569482
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 18,
+            "num_outputs": 10
+        },
+        "n_parameters": 4834058
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 19,
+            "num_outputs": 10
+        },
+        "n_parameters": 5098634
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 20,
+            "num_outputs": 10
+        },
+        "n_parameters": 5363210
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 21,
+            "num_outputs": 10
+        },
+        "n_parameters": 5627786
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 22,
+            "num_outputs": 10
+        },
+        "n_parameters": 5892362
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 23,
+            "num_outputs": 10
+        },
+        "n_parameters": 6156938
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 24,
+            "num_outputs": 10
+        },
+        "n_parameters": 6421514
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 25,
+            "num_outputs": 10
+        },
+        "n_parameters": 6686090
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 26,
+            "num_outputs": 10
+        },
+        "n_parameters": 6950666
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 27,
+            "num_outputs": 10
+        },
+        "n_parameters": 7215242
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 28,
+            "num_outputs": 10
+        },
+        "n_parameters": 7479818
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 29,
+            "num_outputs": 10
+        },
+        "n_parameters": 7744394
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 30,
+            "num_outputs": 10
+        },
+        "n_parameters": 8008970
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 31,
+            "num_outputs": 10
+        },
+        "n_parameters": 8273546
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 128,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 32,
+            "num_outputs": 10
+        },
+        "n_parameters": 8538122
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 1,
+            "num_outputs": 10
+        },
+        "n_parameters": 1327882
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 2,
+            "num_outputs": 10
+        },
+        "n_parameters": 2381322
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 3,
+            "num_outputs": 10
+        },
+        "n_parameters": 3434762
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 4,
+            "num_outputs": 10
+        },
+        "n_parameters": 4488202
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 5,
+            "num_outputs": 10
+        },
+        "n_parameters": 5541642
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 6,
+            "num_outputs": 10
+        },
+        "n_parameters": 6595082
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 7,
+            "num_outputs": 10
+        },
+        "n_parameters": 7648522
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 8,
+            "num_outputs": 10
+        },
+        "n_parameters": 8701962
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 9,
+            "num_outputs": 10
+        },
+        "n_parameters": 9755402
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 10,
+            "num_outputs": 10
+        },
+        "n_parameters": 10808842
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 11,
+            "num_outputs": 10
+        },
+        "n_parameters": 11862282
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 12,
+            "num_outputs": 10
+        },
+        "n_parameters": 12915722
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 13,
+            "num_outputs": 10
+        },
+        "n_parameters": 13969162
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 14,
+            "num_outputs": 10
+        },
+        "n_parameters": 15022602
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 15,
+            "num_outputs": 10
+        },
+        "n_parameters": 16076042
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 16,
+            "num_outputs": 10
+        },
+        "n_parameters": 17129482
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 17,
+            "num_outputs": 10
+        },
+        "n_parameters": 18182922
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 18,
+            "num_outputs": 10
+        },
+        "n_parameters": 19236362
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 19,
+            "num_outputs": 10
+        },
+        "n_parameters": 20289802
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 20,
+            "num_outputs": 10
+        },
+        "n_parameters": 21343242
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 21,
+            "num_outputs": 10
+        },
+        "n_parameters": 22396682
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 22,
+            "num_outputs": 10
+        },
+        "n_parameters": 23450122
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 23,
+            "num_outputs": 10
+        },
+        "n_parameters": 24503562
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 24,
+            "num_outputs": 10
+        },
+        "n_parameters": 25557002
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 25,
+            "num_outputs": 10
+        },
+        "n_parameters": 26610442
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 26,
+            "num_outputs": 10
+        },
+        "n_parameters": 27663882
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 27,
+            "num_outputs": 10
+        },
+        "n_parameters": 28717322
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 28,
+            "num_outputs": 10
+        },
+        "n_parameters": 29770762
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 29,
+            "num_outputs": 10
+        },
+        "n_parameters": 30824202
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 30,
+            "num_outputs": 10
+        },
+        "n_parameters": 31877642
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 31,
+            "num_outputs": 10
+        },
+        "n_parameters": 32931082
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 256,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 32,
+            "num_outputs": 10
+        },
+        "n_parameters": 33984522
+    }
+]

@@ -1,0 +1,181 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split, StratifiedKFold
+
+
+def create_log_bins(
+        df: pd.DataFrame,
+        flops_col: str,
+        num_bins: int = 6,
+):
+    x = df[flops_col].values
+    log_x = np.log10(x)
+
+    bins = np.quantile(log_x, np.linspace(0, 1, num_bins + 1))
+
+    def print_bin_boundaries(bins):
+        print("\nBin boundaries:")
+
+        for i in range(len(bins) - 1):
+            low_log = bins[i]
+            high_log = bins[i + 1]
+
+            low = 10 ** low_log
+            high = 10 ** high_log
+
+            print(
+                f"bin_{i}: "
+                f"log10 [{low_log:.2f}, {high_log:.2f}]  |  "
+                f"FLOPs [{low:.2e}, {high:.2e}]"
+            )
+
+    print_bin_boundaries(bins)
+    labels = [f"bin_{i}" for i in range(num_bins)]
+
+    df = df.copy()
+    df["flops_bin"] = pd.cut(
+        log_x,
+        bins=bins,
+        labels=labels,
+        include_lowest=True,
+    )
+
+    return df, bins, labels
+
+
+def print_bin_counts(df: pd.DataFrame, col: str = "flops_bin") -> None:
+    counts = df[col].value_counts().sort_index()
+    print("\nCounts per bin:")
+    print(counts)
+
+
+def plot_gflops_distribution(df, flops_col, bins):
+    x = df[flops_col]
+
+    plt.figure(figsize=(8, 2))
+    plt.scatter(x, [0] * len(x), alpha=0.6)
+
+    for b in 10 ** bins:
+        plt.axvline(b, linestyle="--")
+
+    plt.xscale("log")
+    plt.yticks([])
+    plt.xlabel("FLOPs")
+    plt.title("Log10-spaced bins")
+    plt.show()
+
+
+def prepare_splits(
+        df: pd.DataFrame,
+        flops_col: str,
+        test_size: float = 0.2,
+        random_state: int = 42,
+):
+    df, bins, labels = create_log_bins(df, flops_col=flops_col)
+
+    save_bin_boundaries(bins)
+    print_bin_counts(df)
+    plot_gflops_distribution(df, flops_col=flops_col, bins=bins)
+
+    train_df, test_df = train_test_split(
+        df,
+        test_size=test_size,
+        random_state=random_state,
+        stratify=df["flops_bin"],
+        shuffle=True,
+    )
+
+    print("\n--- Train split ---")
+    print_bin_counts(train_df)
+
+    print("\n--- Test split ---")
+    print_bin_counts(test_df)
+
+    return train_df, test_df
+
+
+def save_bin_boundaries(bins, filepath="performance_surrogate/splits/bin_boundaries.txt"):
+    with open(filepath, "w") as f:
+        f.write("Bin boundaries:\n\n")
+
+        for i in range(len(bins) - 1):
+            low_log = bins[i]
+            high_log = bins[i + 1]
+
+            low = 10 ** low_log
+            high = 10 ** high_log
+
+            line = (
+                f"bin_{i}: "
+                f"log10 [{low_log:.2f}, {high_log:.2f}]  |  "
+                f"FLOPs [{low:.2e}, {high:.2e}]\n"
+            )
+
+            f.write(line)
+
+
+def prepare_splits(
+        df: pd.DataFrame,
+        flops_col: str,
+        num_bins: int = 6,
+        num_folds: int = 5,
+        random_state: int = 42,
+):
+    df, bins, labels = create_log_bins(
+        df=df,
+        flops_col=flops_col,
+        num_bins=num_bins,
+    )
+
+    save_bin_boundaries(bins)
+    print_bin_counts(df)
+    plot_gflops_distribution(
+        df=df,
+        flops_col=flops_col,
+        bins=bins,
+    )
+
+    skf = StratifiedKFold(
+        n_splits=num_folds,
+        shuffle=True,
+        random_state=random_state,
+    )
+
+    folds = []
+
+    for fold_idx, (train_idx, test_idx) in enumerate(
+            skf.split(df, df["flops_bin"]),
+            start=1,
+    ):
+        train_df = df.iloc[train_idx].copy()
+        test_df = df.iloc[test_idx].copy()
+
+        print(f"\n--- Fold {fold_idx} Train split ---")
+        print_bin_counts(train_df)
+
+        print(f"\n--- Fold {fold_idx} Test split ---")
+        print_bin_counts(test_df)
+
+        train_output_csv = f"performance_surrogate/splits/train_fold_{fold_idx}.csv"
+        test_output_csv = f"performance_surrogate/splits/test_fold_{fold_idx}.csv"
+
+        train_df.to_csv(train_output_csv, index=False)
+        test_df.to_csv(test_output_csv, index=False)
+
+        folds.append((train_df, test_df))
+
+    return folds
+
+
+if __name__ == "__main__":
+    df = pd.read_csv("data.csv")
+    flops_col = "total_flops"
+
+    folds = prepare_splits(
+        df=df,
+        flops_col=flops_col,
+        num_bins=6,
+        num_folds=5,
+        random_state=42,
+    )

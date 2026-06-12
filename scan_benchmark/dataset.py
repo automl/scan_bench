@@ -1,6 +1,7 @@
+from abc import ABC, abstractmethod
+
 import numpy as np
 import pandas as pd
-from abc import ABC, abstractmethod
 
 
 class BaseSurrogateDataset(ABC):
@@ -9,13 +10,13 @@ class BaseSurrogateDataset(ABC):
     DEFAULT_LOG_COLUMNS = []
 
     def __init__(
-        self,
-        train_csv_path: str,
-        test_csv_path: str,
-        features: list[str] | None = None,
-        targets: list[str] | None = None,
-        seed: int = 42,
-        apply_log_transform: bool = True,
+            self,
+            train_csv_path: str,
+            test_csv_path: str | None = None,
+            features: list[str] | None = None,
+            targets: list[str] | None = None,
+            seed: int = 42,
+            apply_log_transform: bool = True,
     ):
         self.features = features if features is not None else self.DEFAULT_FEATURES
         self.targets = targets if targets is not None else self.DEFAULT_TARGETS
@@ -23,7 +24,8 @@ class BaseSurrogateDataset(ABC):
         self.apply_log_transform = apply_log_transform
 
         self.train_df = pd.read_csv(train_csv_path)
-        self.test_df = pd.read_csv(test_csv_path)
+        self.test_df = pd.read_csv(test_csv_path) if test_csv_path is not None else pd.DataFrame(
+            columns=self.DEFAULT_FEATURES)
 
         self.train_df = self._prepare_train_df(self.train_df)
         self.test_df = self._prepare_test_df(self.test_df)
@@ -58,9 +60,16 @@ class BaseSurrogateDataset(ABC):
         return X_train, y_train
 
     def get_all_data(self):
-        all_df = pd.concat([self.train_df, self.test_df], axis=0, ignore_index=True)
+        dfs = [self.train_df]
+
+        if not self.test_df.empty:
+            dfs.append(self.test_df)
+
+        all_df = pd.concat(dfs, axis=0, ignore_index=True)
+
         X_all = all_df[self.features].to_numpy()
         y_all = all_df[self.targets].to_numpy()
+
         return X_all, y_all
 
     @abstractmethod
