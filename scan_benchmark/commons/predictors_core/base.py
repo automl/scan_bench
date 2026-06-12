@@ -70,17 +70,17 @@ class MultiLabelSurrogateModel:
                     with open(by_bin_file_path, "w") as f:
                         json.dump(by_bin_results, f, indent=4)
 
-                full_results_path = out_path / "full_pred.json"
+                    full_results_path = out_path / "full_pred.json"
 
-                full_pred_json = {
-                    k: v.tolist() if isinstance(v, np.ndarray) else v
-                    for k, v in full_pred.items()
-                }
+                    full_pred_json = {
+                        k: v.tolist() if isinstance(v, np.ndarray) else v
+                        for k, v in full_pred.items()
+                    }
 
-                full_pred_json["y_true"] = y_test[:, i].tolist()
+                    full_pred_json["y_true"] = y_test[:, i].tolist()
 
-                with open(full_results_path, "w") as f:
-                    json.dump(full_pred_json, f, indent=4)
+                    with open(full_results_path, "w") as f:
+                        json.dump(full_pred_json, f, indent=4)
 
             with open(overall_file_path, "w") as f:
                 json.dump(overall_results, f, indent=4)

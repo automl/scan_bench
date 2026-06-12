@@ -26,4 +26,5 @@ if __name__ == "__main__":
         args=args,
         dataset_cls=VLMSurrogateDataset,
         supports_intermediate_points=True,
+        model_family="vlm",
     )

@@ -43,7 +43,7 @@ def build_out_path(args):
     return path
 
 
-def build_final_model_out_path(args):
+def build_final_model_out_path(args, model_family):
     if args.model == "ensemble":
         model_name = f"ensemble_{args.ensemble_type}"
     else:
@@ -55,7 +55,7 @@ def build_final_model_out_path(args):
                                                                   False) else "pred_no_intermediate"
 
     path = (
-            Path("scan_benchmark/vlm/performance_surrogate/saved_models")
+            Path("scan_benchmark") / model_family / "performance_surrogate" / "saved_models"
             / "predictors"
             / model_name
             / f"seed_{args.seed}"
@@ -114,7 +114,7 @@ def build_dataset_kwargs(args, supports_intermediate_points: bool):
     return kwargs
 
 
-def run_benchmark(args, dataset_cls, supports_intermediate_points: bool = False):
+def run_benchmark(args, dataset_cls, supports_intermediate_points: bool = False, model_family="vlm"):
     set_seed(args.seed)
 
     out_path = build_out_path(args) if args.out_dir is None else Path(args.out_dir)
@@ -123,7 +123,7 @@ def run_benchmark(args, dataset_cls, supports_intermediate_points: bool = False)
         return
     out_path.mkdir(parents=True, exist_ok=True)
 
-    final_model_out_path = build_final_model_out_path(args)
+    final_model_out_path = build_final_model_out_path(args, model_family)
     final_model_out_path.mkdir(parents=True, exist_ok=True)
 
     dataset_kwargs = build_dataset_kwargs(args, supports_intermediate_points)
