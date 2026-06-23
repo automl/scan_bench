@@ -93,7 +93,6 @@ class MultiLabelSurrogateModel:
             self.fit_and_save_model(model, X_all, y_all[:, i], final_model_out_path, safe_label)
 
     def fit_and_save_model(self, model, X, y, final_model_out_path, safe_label):
-
         if isinstance(model, BaggingEnsemble):
             if final_model_out_path.exists() and any(final_model_out_path.iterdir()):
                 print(f"Skipping final model save, it already exists: {final_model_out_path}")

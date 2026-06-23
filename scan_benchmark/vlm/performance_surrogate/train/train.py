@@ -12,8 +12,8 @@ def parse_args():
     args = p.parse_args()
 
     defaults = {
-        "train_csv": "scan_benchmark/vlm/performance_surrogate/splits/train.csv",
-        "test_csv": "scan_benchmark/vlm/performance_surrogate/splits/test.csv",
+        "train_csv": "scan_benchmark/vlm/performance_surrogate/splits/train_fold_1.csv",
+        "test_csv": "scan_benchmark/vlm/performance_surrogate/splits/test_fold_1.csv",
         "labels": ["val_loss"],
     }
 

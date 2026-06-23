@@ -56,8 +56,8 @@ def main():
 
     args = parser.parse_args()
 
-    train_df = pd.read_csv("../../vlm/performance_surrogate/splits/train.csv")
-    test_df = pd.read_csv("../../vlm/performance_surrogate/splits/test.csv")
+    train_df = pd.read_csv("../../vlm/performance_surrogate/splits/train_fold_1.csv")
+    test_df = pd.read_csv("../../vlm/performance_surrogate/splits/test_fold_1.csv")
 
     df = pd.concat([train_df, test_df], ignore_index=True)
 

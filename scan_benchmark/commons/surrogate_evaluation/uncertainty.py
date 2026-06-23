@@ -149,19 +149,90 @@ def check_uncertainty_calibration(json_path):
 
 
 if __name__ == "__main__":
-    json_path = "../../vlm/performance_surrogate/results/predictors/tabpfn/seed_42/fit_no_intermediate/pred_no_intermediate/full_pred.json"
-    test_csv_path = "../../vlm/performance_surrogate/splits/test.csv"
-    compute_spearman_uncertainty_error(json_path)
-    plot_uncertainty_error_flops(
-        json_path,
-        test_csv_path,
-        x_axis="uncertainty",
-        color_by="flops",
+    num_folds = 5
+
+    json_template = (
+        "../../vlm/performance_surrogate/results/predictors/"
+        "tabpfn/seed_42/fold_{fold}/full_pred.json"
     )
-    plot_uncertainty_error_flops(
-        json_path,
-        test_csv_path,
-        x_axis="flops",
-        color_by="uncertainty",
+
+    test_csv_template = (
+        "../../vlm/performance_surrogate/splits/"
+        "fold_{fold}/test.csv"
     )
-    check_uncertainty_calibration(json_path)
+
+    rhos = []
+    calibration_dfs = []
+
+    all_uncertainty = []
+    all_errors = []
+    all_flops = []
+
+    for fold in range(num_folds):
+        print(f"\nFold {fold}")
+
+        json_path = json_template.format(fold=fold)
+        test_csv_path = test_csv_template.format(fold=fold)
+
+        rho, _ = compute_spearman_uncertainty_error(json_path)
+        rhos.append(rho)
+
+        calibration_df = check_uncertainty_calibration(json_path)
+        calibration_df["fold"] = fold
+        calibration_dfs.append(calibration_df)
+
+        uncertainty, errors = load_uncertainty_data(json_path)
+
+        test_df = pd.read_csv(test_csv_path)
+        test_df = keep_only_nonfailed_last_epoch(test_df)
+
+        all_uncertainty.append(uncertainty)
+        all_errors.append(errors)
+        all_flops.append(test_df["Total compute(GLOPs)"].to_numpy())
+
+    print(
+        f"\nSpearman rho: "
+        f"{np.mean(rhos):.4f} ± {np.std(rhos, ddof=1):.4f}"
+    )
+
+    calibration_df = pd.concat(calibration_dfs)
+
+    calibration_summary = (
+        calibration_df
+        .groupby(["interval", "expected_coverage"])
+        ["observed_coverage"]
+        .agg(["mean", "std"])
+    )
+
+    print("\nCalibration across folds:")
+    print(calibration_summary)
+
+    pooled_uncertainty = np.concatenate(all_uncertainty)
+    pooled_errors = np.concatenate(all_errors)
+    pooled_flops = np.concatenate(all_flops)
+
+    pooled_rho, pooled_p = spearmanr(
+        pooled_uncertainty,
+        pooled_errors,
+    )
+
+    print(f"\nPooled Spearman rho: {pooled_rho:.4f}")
+    print(f"Pooled p value: {pooled_p:.4e}")
+
+    plt.figure(figsize=(8, 6))
+    scatter = plt.scatter(
+        pooled_uncertainty,
+        pooled_errors,
+        c=np.log10(pooled_flops),
+        cmap="viridis",
+        alpha=0.7,
+        s=20,
+    )
+
+    plt.colorbar(scatter, label="log10(GFLOPs)")
+    plt.xscale("log")
+    plt.xlabel("Uncertainty width (P90 to P10)")
+    plt.ylabel("Absolute prediction error")
+    plt.grid(True, which="both", alpha=0.4)
+    plt.tight_layout()
+    plt.show()

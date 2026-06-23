@@ -21,7 +21,7 @@ class VLMSurrogateDataset(BaseSurrogateDataset):
     def __init__(
             self,
             train_csv_path: str,
-            test_csv_path: str,
+            test_csv_path: str | None = None,
             features: list[str] | None = None,
             targets: list[str] | None = None,
             seed: int = 42,
@@ -32,6 +32,8 @@ class VLMSurrogateDataset(BaseSurrogateDataset):
             epochs_col: str = "total_epochs",
             apply_log_transform: bool = True,
     ):
+        self.train_csv_path = train_csv_path
+        self.test_csv_path = test_csv_path
         self.config_id_col = config_id_col
         self.include_intermediate_points = include_intermediate_points
         self.eval_on_intermediate_points = eval_on_intermediate_points
@@ -59,6 +61,8 @@ class VLMSurrogateDataset(BaseSurrogateDataset):
         )
 
     def _prepare_test_df(self, df: pd.DataFrame) -> pd.DataFrame:
+        if self.test_csv_path is None:
+            return df
         return self._filter_intermediate_points(
             df,
             keep_intermediate=self.eval_on_intermediate_points,
@@ -88,3 +92,6 @@ class VLMSurrogateDataset(BaseSurrogateDataset):
 
     def _get_size_base(self) -> int:
         return len(self._configs)
+
+    def _get_test_bins(self):
+        return self.test_df["flops_bin"].to_numpy()
