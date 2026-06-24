@@ -19,7 +19,7 @@ METRIC_MAP = {
     "gtsrb": "acc1",
     "imagenet1k": "acc1",
     "imagenet_sketch": "acc1",
-    "imagenetv2": "acc1",
+    # "imagenetv2": "acc1",
     "imagenet-a": "acc1",
     "imagenet-o": "acc1",
     "imagenet-r": "acc1",

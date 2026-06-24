@@ -152,14 +152,11 @@ if __name__ == "__main__":
     num_folds = 5
 
     json_template = (
-        "../../vlm/performance_surrogate/results/predictors/"
-        "tabpfn/seed_42/fold_{fold}/full_pred.json"
+        "../../vlm/performance_surrogate/results/"
+        "tabpfn/seed=42/fit_with_intermediate/pred_with_intermediate/fold_{fold}/full_pred.json"
     )
 
-    test_csv_template = (
-        "../../vlm/performance_surrogate/splits/"
-        "fold_{fold}/test.csv"
-    )
+    test_csv_template = ("../../vlm/performance_surrogate/splits/test_fold_{fold}.csv")
 
     rhos = []
     calibration_dfs = []
@@ -168,7 +165,7 @@ if __name__ == "__main__":
     all_errors = []
     all_flops = []
 
-    for fold in range(num_folds):
+    for fold in range(1, num_folds):
         print(f"\nFold {fold}")
 
         json_path = json_template.format(fold=fold)
@@ -184,7 +181,7 @@ if __name__ == "__main__":
         uncertainty, errors = load_uncertainty_data(json_path)
 
         test_df = pd.read_csv(test_csv_path)
-        test_df = keep_only_nonfailed_last_epoch(test_df)
+        # test_df = keep_only_nonfailed_last_epoch(test_df)
 
         all_uncertainty.append(uncertainty)
         all_errors.append(errors)
@@ -210,14 +207,6 @@ if __name__ == "__main__":
     pooled_uncertainty = np.concatenate(all_uncertainty)
     pooled_errors = np.concatenate(all_errors)
     pooled_flops = np.concatenate(all_flops)
-
-    pooled_rho, pooled_p = spearmanr(
-        pooled_uncertainty,
-        pooled_errors,
-    )
-
-    print(f"\nPooled Spearman rho: {pooled_rho:.4f}")
-    print(f"Pooled p value: {pooled_p:.4e}")
 
     plt.figure(figsize=(8, 6))
     scatter = plt.scatter(
