@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -59,11 +60,15 @@ class BaseSurrogateDataset(ABC):
         y_train = self.train_df[self.targets].to_numpy()
         return X_train, y_train
 
-    def get_all_data(self):
+    def get_all_data(self, additional_csv_path: str | Path | None = None):
         dfs = [self.train_df]
 
-        if not self.test_df.empty:
+        if self.test_df is not None and not self.test_df.empty:
             dfs.append(self.test_df)
+
+        if additional_csv_path is not None:
+            additional_df = pd.read_csv(additional_csv_path)
+            dfs.append(additional_df)
 
         all_df = pd.concat(dfs, axis=0, ignore_index=True)
 

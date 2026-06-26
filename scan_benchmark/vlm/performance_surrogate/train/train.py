@@ -8,6 +8,7 @@ def parse_args():
 
     p.add_argument("--include_intermediate_points", action="store_true")
     p.add_argument("--eval_on_intermediate_points", action="store_true")
+    p.add_argument("--additional_runs_path", action="store_true")
 
     args = p.parse_args()
 
@@ -15,6 +16,7 @@ def parse_args():
         "train_csv": "scan_benchmark/vlm/performance_surrogate/splits/train_fold_1.csv",
         "test_csv": "scan_benchmark/vlm/performance_surrogate/splits/test_fold_1.csv",
         "labels": ["val_loss"],
+        "additional_runs_path": "scan_benchmark/vlm/large_runs.csv",
     }
 
     return finalize_args(args, defaults)

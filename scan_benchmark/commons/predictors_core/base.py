@@ -23,7 +23,8 @@ class MultiLabelSurrogateModel:
         }
         self.is_fitted = False
 
-    def validate(self, dataset: BaseSurrogateDataset, sizes, out_path: Path, final_model_out_path: Path):
+    def validate(self, dataset: BaseSurrogateDataset, sizes, out_path: Path, final_model_out_path: Path,
+                 additional_runs_path: Path = None):
         X_test, y_test = dataset.get_test_data()
         test_bins = dataset._get_test_bins()
         has_bins = test_bins is not None
@@ -46,6 +47,8 @@ class MultiLabelSurrogateModel:
             overall_results = {}
 
             for n_cfg in sizes:
+                if n_cfg < max_n_cfg:
+                    continue
                 print(f"[{label}] Training with n_cfg={n_cfg}")
 
                 X_sub, y_sub = dataset.get_train_subset(n_cfg)
@@ -88,7 +91,7 @@ class MultiLabelSurrogateModel:
 
                     top_performing_per_bin_path = out_path / f"{safe_label}_top_performing_per_bin.json"
                     with open(top_performing_per_bin_path, "w") as f:
-                            json.dump(by_bin_results_top_performing, f, indent=4)
+                        json.dump(by_bin_results_top_performing, f, indent=4)
 
                     with open(by_bin_file_path, "w") as f:
                         json.dump(by_bin_results, f, indent=4)
@@ -109,7 +112,7 @@ class MultiLabelSurrogateModel:
                 json.dump(overall_results, f, indent=4)
 
             # for final model
-            X_all, y_all = dataset.get_all_data()
+            X_all, y_all = dataset.get_all_data(additional_csv_path=additional_runs_path)
             print(f"{label} - Final training on all available data")
             print("Total checkpoints used:", len(X_all))
 

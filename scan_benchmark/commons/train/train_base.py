@@ -134,6 +134,6 @@ def run_benchmark(args, dataset_cls, supports_intermediate_points: bool = False,
         sizes = [sizes[-1]]
 
     model = build_model(args, dataset, final_model_out_path)
-    results = model.validate(dataset, sizes, out_path, final_model_out_path)
+    results = model.validate(dataset, sizes, out_path, final_model_out_path, args.additional_runs_path)
 
     return results

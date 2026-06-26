@@ -122,7 +122,6 @@ class VLMTarget(str, Enum):
     GTSRB = "gtsrb_acc1"
     IMAGENET1K = "imagenet1k_acc1"
     IMAGENET_SKETCH = "imagenet_sketch_acc1"
-    IMAGENETV2 = "imagenetv2_acc1"
     IMAGENET_A = "imagenet-a_acc1"
     IMAGENET_O = "imagenet-o_acc1"
     IMAGENET_R = "imagenet-r_acc1"

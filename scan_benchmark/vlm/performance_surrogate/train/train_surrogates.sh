@@ -8,10 +8,11 @@ DEVICE="cuda"
 
 SPLITS_DIR="scan_benchmark/vlm/performance_surrogate/splits"
 RESULTS_DIR="scan_benchmark/vlm/performance_surrogate/results"
+ADDITIONAL_RUNS_PATH="scan_benchmark/vlm/large_runs.csv"
 
 EXPERIMENTS=(
-    "fit_no_intermediate pred_no_intermediate"
-    "fit_with_intermediate pred_no_intermediate"
+#    "fit_no_intermediate pred_no_intermediate"
+#    "fit_with_intermediate pred_no_intermediate"
     "fit_with_intermediate pred_with_intermediate"
 )
 
@@ -51,6 +52,7 @@ for SEED in "${SEEDS[@]}"; do
                         --out_dir "$OUT_DIR"
                         --train_csv "${SPLITS_DIR}/train_fold_${FOLD_ID}.csv"
                         --test_csv "${SPLITS_DIR}/test_fold_${FOLD_ID}.csv"
+                        --additional_runs_path "${ADDITIONAL_RUNS_PATH}"
                     )
 
                     if [[ "$MODEL" == "ensemble" ]]; then
@@ -98,6 +100,7 @@ for SEED in "${SEEDS[@]}"; do
             --test_csv "${SPLITS_DIR}/test_fold_${FOLD_ID}.csv"
             --include_intermediate_points
             --eval_on_intermediate_points
+            --additional_runs_path "${ADDITIONAL_RUNS_PATH}"
         )
 
         echo "Running: ${CMD[*]}"
