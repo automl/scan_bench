@@ -95,3 +95,35 @@ class VLMSurrogateDataset(BaseSurrogateDataset):
 
     def _get_test_bins(self):
         return self.test_df["flops_bin"].to_numpy()
+
+    def _get_top_performing_configs_per_bin(
+            self,
+            top_fraction: float = 0.1,
+    ):
+        df = self.test_df.copy()
+
+        last_epoch_df = (
+            df.sort_values("epoch")
+            .groupby("config_id")
+            .tail(1)
+        )
+
+        top_configs = (
+            last_epoch_df
+            .groupby("flops_bin", group_keys=False)
+            .apply(
+                lambda x: x.sort_values("val_loss").head(
+                    max(1, int(np.ceil(len(x) * top_fraction)))
+                )
+            )[["config_id"]]
+            .reset_index(drop=True)
+        )
+
+        filtered_df = df[
+            df["config_id"].isin(top_configs["config_id"])
+        ]
+
+        X_test = filtered_df[self.features].to_numpy()
+        y_test = filtered_df[self.targets].to_numpy()
+
+        return X_test, y_test, filtered_df["flops_bin"].to_numpy()

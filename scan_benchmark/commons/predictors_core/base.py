@@ -51,11 +51,9 @@ class MultiLabelSurrogateModel:
                 X_sub, y_sub = dataset.get_train_subset(n_cfg)
 
                 model.fit(X_sub, y_sub[:, i])
+                full_pred, overall_metrics = self._predict_with_uncertainty(model, X_test, y_test, i)
 
-                full_pred = model.predict_with_uncertainty(X_test)
                 y_pred = full_pred["mean"]
-
-                overall_metrics = compute_regression_metrics(y_test[:, i], y_pred)
                 overall_results[int(n_cfg)] = overall_metrics
 
                 if has_bins and n_cfg == max_n_cfg:
@@ -67,6 +65,31 @@ class MultiLabelSurrogateModel:
                             groups=test_bins,
                         ),
                     }
+
+                    X_test_top_performing_per_bin, y_test_top_performing_per_bin, top_performing_bins = dataset._get_top_performing_configs_per_bin()
+                    full_pred_top_performing, overall_metrics_top_performing = self._predict_with_uncertainty(model,
+                                                                                                              X_test_top_performing_per_bin,
+                                                                                                              y_test_top_performing_per_bin,
+                                                                                                              i)
+                    y_pred_top_performing = full_pred_top_performing["mean"]
+
+                    by_bin_results_top_performing = {
+                        "n_cfg": int(n_cfg),
+                        "metrics_by_bin": self.compute_metrics_by_group(
+                            y_true=y_test_top_performing_per_bin[:, i],
+                            y_pred=y_pred_top_performing,
+                            groups=top_performing_bins,
+                        ),
+                    }
+
+                    top_performing_path = out_path / f"{safe_label}_top_performing.json"
+                    with open(top_performing_path, "w") as f:
+                        json.dump(overall_metrics_top_performing, f, indent=4)
+
+                    top_performing_per_bin_path = out_path / f"{safe_label}_top_performing_per_bin.json"
+                    with open(top_performing_per_bin_path, "w") as f:
+                            json.dump(by_bin_results_top_performing, f, indent=4)
+
                     with open(by_bin_file_path, "w") as f:
                         json.dump(by_bin_results, f, indent=4)
 
@@ -124,6 +147,15 @@ class MultiLabelSurrogateModel:
             results[str(group)] = metrics
 
         return results
+
+    def _predict_with_uncertainty(
+            self, model, X_test, y_test, index
+    ):
+        full_pred = model.predict_with_uncertainty(X_test)
+        y_pred = full_pred["mean"]
+
+        overall_metrics = compute_regression_metrics(y_test[:, index], y_pred)
+        return full_pred, overall_metrics
 
     def fit(self, X: np.ndarray, y: np.ndarray):
         X = np.asarray(X)

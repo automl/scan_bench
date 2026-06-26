@@ -99,3 +99,7 @@ class BaseSurrogateDataset(ABC):
     @abstractmethod
     def _get_size_base(self) -> int:
         pass
+
+    @abstractmethod
+    def _get_top_performing_configs_per_bin(self, top_fraction: int = 0.1) -> pd.DataFrame:
+        pass

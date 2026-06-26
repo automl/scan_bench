@@ -52,7 +52,7 @@ def plot_learning_curves(df: pd.DataFrame, metric="rmse"):
     )
 
     groups = list(summary.groupby("model"))
-    colors = plt.get_cmap("Accent").colors
+    colors = plt.get_cmap("Dark2").colors
 
     plt.figure(figsize=(10, 6))
 
