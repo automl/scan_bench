@@ -138,7 +138,8 @@ class VLMBenchmark(BasePerformanceBenchmark):
 
 # simple example on how to use the surrogate
 if __name__ == "__main__":
-    vlm_bench = VLMBenchmark(predictor_type=PerformancePredictorType.TABPFN, device="auto")
+    vlm_bench = VLMBenchmark(targets=[VLMTarget.VAL_LOSS], predictor_type=PerformancePredictorType.ENSEMBLE_XGB,
+                             device="auto")
 
     config = VLMConfig(
         lr=1e-4,
@@ -154,15 +155,15 @@ if __name__ == "__main__":
     )
 
     config2 = VLMConfig(
-        lr=0.003,
+        lr=0.0003,
         wd=0.01,
         beta1=0.9,
         beta2=0.98,
         warmup_fraction=0.05,
         eps=1e-8,
-        vision_width=32,
-        text_width=32,
-        total_samples_planned=600_000,
+        vision_width=1024,
+        text_width=768,
+        total_samples_planned=200_000_000,
         training_progress=1.0
     )
 

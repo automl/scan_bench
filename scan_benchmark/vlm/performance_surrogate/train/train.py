@@ -8,7 +8,12 @@ def parse_args():
 
     p.add_argument("--include_intermediate_points", action="store_true")
     p.add_argument("--eval_on_intermediate_points", action="store_true")
-    p.add_argument("--additional_runs_path", action="store_true")
+    p.add_argument(
+        "--additional_runs_path",
+        type=str,
+        default=None,
+        help="Path to a CSV containing additional training runs.",
+    )
 
     args = p.parse_args()
 
