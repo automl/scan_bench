@@ -646,5 +646,325 @@
     "vision_params": 39626240,
     "text_params": 63362561,
     "text_params_non_emb": 38026240
+  },
+  "text_1024_vision_1024": {
+    "arch": "text_1024_vision_1024",
+    "flops_per_sample": 39076872192.0,
+    "params": 356972545,
+    "vision_params": 154749952,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_1024_vision_128": {
+    "arch": "text_1024_vision_128",
+    "flops_per_sample": 23835353088.0,
+    "params": 205051265,
+    "vision_params": 2828672,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_1024_vision_192": {
+    "arch": "text_1024_vision_192",
+    "flops_per_sample": 24157261824.0,
+    "params": 208235073,
+    "vision_params": 6012480,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_1024_vision_256": {
+    "arch": "text_1024_vision_256",
+    "flops_per_sample": 24597135360.0,
+    "params": 212598529,
+    "vision_params": 10375936,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_1024_vision_32": {
+    "arch": "text_1024_vision_32",
+    "flops_per_sample": 23573673984.0,
+    "params": 202487393,
+    "vision_params": 264800,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_1024_vision_320": {
+    "arch": "text_1024_vision_320",
+    "flops_per_sample": 25154973696.0,
+    "params": 218141633,
+    "vision_params": 15919040,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_1024_vision_384": {
+    "arch": "text_1024_vision_384",
+    "flops_per_sample": 25830776832.0,
+    "params": 224864385,
+    "vision_params": 22641792,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_1024_vision_448": {
+    "arch": "text_1024_vision_448",
+    "flops_per_sample": 26624544768.0,
+    "params": 232766785,
+    "vision_params": 30544192,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_1024_vision_512": {
+    "arch": "text_1024_vision_512",
+    "flops_per_sample": 27536277504.0,
+    "params": 241848833,
+    "vision_params": 39626240,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_1024_vision_64": {
+    "arch": "text_1024_vision_64",
+    "flops_per_sample": 23631409152.0,
+    "params": 203047105,
+    "vision_params": 824512,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_1024_vision_768": {
+    "arch": "text_1024_vision_768",
+    "flops_per_sample": 32362856448.0,
+    "params": 289973505,
+    "vision_params": 87750912,
+    "text_params": 202222593,
+    "text_params_non_emb": 151549952
+  },
+  "text_128_vision_1024": {
+    "arch": "text_128_vision_1024",
+    "flops_per_sample": 15931299840.0,
+    "params": 163512705,
+    "vision_params": 154749952,
+    "text_params": 8762753,
+    "text_params_non_emb": 2428672
+  },
+  "text_128_vision_768": {
+    "arch": "text_128_vision_768",
+    "flops_per_sample": 9217284096.0,
+    "params": 96513665,
+    "vision_params": 87750912,
+    "text_params": 8762753,
+    "text_params_non_emb": 2428672
+  },
+  "text_192_vision_1024": {
+    "arch": "text_192_vision_1024",
+    "flops_per_sample": 16403727360.0,
+    "params": 169663553,
+    "vision_params": 154749952,
+    "text_params": 14913601,
+    "text_params_non_emb": 5412480
+  },
+  "text_192_vision_768": {
+    "arch": "text_192_vision_768",
+    "flops_per_sample": 9689711616.0,
+    "params": 102664513,
+    "vision_params": 87750912,
+    "text_params": 14913601,
+    "text_params_non_emb": 5412480
+  },
+  "text_256_vision_1024": {
+    "arch": "text_256_vision_1024",
+    "flops_per_sample": 17057820672.0,
+    "params": 176994049,
+    "vision_params": 154749952,
+    "text_params": 22244097,
+    "text_params_non_emb": 9575936
+  },
+  "text_256_vision_768": {
+    "arch": "text_256_vision_768",
+    "flops_per_sample": 10343804928.0,
+    "params": 109995009,
+    "vision_params": 87750912,
+    "text_params": 22244097,
+    "text_params_non_emb": 9575936
+  },
+  "text_320_vision_1024": {
+    "arch": "text_320_vision_1024",
+    "flops_per_sample": 17893579776.0,
+    "params": 185504193,
+    "vision_params": 154749952,
+    "text_params": 30754241,
+    "text_params_non_emb": 14919040
+  },
+  "text_320_vision_768": {
+    "arch": "text_320_vision_768",
+    "flops_per_sample": 11179564032.0,
+    "params": 118505153,
+    "vision_params": 87750912,
+    "text_params": 30754241,
+    "text_params_non_emb": 14919040
+  },
+  "text_32_vision_1024": {
+    "arch": "text_32_vision_1024",
+    "flops_per_sample": 15563281920.0,
+    "params": 156498273,
+    "vision_params": 154749952,
+    "text_params": 1748321,
+    "text_params_non_emb": 164800
+  },
+  "text_32_vision_768": {
+    "arch": "text_32_vision_768",
+    "flops_per_sample": 8849266176.0,
+    "params": 89499233,
+    "vision_params": 87750912,
+    "text_params": 1748321,
+    "text_params_non_emb": 164800
+  },
+  "text_384_vision_1024": {
+    "arch": "text_384_vision_1024",
+    "flops_per_sample": 18911004672.0,
+    "params": 195193985,
+    "vision_params": 154749952,
+    "text_params": 40444033,
+    "text_params_non_emb": 21441792
+  },
+  "text_384_vision_768": {
+    "arch": "text_384_vision_768",
+    "flops_per_sample": 12196988928.0,
+    "params": 128194945,
+    "vision_params": 87750912,
+    "text_params": 40444033,
+    "text_params_non_emb": 21441792
+  },
+  "text_448_vision_1024": {
+    "arch": "text_448_vision_1024",
+    "flops_per_sample": 20110095360.0,
+    "params": 206063425,
+    "vision_params": 154749952,
+    "text_params": 51313473,
+    "text_params_non_emb": 29144192
+  },
+  "text_448_vision_768": {
+    "arch": "text_448_vision_768",
+    "flops_per_sample": 13396079616.0,
+    "params": 139064385,
+    "vision_params": 87750912,
+    "text_params": 51313473,
+    "text_params_non_emb": 29144192
+  },
+  "text_512_vision_1024": {
+    "arch": "text_512_vision_1024",
+    "flops_per_sample": 21490851840.0,
+    "params": 218112513,
+    "vision_params": 154749952,
+    "text_params": 63362561,
+    "text_params_non_emb": 38026240
+  },
+  "text_512_vision_768": {
+    "arch": "text_512_vision_768",
+    "flops_per_sample": 14776836096.0,
+    "params": 151113473,
+    "vision_params": 87750912,
+    "text_params": 63362561,
+    "text_params_non_emb": 38026240
+  },
+  "text_64_vision_1024": {
+    "arch": "text_64_vision_1024",
+    "flops_per_sample": 15640538112.0,
+    "params": 158541505,
+    "vision_params": 154749952,
+    "text_params": 3791553,
+    "text_params_non_emb": 624512
+  },
+  "text_64_vision_768": {
+    "arch": "text_64_vision_768",
+    "flops_per_sample": 8926522368.0,
+    "params": 91542465,
+    "vision_params": 87750912,
+    "text_params": 3791553,
+    "text_params_non_emb": 624512
+  },
+  "text_768_vision_1024": {
+    "arch": "text_768_vision_1024",
+    "flops_per_sample": 28830535680.0,
+    "params": 278105345,
+    "vision_params": 154749952,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
+  },
+  "text_768_vision_128": {
+    "arch": "text_768_vision_128",
+    "flops_per_sample": 13589016576.0,
+    "params": 126184065,
+    "vision_params": 2828672,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
+  },
+  "text_768_vision_192": {
+    "arch": "text_768_vision_192",
+    "flops_per_sample": 13910925312.0,
+    "params": 129367873,
+    "vision_params": 6012480,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
+  },
+  "text_768_vision_256": {
+    "arch": "text_768_vision_256",
+    "flops_per_sample": 14350798848.0,
+    "params": 133731329,
+    "vision_params": 10375936,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
+  },
+  "text_768_vision_32": {
+    "arch": "text_768_vision_32",
+    "flops_per_sample": 13327337472.0,
+    "params": 123620193,
+    "vision_params": 264800,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
+  },
+  "text_768_vision_320": {
+    "arch": "text_768_vision_320",
+    "flops_per_sample": 14908637184.0,
+    "params": 139274433,
+    "vision_params": 15919040,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
+  },
+  "text_768_vision_384": {
+    "arch": "text_768_vision_384",
+    "flops_per_sample": 15584440320.0,
+    "params": 145997185,
+    "vision_params": 22641792,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
+  },
+  "text_768_vision_448": {
+    "arch": "text_768_vision_448",
+    "flops_per_sample": 16378208256.0,
+    "params": 153899585,
+    "vision_params": 30544192,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
+  },
+  "text_768_vision_512": {
+    "arch": "text_768_vision_512",
+    "flops_per_sample": 17289940992.0,
+    "params": 162981633,
+    "vision_params": 39626240,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
+  },
+  "text_768_vision_64": {
+    "arch": "text_768_vision_64",
+    "flops_per_sample": 13385072640.0,
+    "params": 124179905,
+    "vision_params": 824512,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
+  },
+  "text_768_vision_768": {
+    "arch": "text_768_vision_768",
+    "flops_per_sample": 22116519936.0,
+    "params": 211106305,
+    "vision_params": 87750912,
+    "text_params": 123355393,
+    "text_params_non_emb": 85350912
   }
 }
