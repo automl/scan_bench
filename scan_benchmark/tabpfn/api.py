@@ -2,7 +2,7 @@ import json
 from importlib.resources import files
 from pprint import pprint
 
-from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark
+from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark, PerformancePredictorType
 from scan_benchmark.tabpfn.config import TabPFNConfig, TabPFNTarget
 from scan_benchmark.tabpfn.performance_surrogate.data import TabPFNSurrogateDataset
 
@@ -10,7 +10,8 @@ from scan_benchmark.tabpfn.performance_surrogate.data import TabPFNSurrogateData
 class TabPFNBenchmark(BasePerformanceBenchmark):
     TARGET_ENUM = TabPFNTarget
 
-    def __init__(self, targets=None, device="auto"):
+    def __init__(self, targets=None, predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
+                 device="auto"):
         targets = self._normalize_targets(targets)
 
         train_path = files("scan_benchmark.tabpfn").joinpath("data.csv")
@@ -20,7 +21,29 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
             targets=targets,
             seed=42,
         )
-        super().__init__(surrogate_dataset=dataset, device=device)
+
+        if predictor_type == PerformancePredictorType.AUTOGLUON:
+            saved_model_path = files("scan_benchmark.tabpfn.performance_surrogate").joinpath(
+                "saved_models",
+                "predictors",
+                predictor_type.value,
+                f"seed_42",
+                "auto"
+            )
+        else:
+            saved_model_path = files("scan_benchmark.tabpfn.performance_surrogate").joinpath(
+                "saved_models",
+                "predictors",
+                predictor_type.value,
+                f"seed_42",
+            )
+
+        super().__init__(
+            surrogate_dataset=dataset,
+            model_path=saved_model_path,
+            predictor_type=predictor_type,
+            device=device,
+        )
 
     def query(self, config: TabPFNConfig) -> dict:
         preds = self._predict_performance(config)
@@ -91,7 +114,8 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
 
 
 if __name__ == "__main__":
-    tabpfn_bench = TabPFNBenchmark()
+    tabpfn_bench = TabPFNBenchmark(targets=[TabPFNTarget.VAL_LOSS], predictor_type=PerformancePredictorType.ENSEMBLE_XGB,
+                             device="auto")
 
     config = TabPFNConfig(
         total_cells=1048576,
