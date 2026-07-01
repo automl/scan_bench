@@ -21,12 +21,14 @@ class BasePerformanceBenchmark:
     TARGET_ENUM = None
 
     def __init__(self, surrogate_dataset, model_path: Path = None,
-                 predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN, device="auto"):
+                 predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN, device="auto",
+                 additional_runs_path: Path = None):
         self.surrogate_dataset = surrogate_dataset
         self.targets = surrogate_dataset.targets
         self.predictor_type = predictor_type
         self.model_path = model_path
         self.performance_surrogate = self._build_performance_surrogate(predictor_type, device)
+        self.additional_runs_path = additional_runs_path
 
         self.config_feature_mapper = ConfigFeatureMapper(
             feature_order=self.surrogate_dataset.features,
@@ -50,16 +52,11 @@ class BasePerformanceBenchmark:
         safe_target = target.replace("/", "_")
         model_path = self.model_path / f"{safe_target}_models.joblib"
 
-        if not model_path.exists():
-            raise FileNotFoundError(
-                f"No trained model found under: {model_path}. Consider using TabPFN as a surrogate predictor."
-            )
-
         return model_path
 
     def _prepare_surrogate_for_target(self, target: str, target_idx: int):
         if self.predictor_type == PerformancePredictorType.TABPFN:
-            X_train, y_train = self.surrogate_dataset.get_all_data()
+            X_train, y_train = self.surrogate_dataset.get_all_data(additional_csv_path=self.additional_runs_path)
             self.performance_surrogate.fit(X_train, y_train[:, target_idx])
 
         elif self.predictor_type == PerformancePredictorType.AUTOGLUON:
@@ -73,7 +70,12 @@ class BasePerformanceBenchmark:
             self.performance_surrogate.load(model_path)
 
         else:
-            self.performance_surrogate.load(self._get_model_path(target))
+            surrogate_model_path = self._get_model_path(target)
+            if not surrogate_model_path.exists():
+                X_train, y_train = self.surrogate_dataset.get_all_data(additional_csv_path=self.additional_runs_path)
+                self.performance_surrogate.fit_and_save(X_train, y_train[:, target_idx], surrogate_model_path)
+
+            self.performance_surrogate.load(surrogate_model_path)
 
         return self.performance_surrogate
 

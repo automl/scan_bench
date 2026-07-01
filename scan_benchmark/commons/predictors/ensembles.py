@@ -114,3 +114,7 @@ class BaggingEnsemble(SurrogateModel):
 
     def load(self, path: Path):
         self.models = joblib.load(path)
+
+    def fit_and_save(self, X: np.ndarray, y: np.ndarray, path: Path):
+        self.fit(X, y)
+        self.save(path)

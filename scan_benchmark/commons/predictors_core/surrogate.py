@@ -19,6 +19,9 @@ class SurrogateModel:
     def save(self, path: Path):
         raise NotImplementedError
 
+    def fit_and_save(self, X: np.ndarray, y: np.ndarray, path: Path):
+        raise NotImplementedError
+
     def validate(self, dataset: BaseSurrogateDataset, sizes):
         X_test, y_test = dataset.get_test_data()
         results = {}

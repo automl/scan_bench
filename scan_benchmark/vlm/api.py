@@ -21,6 +21,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
 
         train_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/train_fold_1.csv")
         test_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/test_fold_1.csv")
+        additional_runs_path = files("scan_benchmark.vlm").joinpath("large_runs.csv")
 
         dataset = VLMSurrogateDataset(
             train_csv_path=str(train_path),
@@ -57,6 +58,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
             model_path=saved_model_path,
             predictor_type=predictor_type,
             device=device,
+            additional_runs_path=additional_runs_path
         )
 
         self.divergence_config_feature_mapper = ConfigFeatureMapper(
@@ -138,7 +140,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
 
 # simple example on how to use the surrogate
 if __name__ == "__main__":
-    vlm_bench = VLMBenchmark(targets=[VLMTarget.VAL_LOSS], predictor_type=PerformancePredictorType.TABPFN,
+    vlm_bench = VLMBenchmark(targets=[VLMTarget.TEST_LOSS], predictor_type=PerformancePredictorType.ENSEMBLE_LIGHTGBM,
                              device="auto")
 
     config = VLMConfig(
