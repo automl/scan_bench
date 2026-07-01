@@ -22,5 +22,5 @@ if __name__ == "__main__":
         args=args,
         dataset_cls=TabPFNSurrogateDataset,
         supports_intermediate_points=False,
-        model_family="tabpfn"
+        model_family=args.model_family,
     )

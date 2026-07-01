@@ -9,6 +9,15 @@ def get_base_parser():
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--labels", nargs="+", default=None)
     p.add_argument("--out_dir", type=str, default=None)
+    p.add_argument("--model_family", type=str, default="vlm",
+                   help="Model family for which the surrogate is being fitted: vlm, llm, or tabpfn")
+
+    p.add_argument(
+        "--additional_runs_path",
+        type=str,
+        default=None,
+        help="Path to a CSV containing additional training runs, which will be fitted to the final saved model.",
+    )
 
     p.add_argument(
         "--model",

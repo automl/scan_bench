@@ -6,14 +6,12 @@ SEEDS=(42)
 ENSEMBLE_TYPES=("xgb" "lightgbm" "mix")
 DEVICE="cuda"
 
+FIT_MODE="fit_with_intermediate"
+PRED_MODE="pred_with_intermediate"
+
 SPLITS_DIR="scan_benchmark/tabpfn/performance_surrogate/splits"
 RESULTS_DIR="scan_benchmark/tabpfn/performance_surrogate/results"
-
-EXPERIMENTS=(
-    "fit_no_intermediate pred_no_intermediate"
-    "fit_with_intermediate pred_no_intermediate"
-    "fit_with_intermediate pred_with_intermediate"
-)
+MODEL_FAMILY="tabpfn"
 
 FOLDS=(1 2 3 4 5)
 
@@ -35,14 +33,11 @@ for SEED in "${SEEDS[@]}"; do
                 MODEL_OUT_DIR="${RESULTS_DIR}/ensemble/${MODEL_VARIANT}"
             fi
 
-            for EXPERIMENT in "${EXPERIMENTS[@]}"; do
-                read -r FIT_MODE PRED_MODE <<< "$EXPERIMENT"
+              for FOLD_ID in "${FOLDS[@]}"; do
 
-                for FOLD_ID in "${FOLDS[@]}"; do
+                  OUT_DIR="${MODEL_OUT_DIR}/seed=${SEED}/${FIT_MODE}/${PRED_MODE}/fold_${FOLD_ID}"
 
-                    OUT_DIR="${MODEL_OUT_DIR}/seed=${SEED}/${FIT_MODE}/${PRED_MODE}/fold_${FOLD_ID}"
-
-                    CMD=(
+                  CMD=(
                         python -m "$SCRIPT"
                         --model "$MODEL"
                         --seed "$SEED"
@@ -50,25 +45,17 @@ for SEED in "${SEEDS[@]}"; do
                         --out_dir "$OUT_DIR"
                         --train_csv "${SPLITS_DIR}/train_fold_${FOLD_ID}.csv"
                         --test_csv "${SPLITS_DIR}/test_fold_${FOLD_ID}.csv"
+                        --model_family "${MODEL_FAMILY}"
                     )
 
-                    if [[ "$MODEL" == "ensemble" ]]; then
+                  if [[ "$MODEL" == "ensemble" ]]; then
                         CMD+=(--ensemble_type "$MODEL_VARIANT")
-                    fi
+                  fi
 
-                    if [[ "$FIT_MODE" == "fit_with_intermediate" ]]; then
-                        CMD+=(--include_intermediate_points)
-                    fi
+                  echo "Running: ${CMD[*]}"
+                  "${CMD[@]}"
 
-                    if [[ "$PRED_MODE" == "pred_with_intermediate" ]]; then
-                        CMD+=(--eval_on_intermediate_points)
-                    fi
-
-                    echo "Running: ${CMD[*]}"
-                    "${CMD[@]}"
-
-                done
-            done
+              done
         done
     done
 done
@@ -79,8 +66,6 @@ for SEED in "${SEEDS[@]}"; do
 
     MODEL_OUT_DIR="${RESULTS_DIR}/autogluon"
 
-    FIT_MODE="fit_with_intermediate"
-    PRED_MODE="pred_with_intermediate"
 
     for FOLD_ID in "${FOLDS[@]}"; do
 
@@ -94,8 +79,7 @@ for SEED in "${SEEDS[@]}"; do
             --out_dir "$OUT_DIR"
             --train_csv "${SPLITS_DIR}/train_fold_${FOLD_ID}.csv"
             --test_csv "${SPLITS_DIR}/test_fold_${FOLD_ID}.csv"
-            --include_intermediate_points
-            --eval_on_intermediate_points
+            --model_family "${MODEL_FAMILY}"
         )
 
         echo "Running: ${CMD[*]}"

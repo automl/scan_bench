@@ -175,7 +175,7 @@ if __name__ == "__main__":
     folds = prepare_splits(
         df=df,
         flops_col=flops_col,
-        num_bins=6,
+        num_bins=4,
         num_folds=5,
         random_state=42,
     )
