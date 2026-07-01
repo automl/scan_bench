@@ -140,7 +140,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
 
 # simple example on how to use the surrogate
 if __name__ == "__main__":
-    vlm_bench = VLMBenchmark(targets=[VLMTarget.TEST_LOSS], predictor_type=PerformancePredictorType.ENSEMBLE_LIGHTGBM,
+    vlm_bench = VLMBenchmark(targets=[VLMTarget.TEST_LOSS], predictor_type=PerformancePredictorType.AUTOGLUON,
                              device="auto")
 
     config = VLMConfig(

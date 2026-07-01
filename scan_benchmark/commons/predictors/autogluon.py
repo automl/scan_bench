@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 from autogluon.tabular import TabularPredictor
@@ -32,14 +34,14 @@ class AutoGluonModel(SurrogateModel):
         self.predictor = None
         self.fold = fold
 
-    def fit(self, X: np.ndarray, y: np.ndarray, final: bool = False):
+    def fit(self, X: np.ndarray, y: np.ndarray, path: Path = None, final: bool = False):
         X = np.asarray(X)
         y = np.asarray(y)
 
         train_df = pd.DataFrame(X)
         train_df[self.label] = y
-
-        path = f"{self.base_path}/{self.label}/fold_{self.fold}" if not final else f"{self.base_path}/{self.label}/final_run"
+        if path is None:
+            path = f"{self.base_path}/{self.label}/fold_{self.fold}" if not final else f"{self.base_path}/{self.label}/final_run"
 
         self.predictor = TabularPredictor(
             label=self.label,
@@ -98,3 +100,6 @@ class AutoGluonModel(SurrogateModel):
 
     def load(self, path: str):
         self.predictor = TabularPredictor.load(path)
+
+    def fit_and_save(self, X: np.ndarray, y: np.ndarray, path: Path):
+        self.fit(X, y, path)

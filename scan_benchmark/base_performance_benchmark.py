@@ -60,14 +60,15 @@ class BasePerformanceBenchmark:
             self.performance_surrogate.fit(X_train, y_train[:, target_idx])
 
         elif self.predictor_type == PerformancePredictorType.AUTOGLUON:
-            model_path = self.model_path / target / "final_run"
+            surrogate_model_path = self.model_path / target / "final_run"
 
-            if not model_path.exists():
-                raise FileNotFoundError(
-                    f"No trained model found under: {model_path}. Consider using TabPFN as a surrogate predictor."
-                )
+            if not surrogate_model_path.exists():
+                X_train, y_train = self.surrogate_dataset.get_all_data(additional_csv_path=self.additional_runs_path)
+                self.performance_surrogate.label = target
+                self.performance_surrogate.time_limit = 4 * 30 * 60
+                self.performance_surrogate.fit_and_save(X_train, y_train[:, target_idx], surrogate_model_path)
 
-            self.performance_surrogate.load(model_path)
+            self.performance_surrogate.load(surrogate_model_path)
 
         else:
             surrogate_model_path = self._get_model_path(target)
