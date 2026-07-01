@@ -16,4 +16,4 @@ if __name__ == "__main__":
     ensemble_model.validate(X_test, y_test)
 
     # used to store final model
-    # ensemble_model._BinaryBaggingEnsemble__fit(X_all, y_all, True)
+    ensemble_model._BinaryBaggingEnsemble__fit(X_all, y_all, True)

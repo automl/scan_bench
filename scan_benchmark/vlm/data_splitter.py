@@ -255,8 +255,6 @@ def combine_failure_split(
 
 def prepare_divergence_predictor_data(
         full_df: pd.DataFrame,
-        performance_train_df: pd.DataFrame,
-        performance_test_df: pd.DataFrame,
         feature_cols: list[str],
         train_output_csv: str,
         test_output_csv: str,
@@ -265,46 +263,22 @@ def prepare_divergence_predictor_data(
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     full_failure_df = build_full_failure_dataset(full_df, feature_cols)
 
-    train_failed_df, test_failed_df = split_failed_configs(
+    train_df, test_df = train_test_split(
         full_failure_df,
         test_size=test_size,
+        stratify=full_failure_df["failed"],
         random_state=random_state,
     )
 
-    train_nonfailed_df = build_nonfailed_failure_split(
-        performance_train_df,
-        feature_cols,
-    )
+    train_df.to_csv(train_output_csv, index=False)
+    test_df.to_csv(test_output_csv, index=False)
 
-    test_nonfailed_df = build_nonfailed_failure_split(
-        performance_test_df,
-        feature_cols,
-    )
-
-    failure_train_df = combine_failure_split(train_nonfailed_df, train_failed_df)
-    failure_test_df = combine_failure_split(test_nonfailed_df, test_failed_df)
-
-    print("\nFailure train shape:", failure_train_df.shape)
-    print("Failure test shape:", failure_test_df.shape)
-
-    print("\nFailure train class counts:")
-    print(failure_train_df["failed"].value_counts().sort_index())
-
-    print("\nFailure test class counts:")
-    print(failure_test_df["failed"].value_counts().sort_index())
-
-    failure_train_df.to_csv(train_output_csv, index=False)
-    failure_test_df.to_csv(test_output_csv, index=False)
-
-    return failure_train_df, failure_test_df
+    return train_df, test_df
 
 
 def main() -> None:
     full_csv = "data.csv"
     flops_col = "Total compute(GLOPs)"
-
-    performance_train_csv = "performance_surrogate/splits/train_fold_1.csv"
-    performance_test_csv = "performance_surrogate/splits/test_fold_1.csv"
 
     divergence_train_csv = "divergence_surrogate/splits/train.csv"
     divergence_test_csv = "divergence_surrogate/splits/test.csv"
@@ -321,13 +295,8 @@ def main() -> None:
         random_state=42,
     )
 
-    performance_train_df = pd.read_csv(performance_train_csv)
-    performance_test_df = pd.read_csv(performance_test_csv)
-
     prepare_divergence_predictor_data(
         full_df=full_df,
-        performance_train_df=performance_train_df,
-        performance_test_df=performance_test_df,
         feature_cols=FEATURE_COLS,
         train_output_csv=divergence_train_csv,
         test_output_csv=divergence_test_csv,
