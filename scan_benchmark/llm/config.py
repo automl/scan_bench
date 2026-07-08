@@ -44,17 +44,17 @@ class LLMConfig(BaseConfig):
 
 
     def __post_init__(self):
-        valid_d_model = [i * 64 for i in range(4, 19)]
-        valid_n_heads = [i * 2  for i in range(3, 13)]
+        valid_d_model = [i * 64 for i in range(4, 25)]
+        valid_n_heads = [i * 2  for i in range(3, 20)]
 
         bounds = {
             "lr":             (1.0e-5, 1.0e-2),
             "weight_decay":   (1.0e-3, 0.2),
-            "n_layers":       (4, 24),
+            "n_layers":       (4, 30),
             "beta1":          (0.8, 0.99),
             "beta2":          (0.9, 0.999),
             "cooldown_steps": (0.0, 0.3),
-            "n_tokens":       (200_000_000, 16_000_000_000),
+            "n_tokens":       (200_000_000, 40_000_000_000),
         }
         param_values = {
             "lr":             self.lr,
@@ -186,7 +186,7 @@ class LLMConfig(BaseConfig):
             "beta2": self.beta2,
             "warmup_steps": self.warmup_steps,
             "cooldown_steps": self.cooldown_steps,
-            "initial_lr": self.lr,
+            "lr": self.lr,
             "global_batch_size": global_batch_size,
             "final_step": final_step,
             "total_compute": total_flops,
@@ -202,12 +202,6 @@ class LLMTarget(str, Enum):
     # upstream
     VAL_LOSS = "valid_loss"
     TEST_LOSS = "test_loss"
-    HELLASWAG_ACC = "hellaswag_acc"
-    ARC_CHALLENGE_ACC = "arc_challenge_acc"
-    ARC_EASY_ACC = "arc_easy_acc"
-    COPA_ACC = "copa_acc"
-    OPENBOOKQA_ACC = "openbookqa_acc"
-    PIQA_ACC = "piqa_acc"
 
     @classmethod
     def all(cls):

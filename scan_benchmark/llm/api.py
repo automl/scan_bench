@@ -1,6 +1,6 @@
 from importlib.resources import files
 
-from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark
+from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark, PerformancePredictorType
 from scan_benchmark.llm.config import LLMConfig, LLMTarget
 from scan_benchmark.llm.data import LLMSurrogateDataset
 
@@ -10,11 +10,12 @@ class LLMBenchmark(BasePerformanceBenchmark):
     def __init__(
         self,
         targets: list[str] | None = None,
+        predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
         device: str = "auto",
     ):
         targets = self._normalize_targets(targets)
-        train_path = files("scan_benchmark.llm").joinpath("splits/train.csv")
-        test_path = files("scan_benchmark.llm").joinpath("splits/test.csv")
+        train_path = files("scan_benchmark.llm").joinpath("splits/train_fold_1.csv")
+        test_path = files("scan_benchmark.llm").joinpath("splits/test_fold_1.csv")
 
         dataset = LLMSurrogateDataset(
             train_csv_path=str(train_path),
@@ -22,8 +23,35 @@ class LLMBenchmark(BasePerformanceBenchmark):
             targets=targets,
             seed=42,
             include_intermediate_points=True,
+            eval_on_intermediate_points=True
         )
-        super().__init__(surrogate_dataset=dataset, device=device)
+        
+        if predictor_type == PerformancePredictorType.AUTOGLUON:
+            saved_model_path = files("scan_benchmark.llm.performance_surrogate").joinpath(
+                "saved_models",
+                "predictors",
+                predictor_type.value,
+                f"seed_42",
+                "fit_with_intermediate",
+                "pred_with_intermediate",
+                "auto"
+            )
+
+        else:
+            saved_model_path = files("scan_benchmark.llm.performance_surrogate").joinpath(
+                "saved_models",
+                "predictors",
+                predictor_type.value,
+                f"seed_42",
+                "fit_with_intermediate",
+                "pred_with_intermediate",
+            )
+        super().__init__(
+            surrogate_dataset=dataset,
+            model_path=saved_model_path,
+            predictor_type=predictor_type,
+            device=device
+        )
 
     def query(self, config: LLMConfig) -> dict:
         model_stats = config.compute_model_stats()
@@ -47,7 +75,7 @@ class LLMBenchmark(BasePerformanceBenchmark):
 
 
 if __name__ == "__main__":
-    bench = LLMBenchmark(targets=[LLMTarget.VAL_LOSS, LLMTarget.TEST_LOSS, LLMTarget.HELLASWAG_ACC, LLMTarget.ARC_CHALLENGE_ACC, LLMTarget.ARC_EASY_ACC, LLMTarget.COPA_ACC, LLMTarget.OPENBOOKQA_ACC, LLMTarget.PIQA_ACC])
+    bench = LLMBenchmark(targets=[LLMTarget.VAL_LOSS, LLMTarget.TEST_LOSS], predictor_type=PerformancePredictorType.TABPFN)
 
     config1 = LLMConfig(
         d_model=512,
