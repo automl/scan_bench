@@ -16,7 +16,6 @@ class ConfigFeatureMapper:
 
     def _build_row(self, config: BaseConfig, feature_order: list[str]) -> np.ndarray:
         config_dict = config.to_dict()
-
         missing = [name for name in feature_order if name not in config_dict]
         if missing:
             raise ValueError(f"Missing features in config: {missing}")
@@ -26,7 +25,7 @@ class ConfigFeatureMapper:
             value = config_dict[name]
 
             if self.apply_log and name in self.log_columns:
-                value = np.log(value)
+                value = np.log(float(value))
 
             row.append(value)
 

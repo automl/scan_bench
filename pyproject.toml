@@ -14,11 +14,7 @@ dependencies = [
     "matplotlib",
     "seaborn",
     "torch==2.9.1",
-    "tqdm"
-]
-
-[project.optional-dependencies]
-dev = [
+    "tqdm",
     "autogluon==1.5.0",
     "lightgbm==4.6.0"
 ]
@@ -37,7 +33,6 @@ include = [
 
 exclude = [
     "scan_benchmark.commons.plotting",
-    "scan_benchmark.commons.predictors",
     "scan_benchmark.commons.train",
     "scan_benchmark.*.performance_surrogate.results",
     "scan_benchmark.vlm.divergence_surrogate.results",
@@ -50,4 +45,3 @@ exclude = [
 "scan_benchmark.vlm.divergence_surrogate" = ["xgb_models/*.json"]
 "scan_benchmark.llm" = ["splits/*.csv"]
 "scan_benchmark.tabpfn" = ["*.json"]
-"scan_benchmark.vlm.performance_surrogate" = ["splits/*.csv"]

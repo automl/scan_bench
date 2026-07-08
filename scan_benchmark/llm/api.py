@@ -14,8 +14,8 @@ class LLMBenchmark(BasePerformanceBenchmark):
         device: str = "auto",
     ):
         targets = self._normalize_targets(targets)
-        train_path = files("scan_benchmark.llm").joinpath("splits/train_fold_1.csv")
-        test_path = files("scan_benchmark.llm").joinpath("splits/test_fold_1.csv")
+        train_path = files("scan_benchmark.llm").joinpath("splits/train.csv")
+        test_path = files("scan_benchmark.llm").joinpath("splits/test.csv")
 
         dataset = LLMSurrogateDataset(
             train_csv_path=str(train_path),
@@ -25,8 +25,9 @@ class LLMBenchmark(BasePerformanceBenchmark):
             include_intermediate_points=True,
             eval_on_intermediate_points=True
         )
-        
-        if predictor_type == PerformancePredictorType.AUTOGLUON:
+        if predictor_type == PerformancePredictorType.TABPFN:
+            saved_model_path = None
+        elif predictor_type == PerformancePredictorType.AUTOGLUON:
             saved_model_path = files("scan_benchmark.llm.performance_surrogate").joinpath(
                 "saved_models",
                 "predictors",
@@ -102,15 +103,15 @@ if __name__ == "__main__":
         training_progress=0.5,
     )
     config3 = LLMConfig(
-        d_model=768,
-        n_layers=16,
-        n_heads=12,
-        lr=1e-3,
-        weight_decay=0.05,
+        d_model=1536,
+        n_layers=24,
+        n_heads=16,
+        lr=1e-4,
+        weight_decay=0.1,
         beta1=0.9,
         beta2=0.95,
         cooldown_steps=0.2,
-        n_tokens=5_000_000_000,
+        n_tokens=25_000_000_000,
         training_progress=1,
     )
     # results = bench.query_many([config1, config2, config3, config4, config5])
@@ -119,7 +120,7 @@ if __name__ == "__main__":
     for label, make_config in [
         ("Config 1 (512d, 12L, 1B tokens, 100% progress)", lambda: config1),
         ("Config 2 (768d, 16L, 5B tokens, 50% progress)",  lambda: config2),
-        ("Config 3 (768d, 16L, 5B tokens, 100% progress)", lambda: config3),
+        ("Config 3 (1536d, 24L, 25B tokens, 100% progress)", lambda: config3),
         ("Config 4 (256d, 12L, n_heads=10 - invalid divisibility)", lambda: LLMConfig(
             d_model=256,
             n_layers=12,

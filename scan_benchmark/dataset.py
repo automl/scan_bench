@@ -46,9 +46,27 @@ class BaseSurrogateDataset(ABC):
     def _apply_log_transform(self):
         for col in self.DEFAULT_LOG_COLUMNS:
             if col in self.train_df.columns:
-                self.train_df[col] = np.log(self.train_df[col])
+                self.train_df[col] = self._safe_log_transform(self.train_df[col], col)
             if col in self.test_df.columns:
-                self.test_df[col] = np.log(self.test_df[col])
+                self.test_df[col] = self._safe_log_transform(self.test_df[col], col)
+
+    def _safe_log_transform(self, series: pd.Series, col: str) -> pd.Series:
+        try:
+            values = series.astype(float)
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"Column '{col}' contains non-numeric values before log transform.") from exc
+
+        finite_mask = np.isfinite(values)
+        if not finite_mask.all():
+            bad_count = int((~finite_mask).sum())
+            raise ValueError(f"Column '{col}' contains {bad_count} non-finite values before log transform.")
+
+        negative_mask = values < 0
+        if negative_mask.any():
+            bad_count = int(negative_mask.sum())
+            raise ValueError(f"Column '{col}' contains {bad_count} negative values before log transform.")
+
+        return np.log(values.clip(lower=np.finfo(float).tiny))
 
     def get_test_data(self):
         X_test = self.test_df[self.features].to_numpy()
