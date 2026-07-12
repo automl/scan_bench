@@ -17,7 +17,7 @@ FOLDS=(1 2 3 4 5)
 
 for SEED in "${SEEDS[@]}"; do
 
-    for MODEL in tabpfn ensemble; do
+    for MODEL in tabpfn; do
 
         if [[ "$MODEL" == "tabpfn" ]]; then
             MODEL_VARIANTS=("tabpfn")
@@ -60,30 +60,30 @@ for SEED in "${SEEDS[@]}"; do
     done
 done
 
-for SEED in "${SEEDS[@]}"; do
-
-    MODEL="autogluon"
-
-    MODEL_OUT_DIR="${RESULTS_DIR}/autogluon"
-
-
-    for FOLD_ID in "${FOLDS[@]}"; do
-
-        OUT_DIR="${MODEL_OUT_DIR}/seed=${SEED}/${FIT_MODE}/${PRED_MODE}/fold_${FOLD_ID}"
-
-        CMD=(
-            python -m "$SCRIPT"
-            --model "$MODEL"
-            --seed "$SEED"
-            --device "$DEVICE"
-            --out_dir "$OUT_DIR"
-            --train_csv "${SPLITS_DIR}/train_fold_${FOLD_ID}.csv"
-            --test_csv "${SPLITS_DIR}/test_fold_${FOLD_ID}.csv"
-            --model_family "${MODEL_FAMILY}"
-        )
-
-        echo "Running: ${CMD[*]}"
-        "${CMD[@]}"
-
-    done
-done
+#for SEED in "${SEEDS[@]}"; do
+#
+#    MODEL="autogluon"
+#
+#    MODEL_OUT_DIR="${RESULTS_DIR}/autogluon"
+#
+#
+#    for FOLD_ID in "${FOLDS[@]}"; do
+#
+#        OUT_DIR="${MODEL_OUT_DIR}/seed=${SEED}/${FIT_MODE}/${PRED_MODE}/fold_${FOLD_ID}"
+#
+#        CMD=(
+#            python -m "$SCRIPT"
+#            --model "$MODEL"
+#            --seed "$SEED"
+#            --device "$DEVICE"
+#            --out_dir "$OUT_DIR"
+#            --train_csv "${SPLITS_DIR}/train_fold_${FOLD_ID}.csv"
+#            --test_csv "${SPLITS_DIR}/test_fold_${FOLD_ID}.csv"
+#            --model_family "${MODEL_FAMILY}"
+#        )
+#
+#        echo "Running: ${CMD[*]}"
+#        "${CMD[@]}"
+#
+#    done
+#done
