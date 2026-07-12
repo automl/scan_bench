@@ -34,6 +34,7 @@ class BasePerformanceBenchmark:
             feature_order=self.surrogate_dataset.features,
             apply_log=self.surrogate_dataset.apply_log_transform,
             log_columns=self.surrogate_dataset.DEFAULT_LOG_COLUMNS,
+            exponential_columns=self.surrogate_dataset.DEFAULT_EXPONENTIAL
         )
 
     def _normalize_targets(self, targets):

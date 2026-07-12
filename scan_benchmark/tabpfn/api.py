@@ -118,13 +118,13 @@ if __name__ == "__main__":
                              device="auto")
 
     config = TabPFNConfig(
-        total_cells=1048576,
-        effective_batch_size=16,
+        total_cells=32,
+        effective_batch_size=8,
         lr=0.0001,
-        max_features=32,
-        embedding_size=16,
+        max_features=6,
+        embedding_size=4,
         num_layers=1,
-        num_datapoints_max=128,
+        num_datapoints_max=7,
     )
 
     result = tabpfn_bench.query_many([config])

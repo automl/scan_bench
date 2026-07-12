@@ -17,7 +17,11 @@ class TabPFNSurrogateDataset(BaseSurrogateDataset):
         "config/num_datapoints_max",
     ]
 
-    DEFAULT_LOG_COLUMNS = ["total_cells", "config/lr"]
+    DEFAULT_LOG_COLUMNS = ["config/lr"]
+
+    DEFAULT_EXPONENTIAL = ["total_cells", "config/effective_batch_size", "config/max_features",
+                           "config/model_config.embedding_size",
+                           "config/model_config.num_layers", "config/num_datapoints_max"]
 
     def _prepare_train_df(self, df: pd.DataFrame) -> pd.DataFrame:
         return df.sample(frac=1, random_state=self.seed).reset_index(drop=True)
