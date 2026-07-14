@@ -11,7 +11,8 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
     TARGET_ENUM = TabPFNTarget
 
     def __init__(self, targets=None, predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
-                 device="auto"):
+                 autogluon_model_path: str | None = None, device="auto"):
+
         targets = self._normalize_targets(targets)
 
         train_path = files("scan_benchmark.tabpfn").joinpath("data.csv")
@@ -23,12 +24,16 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
         )
 
         if predictor_type == PerformancePredictorType.AUTOGLUON:
-            saved_model_path = files("scan_benchmark.tabpfn.performance_surrogate").joinpath(
-                "saved_models",
-                "predictors",
-                predictor_type.value,
-                f"seed_42",
-                "auto"
+            saved_model_path = (
+                autogluon_model_path
+                if autogluon_model_path is not None
+                else files("scan_benchmark.tabpfn.performance_surrogate").joinpath(
+                    "saved_models",
+                    "predictors",
+                    predictor_type.value,
+                    f"seed_42",
+                    "auto"
+                )
             )
         else:
             saved_model_path = files("scan_benchmark.tabpfn.performance_surrogate").joinpath(
@@ -114,8 +119,9 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
 
 
 if __name__ == "__main__":
-    tabpfn_bench = TabPFNBenchmark(targets=[TabPFNTarget.VAL_LOSS], predictor_type=PerformancePredictorType.ENSEMBLE_XGB,
-                             device="auto")
+    tabpfn_bench = TabPFNBenchmark(targets=[TabPFNTarget.VAL_LOSS],
+                                   predictor_type=PerformancePredictorType.ENSEMBLE_XGB,
+                                   device="auto")
 
     config = TabPFNConfig(
         total_cells=32,
