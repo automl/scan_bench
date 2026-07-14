@@ -132,7 +132,7 @@ class MultiLabelSurrogateModel:
             if final_autogluon_model_path.exists() and any(final_autogluon_model_path.iterdir()):
                 print(f"Skipping final model save, it already exists: {final_autogluon_model_path}")
                 return
-            model.fit(X, y, True)
+            model.fit(X, y, final=True)
 
     def compute_metrics_by_group(self, y_true, y_pred, groups):
         results = {}
