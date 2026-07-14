@@ -16,7 +16,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
     TARGET_ENUM = VLMTarget
 
     def __init__(self, targets=None, predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
-                 device="auto"):
+                 autogluon_model_path: str | None = None, device="auto"):
         targets = self._normalize_targets(targets)
 
         train_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/train_fold_1.csv")
@@ -33,14 +33,18 @@ class VLMBenchmark(BasePerformanceBenchmark):
         )
 
         if predictor_type == PerformancePredictorType.AUTOGLUON:
-            saved_model_path = files("scan_benchmark.vlm.performance_surrogate").joinpath(
-                "saved_models",
-                "predictors",
-                predictor_type.value,
-                f"seed_42",
-                "fit_with_intermediate",
-                "pred_with_intermediate",
-                "auto"
+            saved_model_path = (
+                autogluon_model_path
+                if autogluon_model_path is not None
+                else files("scan_benchmark.vlm.performance_surrogate").joinpath(
+                    "saved_models",
+                    "predictors",
+                    predictor_type.value,
+                    "seed_42",
+                    "fit_with_intermediate",
+                    "pred_with_intermediate",
+                    "auto",
+                )
             )
 
         else:
