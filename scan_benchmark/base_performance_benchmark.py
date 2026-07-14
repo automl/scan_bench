@@ -20,14 +20,15 @@ class PerformancePredictorType(Enum):
 class BasePerformanceBenchmark:
     TARGET_ENUM = None
 
-    def __init__(self, surrogate_dataset, model_path: Path = None,
+    def __init__(self, surrogate_dataset, target, model_path: Path = None,
                  predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN, device="auto",
                  additional_runs_path: Path = None):
         self.surrogate_dataset = surrogate_dataset
-        self.targets = surrogate_dataset.targets
+        self.target = self._normalize_target(target)
+        self.target_idx = self.surrogate_dataset.targets.index(self.target)
+
         self.predictor_type = predictor_type
         self.model_path = model_path
-        self.performance_surrogate = self._build_performance_surrogate(predictor_type, device)
         self.additional_runs_path = additional_runs_path
 
         self.config_feature_mapper = ConfigFeatureMapper(
@@ -37,14 +38,17 @@ class BasePerformanceBenchmark:
             exponential_columns=self.surrogate_dataset.DEFAULT_EXPONENTIAL
         )
 
-    def _normalize_targets(self, targets):
+        self.performance_surrogate = self._build_performance_surrogate(predictor_type, device)
+        self._prepare_surrogate()
+
+    def _normalize_target(self, target):
         if self.TARGET_ENUM is None:
             raise ValueError("TARGET_ENUM must be set in subclass.")
 
-        if targets is None:
-            return self.TARGET_ENUM.all()
+        if target is None:
+            return self.TARGET_ENUM.default()
 
-        return [t.value for t in targets]
+        return target
 
     def _get_model_path(self, target: str) -> Path:
         if self.model_path is None:
@@ -55,27 +59,27 @@ class BasePerformanceBenchmark:
 
         return model_path
 
-    def _prepare_surrogate_for_target(self, target: str, target_idx: int):
+    def _prepare_surrogate(self):
         if self.predictor_type == PerformancePredictorType.TABPFN:
             X_train, y_train = self.surrogate_dataset.get_all_data(additional_csv_path=self.additional_runs_path)
-            self.performance_surrogate.fit(X_train, y_train[:, target_idx])
+            self.performance_surrogate.fit(X_train, y_train)
 
         elif self.predictor_type == PerformancePredictorType.AUTOGLUON:
-            surrogate_model_path = self.model_path / target / "final_run"
+            surrogate_model_path = self.model_path / self.target / "final_run"
 
             if not surrogate_model_path.exists():
                 X_train, y_train = self.surrogate_dataset.get_all_data(additional_csv_path=self.additional_runs_path)
-                self.performance_surrogate.label = target
+                self.performance_surrogate.label = self.target
                 self.performance_surrogate.time_limit = 4 * 30 * 60
-                self.performance_surrogate.fit_and_save(X_train, y_train[:, target_idx], surrogate_model_path)
+                self.performance_surrogate.fit_and_save(X_train, y_train, surrogate_model_path)
 
             self.performance_surrogate.load(surrogate_model_path)
 
         else:
-            surrogate_model_path = self._get_model_path(target)
+            surrogate_model_path = self._get_model_path(self.target)
             if not surrogate_model_path.exists():
                 X_train, y_train = self.surrogate_dataset.get_all_data(additional_csv_path=self.additional_runs_path)
-                self.performance_surrogate.fit_and_save(X_train, y_train[:, target_idx], surrogate_model_path)
+                self.performance_surrogate.fit_and_save(X_train, y_train, surrogate_model_path)
 
             self.performance_surrogate.load(surrogate_model_path)
 
@@ -89,18 +93,12 @@ class BasePerformanceBenchmark:
 
     def _predict_performance(self, config):
         row = self.config_feature_mapper.to_features(config)
-        predictions = {}
+        pred = self.performance_surrogate.predict_with_uncertainty(row)
 
-        for i, target in enumerate(self.targets):
-            surrogate = self._prepare_surrogate_for_target(target, i)
-            pred = surrogate.predict_with_uncertainty(row)
-
-            predictions[target] = self._format_prediction(
-                pred["mean"][0],
-                pred["uncertainty"][0],
-            )
-
-        return predictions
+        return self._format_prediction(
+            pred["mean"][0],
+            pred["uncertainty"][0],
+        )
 
     def _configs_to_surrogate_matrix(self, configs):
         rows = [self.config_feature_mapper.to_features(cfg) for cfg in configs]
@@ -110,22 +108,15 @@ class BasePerformanceBenchmark:
 
     def _predict_performance_many(self, configs):
         X_query = self._configs_to_surrogate_matrix(configs)
-        predictions_per_config = [{} for _ in configs]
+        pred = self.performance_surrogate.predict_with_uncertainty(X_query)
 
-        for i, target in enumerate(self.targets):
-            surrogate = self._prepare_surrogate_for_target(target, i)
-            pred = surrogate.predict_with_uncertainty(X_query)
-
-            means = pred["mean"]
-            uncertainties = pred["uncertainty"]
-
-            for j in range(len(configs)):
-                predictions_per_config[j][target] = self._format_prediction(
-                    means[j],
-                    uncertainties[j],
-                )
-
-        return predictions_per_config
+        return [
+            self._format_prediction(mean, uncertainty)
+            for mean, uncertainty in zip(
+                pred["mean"],
+                pred["uncertainty"],
+            )
+        ]
 
     def _build_performance_surrogate(
             self,

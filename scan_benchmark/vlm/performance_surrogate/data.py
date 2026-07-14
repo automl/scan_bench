@@ -17,6 +17,7 @@ class VLMSurrogateDataset(BaseSurrogateDataset):
     DEFAULT_LOG_COLUMNS = [
         "lr", "wd", "eps", "total_samples_planned"
     ]
+    DEFAULT_EXPONENTIAL = []
 
     def __init__(
             self,

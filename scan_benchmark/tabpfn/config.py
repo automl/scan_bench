@@ -79,3 +79,7 @@ class TabPFNTarget(str, Enum):
     @classmethod
     def all(cls):
         return [t.value for t in cls]
+
+    @classmethod
+    def default(cls):
+        return TabPFNTarget.VAL_LOSS.value

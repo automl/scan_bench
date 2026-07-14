@@ -10,16 +10,14 @@ from scan_benchmark.tabpfn.performance_surrogate.data import TabPFNSurrogateData
 class TabPFNBenchmark(BasePerformanceBenchmark):
     TARGET_ENUM = TabPFNTarget
 
-    def __init__(self, targets=None, predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
+    def __init__(self, target=None, predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
                  autogluon_model_path: str | None = None, device="auto"):
-
-        targets = self._normalize_targets(targets)
 
         train_path = files("scan_benchmark.tabpfn").joinpath("data.csv")
 
         dataset = TabPFNSurrogateDataset(
             train_csv_path=str(train_path),
-            targets=targets,
+            targets=target,
             seed=42,
         )
 
@@ -44,6 +42,7 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
             )
 
         super().__init__(
+            target=target,
             surrogate_dataset=dataset,
             model_path=saved_model_path,
             predictor_type=predictor_type,
@@ -119,8 +118,7 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
 
 
 if __name__ == "__main__":
-    tabpfn_bench = TabPFNBenchmark(targets=[TabPFNTarget.VAL_LOSS],
-                                   predictor_type=PerformancePredictorType.ENSEMBLE_XGB,
+    tabpfn_bench = TabPFNBenchmark(predictor_type=PerformancePredictorType.ENSEMBLE_XGB,
                                    device="auto")
 
     config = TabPFNConfig(

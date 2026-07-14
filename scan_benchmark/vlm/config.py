@@ -152,3 +152,7 @@ class VLMTarget(str, Enum):
     @classmethod
     def all(cls):
         return [t.value for t in cls]
+
+    @classmethod
+    def default(cls):
+        return VLMTarget.VAL_LOSS.value

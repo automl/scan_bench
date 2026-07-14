@@ -15,10 +15,8 @@ from scan_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
 class VLMBenchmark(BasePerformanceBenchmark):
     TARGET_ENUM = VLMTarget
 
-    def __init__(self, targets=None, predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
+    def __init__(self, target=None, predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
                  autogluon_model_path: str | None = None, device="auto"):
-        targets = self._normalize_targets(targets)
-
         train_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/train_fold_1.csv")
         test_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/test_fold_1.csv")
         additional_runs_path = files("scan_benchmark.vlm").joinpath("large_runs.csv")
@@ -26,7 +24,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
         dataset = VLMSurrogateDataset(
             train_csv_path=str(train_path),
             test_csv_path=str(test_path),
-            targets=targets,
+            targets=target,
             seed=42,
             include_intermediate_points=True,
             eval_on_intermediate_points=True
@@ -58,6 +56,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
             )
 
         super().__init__(
+            target=target,
             surrogate_dataset=dataset,
             model_path=saved_model_path,
             predictor_type=predictor_type,
@@ -144,9 +143,8 @@ class VLMBenchmark(BasePerformanceBenchmark):
 
 # simple example on how to use the surrogate
 if __name__ == "__main__":
-    vlm_bench = VLMBenchmark(targets=[VLMTarget.TEST_LOSS],
-                             predictor_type=PerformancePredictorType.TABPFN,
-                             device="auto")
+    vlm_bench = VLMBenchmark(predictor_type=PerformancePredictorType.TABPFN,
+                             device="cuda")
 
     config = VLMConfig(
         lr=1e-4,
