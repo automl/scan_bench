@@ -104,6 +104,7 @@ def build_dataset_kwargs(args, supports_intermediate_points: bool):
         "train_csv_path": args.train_csv,
         "test_csv_path": args.test_csv,
         "targets": args.labels,
+        "features": getattr(args, "features", None),
         "seed": args.seed,
     }
 
