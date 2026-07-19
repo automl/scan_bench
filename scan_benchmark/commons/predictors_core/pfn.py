@@ -1,13 +1,19 @@
 import numpy as np
 from tabpfn import TabPFNRegressor
-
+from tabpfn.constants import ModelVersion
 from scan_benchmark.commons.predictors_core.surrogate import SurrogateModel
 
 
 class TabPFNModel(SurrogateModel):
     def __init__(self, device: str = "cpu"):
         self.device = device
-        self.model = TabPFNRegressor(device=device, random_state=42, ignore_pretraining_limits=True, fit_mode="fit_with_cache")
+        self.model = TabPFNRegressor.create_default_for_version(
+                        ModelVersion.V2_5,
+                        device=device,
+                        random_state=42,
+                        ignore_pretraining_limits=True,
+                        fit_mode="fit_with_cache",
+                    )
 
     def fit(self, X: np.ndarray, y: np.ndarray):
         self.model.fit(X, y)
