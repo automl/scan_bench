@@ -9,18 +9,17 @@ class LLMBenchmark(BasePerformanceBenchmark):
     TARGET_ENUM = LLMTarget
     def __init__(
         self,
-        targets: list[str] | None = None,
+        target: list[str] | None = None,
         predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
         device: str = "auto",
     ):
-        targets = self._normalize_targets(targets)
         train_path = files("scan_benchmark.llm").joinpath("splits/train.csv")
         test_path = files("scan_benchmark.llm").joinpath("splits/test.csv")
 
         dataset = LLMSurrogateDataset(
             train_csv_path=str(train_path),
             test_csv_path=str(test_path),
-            targets=targets,
+            targets=target,
             seed=42,
             include_intermediate_points=True,
             eval_on_intermediate_points=True
@@ -48,6 +47,7 @@ class LLMBenchmark(BasePerformanceBenchmark):
                 "pred_with_intermediate",
             )
         super().__init__(
+            target=target,
             surrogate_dataset=dataset,
             model_path=saved_model_path,
             predictor_type=predictor_type,
@@ -76,7 +76,7 @@ class LLMBenchmark(BasePerformanceBenchmark):
 
 
 if __name__ == "__main__":
-    bench = LLMBenchmark(targets=[LLMTarget.VAL_LOSS, LLMTarget.TEST_LOSS], predictor_type=PerformancePredictorType.TABPFN)
+    bench = LLMBenchmark(predictor_type=PerformancePredictorType.TABPFN)
 
     config1 = LLMConfig(
         d_model=512,

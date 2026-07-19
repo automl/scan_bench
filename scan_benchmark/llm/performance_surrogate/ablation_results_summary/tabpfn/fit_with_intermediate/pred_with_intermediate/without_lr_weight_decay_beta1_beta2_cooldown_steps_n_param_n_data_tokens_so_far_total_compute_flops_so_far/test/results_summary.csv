@@ -1,0 +1,4 @@
+,rmse,rmse,mae,mae,mdae,mdae,marpd,marpd,r2,r2,r,r,spearman,spearman
+,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std
+model,,,,,,,,,,,,,,
+tabpfn/without_lr_weight_decay_beta1_beta2_cooldown_steps_n_param_n_data_tokens_so_far_total_compute_flops_so_far,0.6741722928780903,0.01060232144417612,0.6063756256429633,0.011495106410405168,0.5733926758433951,0.020703853105080307,28.6456198856249,0.6680027666638421,-0.3777262614513719,0.2067180028413134,0.291759782812645,0.08809976589514983,0.22019301337188701,0.05726298788947966

@@ -1,0 +1,4 @@
+,rmse,rmse,mae,mae,mdae,mdae,marpd,marpd,r2,r2,r,r,spearman,spearman
+,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std,mean,std
+model,,,,,,,,,,,,,,
+ensemble_mix,0.25656861155563077,,0.16082316815000164,,0.09183743700149072,,7.681803593235714,,0.7698259764454665,,0.8850370209147813,,0.8982841672233746,

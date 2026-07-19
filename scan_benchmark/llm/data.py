@@ -5,7 +5,7 @@ from scan_benchmark.dataset import BaseSurrogateDataset
 
 
 class LLMSurrogateDataset(BaseSurrogateDataset):
-    DEFAULT_TARGETS = ["valid_loss"]
+    DEFAULT_TARGETS = ["test_loss"]
 
     DEFAULT_FEATURES = [
         "d_model", "n_layers", "n_heads", "weight_decay", "beta1", "beta2",
@@ -18,6 +18,7 @@ class LLMSurrogateDataset(BaseSurrogateDataset):
         "final_step", "total_compute", "n_data", "n_param",
         "tokens_so_far", "flops_so_far", "eval_step"
     ]
+    DEFAULT_EXPONENTIAL = []
 
     def __init__(
             self,

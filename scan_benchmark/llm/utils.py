@@ -209,7 +209,7 @@ def total_training_flops(
         mlp_class: Literal['mlp', 'glu'] = 'glu',
         expand: float = 8 / 3,
         include_attn_computation: bool = True,
-) -> int:
+) -> float:
     """
     Total FLOPs for training on n_tokens.
 
@@ -229,7 +229,7 @@ def total_training_flops(
     flops_per_token = flops_per_token_training(
         n_layers, d, vocab_size, seq_len, mlp_class, expand, include_attn_computation
     )
-    return flops_per_token * n_tokens
+    return float(float(flops_per_token) * float(n_tokens))
 
 
 def flops_from_config(cfg, n_tokens: int = None, method: Literal['detailed', 'kaplan'] = 'detailed') -> dict:
