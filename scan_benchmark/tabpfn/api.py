@@ -126,9 +126,6 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
         num_layers = self._to_exponential(
             "num_layers", config.num_layers
         )
-        effective_batch_size = self._to_exponential(
-            "effective_batch_size", config.effective_batch_size
-        )
 
         for entry in data:
             cfg = entry["config"]
@@ -136,7 +133,6 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
             if (
                     cfg["embedding_size"] == embedding_size
                     and cfg["num_layers"] == num_layers
-                    and cfg["effective_batch_size"] == effective_batch_size
             ):
                 return entry["flops_per_cell"] * config.total_cells
 
