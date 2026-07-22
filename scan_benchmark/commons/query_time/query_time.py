@@ -8,7 +8,7 @@ from scan_benchmark.llm.config import LLMTarget, LLMConfig
 from scan_benchmark.vlm.api import VLMBenchmark
 from scan_benchmark.vlm.config import VLMConfig, VLMTarget
 
-VISION_TEXT_WIDTHS = [32, 64, 128, 192, 256, 320, 384, 448, 512]
+VISION_TEXT_WIDTHS = [32, 64, 128, 192, 256, 320, 384, 448, 512, 768, 1024]
 
 
 def surrogate_runtime(
@@ -80,7 +80,7 @@ def sample_log_uniform(rng, lower, upper):
 
 
 def sample_vlm_config(rng: np.random.Generator) -> VLMConfig:
-    train_num_samples_million = sample_log_uniform(rng, 0.6, 60.0)
+    train_num_samples_million = sample_log_uniform(rng, 0.6, 200.0)
     # querying the surrogate is agnostic to the sampling strategy
     return VLMConfig(
         lr=sample_log_uniform(rng, 1.0e-5, 5.0e-2),
@@ -94,6 +94,7 @@ def sample_vlm_config(rng: np.random.Generator) -> VLMConfig:
         total_samples_planned=int(train_num_samples_million * 1_000_000),
         training_progress=1.0,
     )
+
 
 def sample_llm_config(rng: np.random.Generator) -> LLMConfig:
     d_model_factor = rng.integers(4, 19)
@@ -116,15 +117,17 @@ def sample_llm_config(rng: np.random.Generator) -> LLMConfig:
 
 
 if __name__ == "__main__":
-    vlm_bench = VLMBenchmark(targets=[VLMTarget.VAL_LOSS], device="cpu")
+    vlm_bench = VLMBenchmark(target=VLMTarget.VAL_LOSS, device="cpu")
 
     vlm_seq_results = surrogate_runtime(
         vlm_bench,
         sample_vlm_config,
+        n_evals=7701,
+        n_seeds=1,
         use_batch=False,
     )
 
-    llm_bench = LLMBenchmark(targets=[LLMTarget.VAL_LOSS], device="cpu")
+    llm_bench = LLMBenchmark(target=[LLMTarget.VAL_LOSS], device="cpu")
 
     llm_seq_results = surrogate_runtime(
         llm_bench,
