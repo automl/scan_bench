@@ -16,7 +16,7 @@ class VLMBenchmark(BasePerformanceBenchmark):
     TARGET_ENUM = VLMTarget
 
     def __init__(self, target=None, predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
-                 autogluon_model_path: str | None = None, device="auto"):
+                 autogluon_model_path: str | None = None, use_divergence_predictor: bool = True, device="auto"):
         train_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/train_fold_1.csv")
         test_path = files("scan_benchmark.vlm.performance_surrogate").joinpath("splits/test_fold_1.csv")
         additional_runs_path = files("scan_benchmark.vlm").joinpath("large_runs.csv")
@@ -64,17 +64,28 @@ class VLMBenchmark(BasePerformanceBenchmark):
             additional_runs_path=additional_runs_path
         )
 
-        self.divergence_config_feature_mapper = ConfigFeatureMapper(
-            feature_order=DivergenceDataset.DEFAULT_FEATURES,
-            apply_log=self.surrogate_dataset.apply_log_transform,
-            log_columns=self.surrogate_dataset.DEFAULT_LOG_COLUMNS,
-        )
+        self.use_divergence_predictor = use_divergence_predictor
 
-        model_dir = files("scan_benchmark.vlm.divergence_surrogate").joinpath("xgb_models")
-        self.divergence_surrogate = BinaryBaggingEnsemble(model_dir=str(model_dir))
+        if self.use_divergence_predictor:
+            self.divergence_config_feature_mapper = ConfigFeatureMapper(
+                feature_order=DivergenceDataset.DEFAULT_FEATURES,
+                apply_log=self.surrogate_dataset.apply_log_transform,
+                log_columns=self.surrogate_dataset.DEFAULT_LOG_COLUMNS,
+            )
+
+            model_dir = files(
+                "scan_benchmark.vlm.divergence_surrogate"
+            ).joinpath("xgb_models")
+
+            self.divergence_surrogate = BinaryBaggingEnsemble(
+                model_dir=str(model_dir)
+            )
 
     def query(self, config: VLMConfig) -> dict:
-        divergence_prob, failed = self._predict_divergence(config)
+        if self.use_divergence_predictor:
+            divergence_prob, failed = self._predict_divergence(config)
+        else:
+            divergence_prob, failed = 0.0, False
         stats = self.get_model_stats(config)
 
         return {
@@ -121,7 +132,11 @@ class VLMBenchmark(BasePerformanceBenchmark):
         return probs, failed
 
     def query_many(self, configs: list[VLMConfig]) -> list[dict]:
-        divergence_probs, failed_mask = self._predict_divergence_many(configs)
+        if self.use_divergence_predictor:
+            divergence_probs, failed_mask = self._predict_divergence_many(configs)
+        else:
+            divergence_probs = np.full(len(configs), 0.0)
+            failed_mask = np.zeros(len(configs), dtype=bool)
         stats_list = [self.get_model_stats(cfg) for cfg in configs]
 
         valid_idx = [i for i, f in enumerate(failed_mask) if not f]
@@ -143,8 +158,8 @@ class VLMBenchmark(BasePerformanceBenchmark):
 
 # simple example on how to use the surrogate
 if __name__ == "__main__":
-    vlm_bench = VLMBenchmark(predictor_type=PerformancePredictorType.TABPFN,
-                             device="cuda")
+    vlm_bench = VLMBenchmark(predictor_type=PerformancePredictorType.TABPFN, use_divergence_predictor=False,
+                             device="cpu")
 
     config = VLMConfig(
         lr=1e-4,
