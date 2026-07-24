@@ -100,6 +100,10 @@ class AutoGluonModel(SurrogateModel):
 
     def load(self, path: str):
         self.predictor = TabularPredictor.load(path)
+        self.predictor.persist(
+            models="best",
+            with_ancestors=True,
+        )
 
     def fit_and_save(self, X: np.ndarray, y: np.ndarray, path: Path):
         self.fit(X, y, path)
