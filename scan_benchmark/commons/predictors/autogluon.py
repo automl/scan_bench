@@ -103,6 +103,7 @@ class AutoGluonModel(SurrogateModel):
         self.predictor.persist(
             models="best",
             with_ancestors=True,
+            max_memory=None,
         )
 
     def fit_and_save(self, X: np.ndarray, y: np.ndarray, path: Path):
