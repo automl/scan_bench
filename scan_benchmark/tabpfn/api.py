@@ -2,7 +2,7 @@ import json
 from importlib.resources import files
 from pprint import pprint
 
-from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark, PerformancePredictorType
+from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark, PerformancePredictorType, is_tabpfn
 from scan_benchmark.tabpfn.config import TabPFNConfig, TabPFNTarget
 from scan_benchmark.tabpfn.performance_surrogate.data import TabPFNSurrogateDataset
 
@@ -28,7 +28,10 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
             "num_datapoints_max",
         ]
 
-        if predictor_type == PerformancePredictorType.AUTOGLUON:
+        if is_tabpfn(predictor_type):
+            saved_model_path = None
+
+        elif predictor_type == PerformancePredictorType.AUTOGLUON:
             saved_model_path = (
                 autogluon_model_path
                 if autogluon_model_path is not None

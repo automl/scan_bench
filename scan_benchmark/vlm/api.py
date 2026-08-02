@@ -4,7 +4,7 @@ from pprint import pprint
 
 import numpy as np
 
-from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark, PerformancePredictorType
+from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark, PerformancePredictorType, is_tabpfn
 from scan_benchmark.config_feature_mapper import ConfigFeatureMapper
 from scan_benchmark.vlm.config import VLMConfig, VLMTarget
 from scan_benchmark.vlm.divergence_surrogate.data import DivergenceDataset
@@ -30,7 +30,10 @@ class VLMBenchmark(BasePerformanceBenchmark):
             eval_on_intermediate_points=True
         )
 
-        if predictor_type == PerformancePredictorType.AUTOGLUON:
+        if is_tabpfn(predictor_type):
+            saved_model_path = None
+
+        elif predictor_type == PerformancePredictorType.AUTOGLUON:
             saved_model_path = (
                 autogluon_model_path
                 if autogluon_model_path is not None

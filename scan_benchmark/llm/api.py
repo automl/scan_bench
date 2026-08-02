@@ -1,6 +1,6 @@
 from importlib.resources import files
 
-from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark, PerformancePredictorType
+from scan_benchmark.base_performance_benchmark import BasePerformanceBenchmark, PerformancePredictorType, is_tabpfn
 from scan_benchmark.llm.config import LLMConfig, LLMTarget
 from scan_benchmark.llm.data import LLMSurrogateDataset
 
@@ -24,7 +24,7 @@ class LLMBenchmark(BasePerformanceBenchmark):
             include_intermediate_points=True,
             eval_on_intermediate_points=True
         )
-        if predictor_type == PerformancePredictorType.TABPFN:
+        if is_tabpfn(predictor_type):
             saved_model_path = None
         elif predictor_type == PerformancePredictorType.AUTOGLUON:
             saved_model_path = files("scan_benchmark.llm.performance_surrogate").joinpath(
