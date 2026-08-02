@@ -11,10 +11,30 @@ from scan_benchmark.config_feature_mapper import ConfigFeatureMapper
 
 class PerformancePredictorType(Enum):
     TABPFN = "tabpfn"
+    TABPFN_HALF_A = "tabpfn_half_a"
+    TABPFN_HALF_B = "tabpfn_half_b"
     ENSEMBLE_XGB = "ensemble_xgb"
     ENSEMBLE_LIGHTGBM = "ensemble_lightgbm"
     ENSEMBLE_MIX = "ensemble_mix"
     AUTOGLUON = "autogluon"
+
+
+# TabPFN variants conditioned on one disjoint half of the collected data each. Running the
+# same study with both gives an upper bound on the variance of the full-data surrogate.
+TABPFN_DATA_HALVES = {
+    PerformancePredictorType.TABPFN_HALF_A: 0,
+    PerformancePredictorType.TABPFN_HALF_B: 1,
+}
+
+TABPFN_PREDICTOR_TYPES = {PerformancePredictorType.TABPFN, *TABPFN_DATA_HALVES}
+
+
+def is_tabpfn(predictor_type: PerformancePredictorType) -> bool:
+    return predictor_type in TABPFN_PREDICTOR_TYPES
+
+
+def get_data_half(predictor_type: PerformancePredictorType) -> int | None:
+    return TABPFN_DATA_HALVES.get(predictor_type)
 
 
 class BasePerformanceBenchmark:
@@ -22,7 +42,7 @@ class BasePerformanceBenchmark:
 
     def __init__(self, surrogate_dataset, target, model_path: Path = None,
                  predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN, device="auto",
-                 additional_runs_path: Path = None):
+                 additional_runs_path: Path = None, data_split_seed: int = 42):
         self.surrogate_dataset = surrogate_dataset
         self.target = self._normalize_target(target)
         self.target_idx = self.surrogate_dataset.targets.index(self.target)
@@ -30,6 +50,8 @@ class BasePerformanceBenchmark:
         self.predictor_type = predictor_type
         self.model_path = model_path
         self.additional_runs_path = additional_runs_path
+        self.data_half = get_data_half(predictor_type)
+        self.data_split_seed = data_split_seed
 
         self.config_feature_mapper = ConfigFeatureMapper(
             feature_order=self.surrogate_dataset.features,
@@ -60,8 +82,13 @@ class BasePerformanceBenchmark:
         return model_path
 
     def _prepare_surrogate(self):
-        if self.predictor_type == PerformancePredictorType.TABPFN:
-            X_train, y_train = self.surrogate_dataset.get_all_data(additional_csv_path=self.additional_runs_path)
+        if is_tabpfn(self.predictor_type):
+            X_train, y_train = self.surrogate_dataset.get_all_data(
+                additional_csv_path=self.additional_runs_path,
+                half=self.data_half,
+                n_halves=len(TABPFN_DATA_HALVES),
+                split_seed=self.data_split_seed,
+            )
             self.performance_surrogate.fit(X_train, y_train)
 
         elif self.predictor_type == PerformancePredictorType.AUTOGLUON:
@@ -123,7 +150,7 @@ class BasePerformanceBenchmark:
             predictor_type: PerformancePredictorType,
             device="auto",
     ):
-        if predictor_type == PerformancePredictorType.TABPFN:
+        if is_tabpfn(predictor_type):
             return TabPFNModel(device=device)
 
         if predictor_type == PerformancePredictorType.ENSEMBLE_XGB:

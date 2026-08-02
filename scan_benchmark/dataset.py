@@ -10,6 +10,8 @@ class BaseSurrogateDataset(ABC):
     DEFAULT_FEATURES = []
     DEFAULT_LOG_COLUMNS = []
 
+    config_id_col = "config_id"
+
     def __init__(
             self,
             train_csv_path: str,
@@ -78,7 +80,13 @@ class BaseSurrogateDataset(ABC):
         y_train = self.train_df[self.targets].to_numpy()
         return X_train, y_train
 
-    def get_all_data(self, additional_csv_path: str | Path | None = None):
+    def get_all_data(
+            self,
+            additional_csv_path: str | Path | None = None,
+            half: int | None = None,
+            n_halves: int = 2,
+            split_seed: int | None = None,
+    ):
         dfs = [self.train_df]
 
         if self.test_df is not None and not self.test_df.empty:
@@ -90,10 +98,55 @@ class BaseSurrogateDataset(ABC):
 
         all_df = pd.concat(dfs, axis=0, ignore_index=True)
 
+        if half is not None:
+            all_df = self._select_data_half(all_df, half, n_halves, split_seed)
+
         X_all = all_df[self.features].to_numpy()
         y_all = all_df[self.targets].to_numpy()
 
         return X_all, y_all
+
+    def _select_data_half(
+            self,
+            df: pd.DataFrame,
+            half: int,
+            n_halves: int = 2,
+            split_seed: int | None = None,
+    ) -> pd.DataFrame:
+        """Return a disjoint fraction of `df`, split at config granularity.
+
+        All rows belonging to the same config (e.g. every eval step of a run) land in the
+        same part, so the parts are independent. Sorting before shuffling makes the
+        partition independent of row order, hence the parts are exact complements.
+        """
+        if n_halves < 2:
+            raise ValueError(f"n_halves must be >= 2, got {n_halves}.")
+        if not 0 <= half < n_halves:
+            raise ValueError(f"half must be in [0, {n_halves}), got {half}.")
+
+        rng = np.random.default_rng(self.seed if split_seed is None else int(split_seed))
+
+        if self.config_id_col in df.columns:
+            groups = np.array(sorted(df[self.config_id_col].unique()))
+            rng.shuffle(groups)
+            selected = set(np.array_split(groups, n_halves)[half].tolist())
+            subset = df[df[self.config_id_col].isin(selected)]
+        else:
+            print(
+                f"Column '{self.config_id_col}' not found; falling back to a row-level split. "
+                "Rows of the same config may end up in different parts."
+            )
+            positions = np.arange(len(df))
+            rng.shuffle(positions)
+            selected_positions = np.sort(np.array_split(positions, n_halves)[half])
+            subset = df.iloc[selected_positions]
+
+        if subset.empty:
+            raise ValueError(
+                f"Data split {half + 1}/{n_halves} is empty; not enough data to split."
+            )
+
+        return subset
 
     @abstractmethod
     def get_train_subset_df(self, n_cfg: int) -> pd.DataFrame:
