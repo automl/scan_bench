@@ -157,17 +157,17 @@ def prepare_performance_predictor_data(
         train_last_df = df.iloc[train_idx].copy()
         test_last_df = df.iloc[test_idx].copy()
 
-        print(f"\nFold {fold_idx} performance train split:")
+        print(f"\n train split {fold_idx}:")
         print_bin_counts(train_last_df)
 
-        print(f"\nFold {fold_idx} performance test split:")
+        print(f"\n test split {fold_idx}:")
         print_bin_counts(test_last_df)
 
         train_df = enrich_with_all_epochs(full_df, train_last_df)
         test_df = enrich_with_all_epochs(full_df, test_last_df)
 
-        train_output_csv = f"performance_surrogate/splits/train_fold_{fold_idx}.csv"
-        test_output_csv = f"performance_surrogate/splits/test_fold_{fold_idx}.csv"
+        train_output_csv = f"performance_surrogate/splits/train_split_{fold_idx}.csv"
+        test_output_csv = f"performance_surrogate/splits/test_split_{fold_idx}.csv"
 
         train_df.to_csv(train_output_csv, index=False)
         test_df.to_csv(test_output_csv, index=False)

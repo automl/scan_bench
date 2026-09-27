@@ -86,4 +86,4 @@ bash scan_benchmark/commons/plotting/plotting.sh
 
 ## Contributing
 
->📋  Pick a licence and describe how to contribute to your code repository. 
+Contributions are welcome. Please open an issue or a pull request to address specific changes.

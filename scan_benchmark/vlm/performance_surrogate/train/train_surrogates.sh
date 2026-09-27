@@ -16,7 +16,7 @@ EXPERIMENTS=(
     "fit_with_intermediate pred_with_intermediate"
 )
 
-FOLDS=(1 2 3 4 5)
+SPLITS=(1 2 3 4 5)
 
 for SEED in "${SEEDS[@]}"; do
 
@@ -39,9 +39,9 @@ for SEED in "${SEEDS[@]}"; do
             for EXPERIMENT in "${EXPERIMENTS[@]}"; do
                 read -r FIT_MODE PRED_MODE <<< "$EXPERIMENT"
 
-                for FOLD_ID in "${FOLDS[@]}"; do
+                for SPLIT_ID in "${SPLITS[@]}"; do
 
-                    OUT_DIR="${MODEL_OUT_DIR}/seed=${SEED}/${FIT_MODE}/${PRED_MODE}/fold_${FOLD_ID}"
+                    OUT_DIR="${MODEL_OUT_DIR}/seed=${SEED}/${FIT_MODE}/${PRED_MODE}/split_${SPLIT_ID}"
 
                     CMD=(
                         python -m "$SCRIPT"
@@ -50,8 +50,8 @@ for SEED in "${SEEDS[@]}"; do
                         --labels val_loss
                         --device "$DEVICE"
                         --out_dir "$OUT_DIR"
-                        --train_csv "${SPLITS_DIR}/train_fold_${FOLD_ID}.csv"
-                        --test_csv "${SPLITS_DIR}/test_fold_${FOLD_ID}.csv"
+                        --train_csv "${SPLITS_DIR}/train_split_${SPLIT_ID}.csv"
+                        --test_csv "${SPLITS_DIR}/test_split_${SPLIT_ID}.csv"
                         --additional_runs_path "${ADDITIONAL_RUNS_PATH}"
                     )
 
@@ -85,9 +85,9 @@ for SEED in "${SEEDS[@]}"; do
     FIT_MODE="fit_with_intermediate"
     PRED_MODE="pred_with_intermediate"
 
-    for FOLD_ID in "${FOLDS[@]}"; do
+    for SPLIT_ID in "${SPLITS[@]}"; do
 
-        OUT_DIR="${MODEL_OUT_DIR}/seed=${SEED}/${FIT_MODE}/${PRED_MODE}/fold_${FOLD_ID}"
+        OUT_DIR="${MODEL_OUT_DIR}/seed=${SEED}/${FIT_MODE}/${PRED_MODE}/split_${SPLIT_ID}"
 
         CMD=(
             python -m "$SCRIPT"
@@ -96,8 +96,8 @@ for SEED in "${SEEDS[@]}"; do
             --labels val_loss
             --device "$DEVICE"
             --out_dir "$OUT_DIR"
-            --train_csv "${SPLITS_DIR}/train_fold_${FOLD_ID}.csv"
-            --test_csv "${SPLITS_DIR}/test_fold_${FOLD_ID}.csv"
+            --train_csv "${SPLITS_DIR}/train_split_${SPLIT_ID}.csv"
+            --test_csv "${SPLITS_DIR}/test_split_${SPLIT_ID}.csv"
             --include_intermediate_points
             --eval_on_intermediate_points
             --additional_runs_path "${ADDITIONAL_RUNS_PATH}"

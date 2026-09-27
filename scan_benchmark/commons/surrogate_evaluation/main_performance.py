@@ -5,7 +5,7 @@ import pandas as pd
 
 
 def valid_files(root: Path, filename: str):
-    for file in root.rglob(f"fold*/{filename}"):
+    for file in root.rglob(f"split*/{filename}"):
         if (
                 "fit_with_intermediate" in file.parts
                 and "pred_with_intermediate" in file.parts
