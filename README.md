@@ -206,7 +206,10 @@ For usage and licensing terms, see the LICENSE file.
 
 
 ### Citations
-```bash
+
+If you use ScAn-Bench, please cite:
+
+```bibtex
 @inproceedings{sermaxhaj2026scanbench,
   title={ScAn-Bench: Evaluating Scaling Analysis Methodology},
   author={A. Sermaxhaj and N. Alipour and D. Sinani and J. Hog and N. Mallik and S. Adriaensen and J. Jitsev and D. Stoll},
@@ -216,13 +219,14 @@ For usage and licensing terms, see the LICENSE file.
   url={https://openreview.net/forum?id=EQd9HNVF60}
 }
 ```
-and 
-```bash
+and
+
+```bibtex
 @inproceedings{alipour2026tabpfn,
   title={TabPFN-ScAn-Bench: A Surrogate Benchmark for Scaling Analysis Algorithms},
-  author={N. Alipour, D. Sinani, A. Sermaxhaj, J. Hog, D. Stoll},
+  author={N. Alipour and D. Sinani and A. Sermaxhaj and J. Hog and D. Stoll},
   booktitle={AutoML 2026},
   year={2026},
-  note={Late-Breaking Abstract},
+  note={Late-Breaking Abstract}
 }
 ```
