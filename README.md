@@ -1,7 +1,7 @@
 # ScAn-Bench: Evaluating Scaling Analysis Methodology
 
 This repository provides surrogate benchmarks for evaluating scaling analysis (ScAn) methodology on vision-language
-models (VLMs) and large language models (LLMs). The benchmarks approximate the mapping from training configurations to
+models (VLMs), large language models (LLMs) and tabular foundation models (TabPFN). The benchmarks approximate the mapping from training configurations to
 performance, enabling fast evaluation without training full models.
 
 This README describes the ScAn-Bench repository specifically.
@@ -23,7 +23,7 @@ We recommend using a conda environment for both package usage and local developm
 ```bash 
 conda create -n scan-bench python=3.11
 conda activate scan-bench
-pip install .
+pip install scan-bench
 ```
 
 Install pytorch with CUDA, if you want to utilize the GPU.
@@ -51,7 +51,7 @@ print(bench.flops(large), bench.model_params(large))
 
 ### Package usage
 
-Refer to [VLM API](scan_bench/vlm/api.py)  and [LLM API](scan_bench/llm/api.py) for API usages.
+Refer to [VLM API](scan_bench/vlm/api.py), [LLM API](scan_bench/llm/api.py) and [TabPFN API](scan_bench/tabpfn/api.py) for API usages.
 
 ### Local development and experiment reproduction
 
@@ -83,6 +83,12 @@ bash scan_bench/vlm/divergence_surrogate/train.sh
 bash scan_bench/llm/train_surrogates.sh
 ```
 
+#### TabPFN pipeline
+
+```bash
+bash scan_bench/tabpfn/performance_surrogate/train/train_surrogates.sh
+```
+
 #### Results
 
 After running the surrogate training scripts, a results directory is created under the corresponding directory for each
@@ -95,6 +101,8 @@ For example:
 scan_bench/vlm/performance_surrogate/results/
 
 scan_bench/llm/results/
+
+scan_bench/tabpfn/performance_surrogate/results/
 
 #### Surrogate Performance (VLM)
 
@@ -141,6 +149,17 @@ For raw logs on the collected VLM data, see the [ScAn-VLM-Bench repository](http
 | Collected checkpoint rows | 4,524 | Total checkpoints collected across successful and failed runs. |
 | Performance-surrogate rows | 4,524 | Checkpoints from successful runs used for performance prediction. |
 
+#### TabPFN dataset summary
+
+| Quantity | Count | Description |
+|---|---:|---|
+| Training configurations | 2,623 | Total number of collected TabPFN pretraining configurations (one row per configuration). |
+
+
+Each configuration varies the hyperparameters (`lr`, `effective_batch_size`) and the scale parameters (`total_cells`,
+`embedding_size`, `num_layers`, `max_features`, `num_datapoints_max`); see
+[TabPFN search space](scan_bench/tabpfn/spaces.py). Available target is the prior validation loss (`val/val_loss`).
+
 #### Data locations
 
 The table below shows where the data is located:
@@ -150,6 +169,7 @@ The table below shows where the data is located:
 | **VLM performance data** | `scan_bench/vlm/performance_surrogate/splits` | Training and test splits for VLM performance surrogate modeling. |
 | **VLM divergence data** | `scan_bench/vlm/divergence_surrogate/splits` | Configuration-level data for predicting failed (diverged) configurations. |
 | **LLM performance data** | `scan_bench/llm/splits` | Configuration-performance datasets for LLM surrogate training. |
+| **TabPFN performance data** | `scan_bench/tabpfn/performance_surrogate/splits` | Configuration-performance datasets for TabPFN surrogate training. |
 
 
 Additionally, we host the datasets online, with the corresponding Licenses, source dataset Licenses and corresponding downstream task Licenses:
@@ -178,9 +198,31 @@ Run the tests with the following command:
 python -m pytest
 ```
 
-
 ### Contributing
 
 Contributions are welcome. Please open an issue or submit a pull request.
 
 For usage and licensing terms, see the LICENSE file.
+
+
+### Citations
+```bash
+@inproceedings{sermaxhaj2026scanbench,
+  title={ScAn-Bench: Evaluating Scaling Analysis Methodology},
+  author={A. Sermaxhaj and N. Alipour and D. Sinani and J. Hog and N. Mallik and S. Adriaensen and J. Jitsev and D. Stoll},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2026},
+  note={Evaluations and Datasets Track},
+  url={https://openreview.net/forum?id=EQd9HNVF60}
+}
+```
+and 
+```bash
+@inproceedings{alipour2026tabpfn,
+  title={TabPFN-ScAn-Bench: A Surrogate Benchmark for Scaling Analysis Algorithms},
+  author={N. Alipour, D. Sinani, A. Sermaxhaj, J. Hog, D. Stoll},
+  booktitle={AutoML 2026},
+  year={2026},
+  note={Late-Breaking Abstract},
+}
+```
