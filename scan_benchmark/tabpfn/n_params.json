@@ -322,6 +322,326 @@
     {
         "model_config": {
             "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 1,
+            "num_outputs": 10
+        },
+        "n_parameters": 1826
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 2,
+            "num_outputs": 10
+        },
+        "n_parameters": 3002
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 3,
+            "num_outputs": 10
+        },
+        "n_parameters": 4178
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 4,
+            "num_outputs": 10
+        },
+        "n_parameters": 5354
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 5,
+            "num_outputs": 10
+        },
+        "n_parameters": 6530
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 6,
+            "num_outputs": 10
+        },
+        "n_parameters": 7706
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 7,
+            "num_outputs": 10
+        },
+        "n_parameters": 8882
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 8,
+            "num_outputs": 10
+        },
+        "n_parameters": 10058
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 9,
+            "num_outputs": 10
+        },
+        "n_parameters": 11234
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 10,
+            "num_outputs": 10
+        },
+        "n_parameters": 12410
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 11,
+            "num_outputs": 10
+        },
+        "n_parameters": 13586
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 12,
+            "num_outputs": 10
+        },
+        "n_parameters": 14762
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 13,
+            "num_outputs": 10
+        },
+        "n_parameters": 15938
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 14,
+            "num_outputs": 10
+        },
+        "n_parameters": 17114
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 15,
+            "num_outputs": 10
+        },
+        "n_parameters": 18290
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 16,
+            "num_outputs": 10
+        },
+        "n_parameters": 19466
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 17,
+            "num_outputs": 10
+        },
+        "n_parameters": 20642
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 18,
+            "num_outputs": 10
+        },
+        "n_parameters": 21818
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 19,
+            "num_outputs": 10
+        },
+        "n_parameters": 22994
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 20,
+            "num_outputs": 10
+        },
+        "n_parameters": 24170
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 21,
+            "num_outputs": 10
+        },
+        "n_parameters": 25346
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 22,
+            "num_outputs": 10
+        },
+        "n_parameters": 26522
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 23,
+            "num_outputs": 10
+        },
+        "n_parameters": 27698
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 24,
+            "num_outputs": 10
+        },
+        "n_parameters": 28874
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 25,
+            "num_outputs": 10
+        },
+        "n_parameters": 30050
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 26,
+            "num_outputs": 10
+        },
+        "n_parameters": 31226
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 27,
+            "num_outputs": 10
+        },
+        "n_parameters": 32402
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 28,
+            "num_outputs": 10
+        },
+        "n_parameters": 33578
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 29,
+            "num_outputs": 10
+        },
+        "n_parameters": 34754
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 30,
+            "num_outputs": 10
+        },
+        "n_parameters": 35930
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 31,
+            "num_outputs": 10
+        },
+        "n_parameters": 37106
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
+            "embedding_size": 8,
+            "mlp_hidden_multiple": 4,
+            "num_layers": 32,
+            "num_outputs": 10
+        },
+        "n_parameters": 38282
+    },
+    {
+        "model_config": {
+            "num_attention_heads": 2,
             "embedding_size": 16,
             "mlp_hidden_multiple": 4,
             "num_layers": 1,

@@ -20,13 +20,6 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
             targets=target,
             seed=42,
         )
-        self.default_exponential = [
-            "effective_batch_size",
-            "total_cells",
-            "num_layers",
-            "max_features",
-            "num_datapoints_max",
-        ]
 
         if predictor_type == PerformancePredictorType.AUTOGLUON:
             saved_model_path = (
@@ -94,19 +87,12 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
         with open(n_params_path, encoding="utf-8") as f:
             data = json.load(f)
 
-        embedding_size = self._to_exponential(
-            "embedding_size", config.embedding_size
-        )
-        num_layers = self._to_exponential(
-            "num_layers", config.num_layers
-        )
-
         for entry in data:
             cfg = entry["model_config"]
 
             if (
-                    cfg["embedding_size"] == embedding_size and
-                    cfg["num_layers"] == num_layers
+                    cfg["embedding_size"] == config.embedding_size and
+                    cfg["num_layers"] == config.num_layers
             ):
                 return entry["n_parameters"]
 
@@ -120,41 +106,37 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
         with open(flops_path, encoding="utf-8") as f:
             data = json.load(f)
 
-        embedding_size = self._to_exponential(
-            "embedding_size", config.embedding_size
-        )
-        num_layers = self._to_exponential(
-            "num_layers", config.num_layers
-        )
-
         for entry in data:
             cfg = entry["config"]
 
             if (
-                    cfg["embedding_size"] == embedding_size
-                    and cfg["num_layers"] == num_layers
+                    cfg["embedding_size"] == config.embedding_size and
+                    cfg["num_layers"] == config.num_layers and
+                    cfg["num_datapoints_max"] == config.num_datapoints_max and
+                    cfg["max_features"] == config.max_features
             ):
                 return entry["flops_per_cell"] * config.total_cells
 
-    def _to_exponential(self, name: str, value):
-        if name in self.default_exponential:
-            return 2 ** value
-        return value
+        raise ValueError(
+            f"No flops_per_cell found for embedding_size={config.embedding_size}, "
+            f"num_layers={config.num_layers}, "
+            f"num_datapoints_max={config.num_datapoints_max}, "
+            f"max_features={config.max_features}"
+        )
 
 
-if __name__ == "__main__":
-    tabpfn_bench = TabPFNBenchmark(predictor_type=PerformancePredictorType.ENSEMBLE_XGB,
-                                   device="auto")
+tabpfn_bench = TabPFNBenchmark(predictor_type=PerformancePredictorType.ENSEMBLE_XGB,
+                                device="auto")
 
-    config = TabPFNConfig(
-        total_cells=20,
-        effective_batch_size=4,
-        lr=0.0001,
-        max_features=5,
-        embedding_size=4,
-        num_layers=0,
-        num_datapoints_max=7,
-    )
+config = TabPFNConfig(
+    total_cells=1048576,
+    effective_batch_size=16,
+    lr=0.0001,
+    max_features=32,
+    embedding_size=4,
+    num_layers=2,
+    num_datapoints_max=128,
+)
 
-    result = tabpfn_bench.query_many([config])
-    pprint(result)
+result = tabpfn_bench.query_many([config])
+pprint(result)

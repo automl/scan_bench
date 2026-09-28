@@ -1,3 +1,6 @@
+# All values are the real quantities (layer counts, cells, feature counts), matching
+# data.csv, flops.json and n_params.json. Base-2 grids belong to the optimizer's
+# search space, not to TabPFNConfig.
 TABPFN_SEARCH_SPACE = {
     "hp_space": {
         "lr": {
@@ -8,38 +11,33 @@ TABPFN_SEARCH_SPACE = {
         },
         "effective_batch_size": {
             "type": "int",
-            "lower": 4,
-            "upper": 8,
-            "power_2": True
+            "lower": 16,
+            "upper": 256,
         },
     },
     "scale_space": {
         "total_cells": {
             "type": "int",
-            "lower": 20,
-            "upper": 35,
-            "power_2": True
+            "lower": 1048576,
+            "upper": 34359738368,
         },
         "embedding_size": {
             "choices": [4, 8, 16, 32, 64, 128, 256],
         },
         "num_layers": {
             "type": "int",
-            "lower": 0,
-            "upper": 5,
-            "power_2": True
+            "lower": 2,
+            "upper": 32,
         },
         "max_features": {
             "type": "int",
-            "lower": 5,
-            "upper": 7,
-            "power_2": True
+            "lower": 32,
+            "upper": 128,
         },
         "num_datapoints_max": {
             "type": "int",
-            "lower": 7,
-            "upper": 9,
-            "power_2": True
+            "lower": 128,
+            "upper": 512,
         },
     },
 }

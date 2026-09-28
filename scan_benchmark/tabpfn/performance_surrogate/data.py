@@ -19,9 +19,8 @@ class TabPFNSurrogateDataset(BaseSurrogateDataset):
 
     DEFAULT_LOG_COLUMNS = ["config/lr"]
 
-    DEFAULT_EXPONENTIAL = ["total_cells", "config/effective_batch_size", "config/max_features",
-                           "config/model_config.embedding_size",
-                           "config/model_config.num_layers", "config/num_datapoints_max"]
+    # Configs carry the same units as the CSV columns, so no feature is rescaled.
+    DEFAULT_EXPONENTIAL = []
 
     def _prepare_train_df(self, df: pd.DataFrame) -> pd.DataFrame:
         return df.sample(frac=1, random_state=self.seed).reset_index(drop=True)

@@ -40,8 +40,8 @@ exclude = [
 ]
 
 [tool.setuptools.package-data]
-"scan_benchmark.vlm" = ["*.json"]
+"scan_benchmark.vlm" = ["*.json", "*.csv"]
 "scan_benchmark.vlm.performance_surrogate" = ["splits/*.csv"]
 "scan_benchmark.vlm.divergence_surrogate" = ["xgb_models/*.json"]
-"scan_benchmark.llm" = ["splits/*.csv"]
-"scan_benchmark.tabpfn" = ["*.json"]
+"scan_benchmark.llm" = ["splits/*.csv", "*.csv", "*.json"]
+"scan_benchmark.tabpfn" = ["*.json", "*.csv"]

@@ -2,1359 +2,2836 @@
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 1
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 2462.5440673828125
+        "flops_per_cell": 11520.817072691638
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 2
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 4874.014617919922
+        "flops_per_cell": 22985.294891549645
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 1
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 2462.4166259765625
+        "flops_per_cell": 45914.250529265664
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 2
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 4888.560974121094
+        "flops_per_cell": 91772.1618046977
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 4
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 9828.667236328125
+        "flops_per_cell": 183487.98435556176
     },
     {
         "config": {
-            "embedding_size": 4,
-            "num_layers": 8
+            "embedding_size": 8,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 19678.235229492188
+        "flops_per_cell": 28948.92583296594
     },
     {
         "config": {
-            "embedding_size": 4,
-            "num_layers": 16
+            "embedding_size": 8,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 40329.32684326172
+        "flops_per_cell": 57767.01778769135
     },
     {
         "config": {
-            "embedding_size": 4,
-            "num_layers": 32
+            "embedding_size": 8,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 78207.8794555664
+        "flops_per_cell": 115403.20169714218
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 32
+        },
+        "flops_per_cell": 230675.56951604385
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 32
+        },
+        "flops_per_cell": 461220.30515384715
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 1
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 26847.481201171875
+        "flops_per_cell": 81527.01841626254
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 2
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 54131.73046875
+        "flops_per_cell": 162719.74759375094
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 4
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 108386.595703125
+        "flops_per_cell": 325105.2059487278
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 8
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 212031.31274414062
+        "flops_per_cell": 649876.1226586815
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 16
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 430328.4744873047
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 32
-        },
-        "flops_per_cell": 852943.0876464844
+        "flops_per_cell": 1299417.956078589
     },
     {
         "config": {
             "embedding_size": 32,
-            "num_layers": 1
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 103825.23413085938
+        "flops_per_cell": 257570.70383384769
     },
     {
         "config": {
             "embedding_size": 32,
-            "num_layers": 2
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 205977.73388671875
+        "flops_per_cell": 514182.3432609749
     },
     {
         "config": {
             "embedding_size": 32,
-            "num_layers": 4
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 415540.29345703125
+        "flops_per_cell": 1027405.6221152294
     },
     {
         "config": {
             "embedding_size": 32,
-            "num_layers": 8
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 823421.2419433594
+        "flops_per_cell": 2053852.179823738
     },
     {
         "config": {
             "embedding_size": 32,
-            "num_layers": 16
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 1643970.603515625
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 32
-        },
-        "flops_per_cell": 3271623.3779296875
+        "flops_per_cell": 4106745.2952407557
     },
     {
         "config": {
             "embedding_size": 64,
-            "num_layers": 1
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 405989.4521484375
+        "flops_per_cell": 893208.0756729859
     },
     {
         "config": {
             "embedding_size": 64,
-            "num_layers": 2
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 818810.349609375
+        "flops_per_cell": 1783336.0788158418
     },
     {
         "config": {
             "embedding_size": 64,
-            "num_layers": 4
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 1634985.5874023438
+        "flops_per_cell": 3563592.0851015537
     },
     {
         "config": {
             "embedding_size": 64,
-            "num_layers": 8
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 3251677.8881835938
+        "flops_per_cell": 7124104.0976729775
     },
     {
         "config": {
             "embedding_size": 64,
-            "num_layers": 16
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 6506987.044189453
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 32
-        },
-        "flops_per_cell": 12962148.03881836
+        "flops_per_cell": 14245128.122815825
     },
     {
         "config": {
             "embedding_size": 128,
-            "num_layers": 1
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 1619544.0600585938
+        "flops_per_cell": 3298682.8233671337
     },
     {
         "config": {
             "embedding_size": 128,
-            "num_layers": 2
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 3211676.7158203125
+        "flops_per_cell": 6586557.726807252
     },
     {
         "config": {
             "embedding_size": 128,
-            "num_layers": 4
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 6439124.2265625
+        "flops_per_cell": 13162307.533687487
     },
     {
         "config": {
             "embedding_size": 128,
-            "num_layers": 8
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 12909238.879394531
+        "flops_per_cell": 26313807.14744796
     },
     {
         "config": {
             "embedding_size": 128,
-            "num_layers": 16
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 32
         },
-        "flops_per_cell": 25997927.81689453
+        "flops_per_cell": 52616806.3749689
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 32
+        },
+        "flops_per_cell": 12646432.334818915
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 32
+        },
+        "flops_per_cell": 25252657.730316773
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 32
+        },
+        "flops_per_cell": 50465108.52131249
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 32
+        },
+        "flops_per_cell": 100890010.10330392
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 32
+        },
+        "flops_per_cell": 201739813.2672868
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 3
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 64
         },
-        "flops_per_cell": 7394.634429931641
+        "flops_per_cell": 13390.272261130485
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 5
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 64
         },
-        "flops_per_cell": 12693.748077392578
+        "flops_per_cell": 26737.782891253843
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 6
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 64
         },
-        "flops_per_cell": 14771.789611816406
+        "flops_per_cell": 53432.80415150056
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 7
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 64
         },
-        "flops_per_cell": 17439.81463623047
+        "flops_per_cell": 106822.84667199399
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 9
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 64
         },
-        "flops_per_cell": 21994.154571533203
+        "flops_per_cell": 213602.93171298085
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 32626.041122547802
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 65156.02613760366
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 130215.99616771538
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 260335.9362279388
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 520575.81634838565
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 88634.06864624291
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 177033.8936955912
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 353833.5437942878
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 707432.8439916809
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 1414631.444386467
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 270796.0828970751
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 540955.153072718
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 1081273.2934240035
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 2161909.574126575
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 4323182.135531718
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 915703.9482125072
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 1829459.768871578
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 3656971.41018972
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 7311994.692826003
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 14622041.258098569
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 3327855.0260984427
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 6649117.388647725
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 13291642.11374629
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 26576691.563943416
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 53146790.46433768
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 12641498.570890598
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 25259026.180913724
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 50494081.400959976
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 100964191.84105249
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 64
+        },
+        "flops_per_cell": 201904412.72123748
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 10
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 128
         },
-        "flops_per_cell": 24702.712371826172
+        "flops_per_cell": 17446.963330879382
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 11
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 128
         },
-        "flops_per_cell": 27254.0302734375
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 32
-        },
-        "flops_per_cell": 51694817.26464844
+        "flops_per_cell": 34859.888529792384
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 12
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 128
         },
-        "flops_per_cell": 29319.71209716797
+        "flops_per_cell": 69685.7389276184
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 13
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 128
         },
-        "flops_per_cell": 31800.65789794922
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 1
-        },
-        "flops_per_cell": 6448503.470214844
+        "flops_per_cell": 139337.4397232704
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 14
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 128
         },
-        "flops_per_cell": 34662.550048828125
+        "flops_per_cell": 278640.8413145744
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 40699.49960605223
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 81325.28750566428
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 162576.86330488836
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 325080.01490333653
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 650086.3181002329
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 104621.29098927836
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 209072.61679564658
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 417975.268408383
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 835780.5716338558
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 1671391.1780848014
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 302131.7490872523
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 603833.4007285652
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 1207236.7040111911
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 2414043.310576443
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 4827656.5237069465
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 975820.1666092868
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 1950419.4700062189
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 3899618.076800083
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 7798015.29038781
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 15594809.717563266
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 3437867.006957703
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 6871849.614208791
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 13739814.828710968
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 27475745.257715322
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 54947606.11572403
     },
     {
         "config": {
             "embedding_size": 256,
-            "num_layers": 2
+            "num_layers": 2,
+            "num_datapoints_max": 128,
+            "max_features": 128
         },
-        "flops_per_cell": 12808993.163085938
+        "flops_per_cell": 12820640.708871922
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 4,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 25627741.925202996
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 8,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 51241944.35786514
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 16,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 102470349.22318944
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 32,
+            "num_datapoints_max": 128,
+            "max_features": 128
+        },
+        "flops_per_cell": 204927158.95383802
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 15
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 32
         },
-        "flops_per_cell": 36462.421142578125
+        "flops_per_cell": 17977.408257603718
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 17
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 32
         },
-        "flops_per_cell": 41602.36120605469
+        "flops_per_cell": 35899.4212510687
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 18
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 32
         },
-        "flops_per_cell": 43926.76336669922
+        "flops_per_cell": 71743.44723799867
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 19
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 32
         },
-        "flops_per_cell": 46242.72482299805
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 4
-        },
-        "flops_per_cell": 25800329.750976562
+        "flops_per_cell": 143431.4992118586
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 20
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 32
         },
-        "flops_per_cell": 49856.35968017578
+        "flops_per_cell": 286807.60315957846
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 41865.6510198251
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 83602.88609992641
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 167077.35626012908
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 334026.29658053437
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 667924.1772213449
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 107374.64005812084
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 214421.94659100892
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 428516.55965678504
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 856705.7857883374
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 1713084.2380514417
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 309322.6321901243
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 617708.5907466421
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 1234480.5078596778
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 2468024.342085749
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 4935112.010537892
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 996938.672675779
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 1990875.9717517814
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 3978750.5699037863
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 7954499.766207796
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 15905998.158815814
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 3507050.9785336796
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 7003587.104537551
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 13996659.356545296
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 27982803.860560782
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 55955092.868591756
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 13066796.489795845
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 26094514.853211056
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 52149951.58004148
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 104260825.03370233
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 32
+        },
+        "flops_per_cell": 208482571.941024
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 21
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 64
         },
-        "flops_per_cell": 51916.17123413086
+        "flops_per_cell": 19646.59753526132
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 22
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 64
         },
-        "flops_per_cell": 53727.81271362305
+        "flops_per_cell": 39250.85690462655
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 23
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 64
         },
-        "flops_per_cell": 57363.29782104492
+        "flops_per_cell": 78459.37564335701
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 24
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 64
         },
-        "flops_per_cell": 58170.14419555664
+        "flops_per_cell": 156876.41312081795
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 25
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 64
         },
-        "flops_per_cell": 62130.726654052734
+        "flops_per_cell": 313710.48807573976
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 45137.460206241274
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 90179.94897001187
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 180264.92649755307
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 360434.88155263546
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 720774.7916628002
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 113651.98095535711
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 227072.83858305882
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 453914.5538384623
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 907597.9843492692
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 1814964.845370883
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 320812.2040822124
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 640997.439738258
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 1281367.911050349
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 2562108.8536745314
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 5123590.738922896
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 1015657.3768504177
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 2029401.9297650773
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 4056891.0355943963
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 8111869.247253035
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 16221825.670570312
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 3527446.6284448067
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 7048432.0606844
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 14090402.925163586
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 28174344.654121958
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 56342228.1120387
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 13039420.7558655
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 26055376.92598578
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 52087289.266226344
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 104151113.94670747
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 64
+        },
+        "flops_per_cell": 208278763.30766973
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 26
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 128
         },
-        "flops_per_cell": 64001.99807739258
+        "flops_per_cell": 23730.661510481896
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 27
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 128
         },
-        "flops_per_cell": 65309.257415771484
+        "flops_per_cell": 47427.41924715265
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 28
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 128
         },
-        "flops_per_cell": 69211.60317993164
+        "flops_per_cell": 94820.93472049414
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 29
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 128
         },
-        "flops_per_cell": 71232.08660888672
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 8
-        },
-        "flops_per_cell": 51249269.14453125
+        "flops_per_cell": 189607.96566717714
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 30
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 128
         },
-        "flops_per_cell": 72862.90100097656
+        "flops_per_cell": 379182.02756054315
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 53272.340275368355
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 106471.31298974674
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 212869.25841850354
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 425665.14927601715
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 851256.9309910443
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 129788.74956835494
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 259408.5239612593
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 518648.0727470681
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 1037127.1703186856
+    },
+    {
+        "config": {
+            "embedding_size": 16,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 2074085.3654619206
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 352553.7752071828
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 704680.6398495819
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 1408934.36913438
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 2817441.8277039765
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 5634456.744843169
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 1077012.6546962573
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 2152815.6474074167
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 4304421.632829736
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 8607633.603674375
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 17214057.54536365
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 3641645.7265200815
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 7279448.765647846
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 14555054.843903376
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 29106267.000414435
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 58208691.31343655
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 2,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 13233773.12155043
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 4,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 26454167.414627742
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 8,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 52894956.00078236
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 16,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 105776533.1730916
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 32,
+            "num_datapoints_max": 256,
+            "max_features": 128
+        },
+        "flops_per_cell": 211539687.5177101
     },
     {
         "config": {
             "embedding_size": 4,
-            "num_layers": 31
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 32
         },
-        "flops_per_cell": 75195.81756591797
+        "flops_per_cell": 30512.498719353815
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 60969.45525019204
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 121883.36831186849
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 243711.19443522138
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 487366.84668192716
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 66935.80727808748
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 133742.82228383675
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 267356.8522953353
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 534584.9123183325
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 1069041.0323643268
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 3
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 32
         },
-        "flops_per_cell": 80270.42102050781
+        "flops_per_cell": 157514.8539136943
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 5
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 32
         },
-        "flops_per_cell": 132698.9443359375
+        "flops_per_cell": 314701.29170148424
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 6
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 32
         },
-        "flops_per_cell": 159986.2236328125
+        "flops_per_cell": 629074.1672770642
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 7
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 32
         },
-        "flops_per_cell": 188508.35668945312
+        "flops_per_cell": 1257819.918428224
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 9
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 32
         },
-        "flops_per_cell": 239547.84155273438
+        "flops_per_cell": 2515311.420730544
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 409602.6652574661
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 818265.1719382115
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 1635590.1852997022
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 3270240.212022684
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 6539540.265468647
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 1197497.160235242
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 2391980.6980173946
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 4780947.7735817
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 9558881.924710311
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 19114750.226967532
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 3908161.6393517237
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 7805762.812598677
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 15600965.159092583
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 31191369.852080397
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 62372179.23805602
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 13868992.554228405
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 27698731.291452903
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 55358208.7659019
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 110677163.7147999
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 32
+        },
+        "flops_per_cell": 221315073.61259586
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 32442.292019008964
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 64842.24561117582
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 129642.15279550955
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 259241.96716417698
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 518441.5959015119
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 70736.22731972503
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 141377.48252859135
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 282659.992946324
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 565225.0137817892
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 1130355.0554527198
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 10
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 64
         },
-        "flops_per_cell": 270944.5671386719
+        "flops_per_cell": 164879.0277662785
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 11
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 64
         },
-        "flops_per_cell": 293196.6990966797
+        "flops_per_cell": 329526.93028214155
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 12
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 64
         },
-        "flops_per_cell": 314835.2263183594
+        "flops_per_cell": 658822.7353138676
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 13
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 64
         },
-        "flops_per_cell": 343433.3547363281
+        "flops_per_cell": 1317414.3453773197
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 14
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 64
         },
-        "flops_per_cell": 371230.2136230469
+        "flops_per_cell": 2634597.565504224
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 423384.3480398708
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 846141.7214641183
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 1691656.4683126134
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 3382685.962009604
+    },
+    {
+        "config": {
+            "embedding_size": 32,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 6764744.949403585
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 1221273.8661089966
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 2440634.886527578
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 4879356.9273647405
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 9756801.009039067
+    },
+    {
+        "config": {
+            "embedding_size": 64,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 19511689.172387715
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 3940568.412335013
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 7874675.547452521
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 15742889.817687536
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 31479318.358157564
+    },
+    {
+        "config": {
+            "embedding_size": 128,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 62952175.43909762
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 13873219.545138108
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 27722974.1924945
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 55422483.487207286
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 110821502.07663286
+    },
+    {
+        "config": {
+            "embedding_size": 256,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 64
+        },
+        "flops_per_cell": 221619539.255484
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 128
+        },
+        "flops_per_cell": 36151.409389064625
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 128
+        },
+        "flops_per_cell": 72269.18359035277
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 128
+        },
+        "flops_per_cell": 144504.73199292904
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 128
+        },
+        "flops_per_cell": 288975.8287980816
+    },
+    {
+        "config": {
+            "embedding_size": 4,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 128
+        },
+        "flops_per_cell": 577918.0224083867
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 128
+        },
+        "flops_per_cell": 78109.18479217001
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 128
+        },
+        "flops_per_cell": 156145.68998056167
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 128
+        },
+        "flops_per_cell": 312218.700357345
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 128
+        },
+        "flops_per_cell": 624364.7211109116
+    },
+    {
+        "config": {
+            "embedding_size": 8,
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 128
+        },
+        "flops_per_cell": 1248656.7626180449
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 15
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 397664.8322753906
+        "flops_per_cell": 179443.8336405031
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 17
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 453934.49157714844
+        "flops_per_cell": 358720.6711605479
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 18
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 472877.13427734375
+        "flops_per_cell": 717274.3462006375
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 19
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 507185.99853515625
+        "flops_per_cell": 1434381.6962808166
     },
     {
         "config": {
             "embedding_size": 16,
-            "num_layers": 20
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 530052.1234130859
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 21
-        },
-        "flops_per_cell": 555311.8051757812
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 22
-        },
-        "flops_per_cell": 589585.7504882812
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 23
-        },
-        "flops_per_cell": 615900.8895263672
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 24
-        },
-        "flops_per_cell": 642980.9542236328
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 25
-        },
-        "flops_per_cell": 666293.7615966797
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 26
-        },
-        "flops_per_cell": 698381.4087524414
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 27
-        },
-        "flops_per_cell": 722930.7872314453
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 28
-        },
-        "flops_per_cell": 745538.0194702148
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 29
-        },
-        "flops_per_cell": 773945.4221191406
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 30
-        },
-        "flops_per_cell": 793185.3431396484
-    },
-    {
-        "config": {
-            "embedding_size": 16,
-            "num_layers": 31
-        },
-        "flops_per_cell": 826803.6075439453
+        "flops_per_cell": 2868596.396441175
     },
     {
         "config": {
             "embedding_size": 32,
-            "num_layers": 3
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 310445.9831542969
+        "flops_per_cell": 451789.5235056585
     },
     {
         "config": {
             "embedding_size": 32,
-            "num_layers": 5
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 514861.78857421875
+        "flops_per_cell": 903158.507118794
     },
     {
         "config": {
             "embedding_size": 32,
-            "num_layers": 6
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 617120.7290039062
+        "flops_per_cell": 1805896.4743450652
     },
     {
         "config": {
             "embedding_size": 32,
-            "num_layers": 7
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 716538.8635253906
+        "flops_per_cell": 3611372.4087976073
     },
     {
         "config": {
             "embedding_size": 32,
-            "num_layers": 9
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 925714.2348632812
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 10
-        },
-        "flops_per_cell": 1020355.0700683594
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 11
-        },
-        "flops_per_cell": 1118002.5270996094
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 12
-        },
-        "flops_per_cell": 1241153.4060058594
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 13
-        },
-        "flops_per_cell": 1335791.9956054688
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 14
-        },
-        "flops_per_cell": 1461506.4836425781
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 15
-        },
-        "flops_per_cell": 1530907.6325683594
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 17
-        },
-        "flops_per_cell": 1739717.0485839844
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 18
-        },
-        "flops_per_cell": 1830626.830444336
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 19
-        },
-        "flops_per_cell": 1963261.1931152344
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 20
-        },
-        "flops_per_cell": 2045142.328125
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 21
-        },
-        "flops_per_cell": 2151839.5854492188
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 22
-        },
-        "flops_per_cell": 2246855.1881103516
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 23
-        },
-        "flops_per_cell": 2356010.799682617
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 24
-        },
-        "flops_per_cell": 2449075.106323242
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 25
-        },
-        "flops_per_cell": 2566877.5825195312
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 26
-        },
-        "flops_per_cell": 2666723.3569335938
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 27
-        },
-        "flops_per_cell": 2769800.5993652344
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 28
-        },
-        "flops_per_cell": 2874023.5063476562
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 29
-        },
-        "flops_per_cell": 2985294.373901367
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 30
-        },
-        "flops_per_cell": 3111997.003051758
-    },
-    {
-        "config": {
-            "embedding_size": 32,
-            "num_layers": 31
-        },
-        "flops_per_cell": 3204603.7998046875
+        "flops_per_cell": 7222324.277702692
     },
     {
         "config": {
             "embedding_size": 64,
-            "num_layers": 3
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 1213626.8818359375
+        "flops_per_cell": 1275186.471909926
     },
     {
         "config": {
             "embedding_size": 64,
-            "num_layers": 5
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 2030007.1860351562
+        "flops_per_cell": 2549185.673428381
     },
     {
         "config": {
             "embedding_size": 64,
-            "num_layers": 6
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 2429801.8901367188
+        "flops_per_cell": 5097184.076465291
     },
     {
         "config": {
             "embedding_size": 64,
-            "num_layers": 7
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 2833499.806640625
+        "flops_per_cell": 10193180.88253911
     },
     {
         "config": {
             "embedding_size": 64,
-            "num_layers": 9
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 3637733.2478027344
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 10
-        },
-        "flops_per_cell": 4041357.134033203
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 11
-        },
-        "flops_per_cell": 4435660.784912109
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 12
-        },
-        "flops_per_cell": 4840571.652099609
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 13
-        },
-        "flops_per_cell": 5262448.045166016
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 14
-        },
-        "flops_per_cell": 5637091.506591797
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 15
-        },
-        "flops_per_cell": 6060420.651855469
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 17
-        },
-        "flops_per_cell": 6862309.9013671875
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 18
-        },
-        "flops_per_cell": 7324669.474365234
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 19
-        },
-        "flops_per_cell": 7667204.900390625
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 20
-        },
-        "flops_per_cell": 8106973.738769531
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 21
-        },
-        "flops_per_cell": 8538363.88659668
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 22
-        },
-        "flops_per_cell": 8960930.230957031
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 23
-        },
-        "flops_per_cell": 9351745.458984375
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 24
-        },
-        "flops_per_cell": 9761390.280029297
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 25
-        },
-        "flops_per_cell": 10147562.278930664
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 26
-        },
-        "flops_per_cell": 10462284.012817383
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 27
-        },
-        "flops_per_cell": 10940307.590332031
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 28
-        },
-        "flops_per_cell": 11262091.6640625
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 29
-        },
-        "flops_per_cell": 11750896.467773438
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 30
-        },
-        "flops_per_cell": 12214929.927246094
-    },
-    {
-        "config": {
-            "embedding_size": 64,
-            "num_layers": 31
-        },
-        "flops_per_cell": 12595077.592163086
+        "flops_per_cell": 20385174.49468675
     },
     {
         "config": {
             "embedding_size": 128,
-            "num_layers": 3
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 4849031.242675781
+        "flops_per_cell": 4036802.6434142883
     },
     {
         "config": {
             "embedding_size": 128,
-            "num_layers": 5
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 8033306.753173828
+        "flops_per_cell": 8069845.983619934
     },
     {
         "config": {
             "embedding_size": 128,
-            "num_layers": 6
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 9583515.4921875
+        "flops_per_cell": 16135932.664031224
     },
     {
         "config": {
             "embedding_size": 128,
-            "num_layers": 7
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 11244937.36303711
+        "flops_per_cell": 32268106.024853807
     },
     {
         "config": {
             "embedding_size": 128,
-            "num_layers": 9
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 14552664.946289062
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 10
-        },
-        "flops_per_cell": 16037991.76171875
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 11
-        },
-        "flops_per_cell": 17706121.697021484
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 12
-        },
-        "flops_per_cell": 19380225.073242188
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 13
-        },
-        "flops_per_cell": 21041788.436645508
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 14
-        },
-        "flops_per_cell": 22646430.676757812
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 15
-        },
-        "flops_per_cell": 24099133.009277344
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 17
-        },
-        "flops_per_cell": 27600323.801879883
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 18
-        },
-        "flops_per_cell": 28759727.460205078
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 19
-        },
-        "flops_per_cell": 30599754.67529297
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 20
-        },
-        "flops_per_cell": 32270496.327392578
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 21
-        },
-        "flops_per_cell": 33802356.84338379
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 22
-        },
-        "flops_per_cell": 35292553.7175293
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 23
-        },
-        "flops_per_cell": 37091532.49822998
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 24
-        },
-        "flops_per_cell": 38784572.55578613
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 25
-        },
-        "flops_per_cell": 40144445.90332031
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 26
-        },
-        "flops_per_cell": 41619113.9498291
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 27
-        },
-        "flops_per_cell": 43711816.79223633
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 28
-        },
-        "flops_per_cell": 45192777.98693848
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 29
-        },
-        "flops_per_cell": 46918081.78381348
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 30
-        },
-        "flops_per_cell": 48411452.77001953
-    },
-    {
-        "config": {
-            "embedding_size": 128,
-            "num_layers": 31
-        },
-        "flops_per_cell": 49819859.84326172
+        "flops_per_cell": 64532452.74649897
     },
     {
         "config": {
             "embedding_size": 256,
-            "num_layers": 3
+            "num_layers": 2,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 19433988.442382812
+        "flops_per_cell": 14019324.085206322
     },
     {
         "config": {
             "embedding_size": 256,
-            "num_layers": 5
+            "num_layers": 4,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 32325292.033447266
+        "flops_per_cell": 28025590.514292557
     },
     {
         "config": {
             "embedding_size": 256,
-            "num_layers": 6
+            "num_layers": 8,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 38311378.48022461
+        "flops_per_cell": 56038123.37246502
     },
     {
         "config": {
             "embedding_size": 256,
-            "num_layers": 7
+            "num_layers": 16,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 44926454.33532715
+        "flops_per_cell": 112063189.08880995
     },
     {
         "config": {
             "embedding_size": 256,
-            "num_layers": 9
+            "num_layers": 32,
+            "num_datapoints_max": 512,
+            "max_features": 128
         },
-        "flops_per_cell": 57751322.724975586
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 10
-        },
-        "flops_per_cell": 63786214.72558594
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 11
-        },
-        "flops_per_cell": 70933172.87713623
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 12
-        },
-        "flops_per_cell": 76999892.16357422
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 13
-        },
-        "flops_per_cell": 83315154.50335693
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 14
-        },
-        "flops_per_cell": 89862874.9119873
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 15
-        },
-        "flops_per_cell": 96461907.66888428
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 16
-        },
-        "flops_per_cell": 102787500.25268555
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 17
-        },
-        "flops_per_cell": 108824461.68676758
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 18
-        },
-        "flops_per_cell": 116222118.24609375
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 19
-        },
-        "flops_per_cell": 121797227.83081055
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 20
-        },
-        "flops_per_cell": 128173081.33666992
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 21
-        },
-        "flops_per_cell": 134215092.27941895
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 22
-        },
-        "flops_per_cell": 141395193.5192871
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 23
-        },
-        "flops_per_cell": 147296131.4467163
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 24
-        },
-        "flops_per_cell": 153549550.37036133
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 25
-        },
-        "flops_per_cell": 159727776.49401855
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 30
-        },
-        "flops_per_cell": 191578650.30029297
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 31
-        },
-        "flops_per_cell": 198537001.265625
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 32
-        },
-        "flops_per_cell": 205483742.44665527
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 26
-        },
-        "flops_per_cell": 167540713.6774292
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 27
-        },
-        "flops_per_cell": 172530346.31588745
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 28
-        },
-        "flops_per_cell": 179631341.9296875
-    },
-    {
-        "config": {
-            "embedding_size": 256,
-            "num_layers": 29
-        },
-        "flops_per_cell": 186504462.65725708
+        "flops_per_cell": 224113320.5214998
     }
 ]
