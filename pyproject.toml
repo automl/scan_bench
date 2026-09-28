@@ -1,11 +1,14 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "scan-benchmark"
+name = "scan-bench"
 version = "0.1.2"
 description = "Surrogate benchmark library"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.10"
 dependencies = [
     "xgboost==3.1.3",
@@ -21,28 +24,28 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 include = [
-    "scan_benchmark",
-    "scan_benchmark.commons",
-    "scan_benchmark.commons.*",
-    "scan_benchmark.vlm",
-    "scan_benchmark.vlm.*",
-    "scan_benchmark.llm",
-    "scan_benchmark.llm.*",
-    "scan_benchmark.tabpfn",
-    "scan_benchmark.tabpfn.*",
+    "scan_bench",
+    "scan_bench.commons",
+    "scan_bench.commons.*",
+    "scan_bench.vlm",
+    "scan_bench.vlm.*",
+    "scan_bench.llm",
+    "scan_bench.llm.*",
+    "scan_bench.tabpfn",
+    "scan_bench.tabpfn.*",
 ]
 
 exclude = [
-    "scan_benchmark.commons.plotting",
-    "scan_benchmark.commons.train",
-    "scan_benchmark.*.performance_surrogate.results",
-    "scan_benchmark.vlm.divergence_surrogate.results",
-    "scan_benchmark.*.performance_surrogate.train",
+    "scan_bench.commons.plotting",
+    "scan_bench.commons.train",
+    "scan_bench.*.performance_surrogate.results",
+    "scan_bench.vlm.divergence_surrogate.results",
+    "scan_bench.*.performance_surrogate.train",
 ]
 
 [tool.setuptools.package-data]
-"scan_benchmark.vlm" = ["*.json", "*.csv"]
-"scan_benchmark.vlm.performance_surrogate" = ["splits/*.csv"]
-"scan_benchmark.vlm.divergence_surrogate" = ["xgb_models/*.json"]
-"scan_benchmark.llm" = ["splits/*.csv", "*.csv", "*.json"]
-"scan_benchmark.tabpfn" = ["*.json", "*.csv"]
+"scan_bench.vlm" = ["*.json", "*.csv"]
+"scan_bench.vlm.performance_surrogate" = ["splits/*.csv"]
+"scan_bench.vlm.divergence_surrogate" = ["xgb_models/*.json"]
+"scan_bench.llm" = ["splits/*.csv", "*.csv", "*.json"]
+"scan_bench.tabpfn" = ["*.json", "*.csv"]

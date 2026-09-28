@@ -21,8 +21,8 @@ repository for local development and experiment reproduction.
 We recommend using a conda environment for both package usage and local development:
 
 ```bash 
-conda create -n scan-benchmark python=3.11
-conda activate scan-benchmark
+conda create -n scan-bench python=3.11
+conda activate scan-bench
 pip install .
 ```
 
@@ -31,7 +31,7 @@ Install pytorch with CUDA, if you want to utilize the GPU.
 ### Quick start
 
 ```python
-from scan_benchmark import TabPFNBenchmark, TabPFNConfig, TabPFNTarget, PerformancePredictorType
+from scan_bench import TabPFNBenchmark, TabPFNConfig, TabPFNTarget, PerformancePredictorType
 
 bench = TabPFNBenchmark(
     target=TabPFNTarget.VAL_LOSS,                          # or NLL, ROC_AUC
@@ -51,7 +51,7 @@ print(bench.flops(large), bench.model_params(large))
 
 ### Package usage
 
-Refer to [VLM API](scan_benchmark/vlm/api.py)  and [LLM API](scan_benchmark/llm/api.py) for API usages.
+Refer to [VLM API](scan_bench/vlm/api.py)  and [LLM API](scan_bench/llm/api.py) for API usages.
 
 ### Local development and experiment reproduction
 
@@ -68,19 +68,19 @@ to 'cuda' in train_surrogates.sh to use the GPU.
 ##### VLM performance predictor surrogate
 
 ```bash
-bash scan_benchmark/vlm/performance_surrogate/train/train_surrogates.sh
+bash scan_bench/vlm/performance_surrogate/train/train_surrogates.sh
 ```
 
 ##### VLM divergences predictor surrogate
 
 ```bash
-bash scan_benchmark/vlm/divergence_surrogate/train.sh
+bash scan_bench/vlm/divergence_surrogate/train.sh
 ```
 
 #### LLM pipeline
 
 ```bash
-bash scan_benchmark/llm/train_surrogates.sh
+bash scan_bench/llm/train_surrogates.sh
 ```
 
 #### Results
@@ -92,9 +92,9 @@ paper.
 
 For example:
 
-scan_benchmark/vlm/performance_surrogate/results/
+scan_bench/vlm/performance_surrogate/results/
 
-scan_benchmark/llm/results/
+scan_bench/llm/results/
 
 #### Surrogate Performance (VLM)
 
@@ -147,9 +147,9 @@ The table below shows where the data is located:
 
 | Dataset | Path | Description |
 |---|---|---|
-| **VLM performance data** | `scan_benchmark/vlm/performance_surrogate/splits` | Training and test splits for VLM performance surrogate modeling. |
-| **VLM divergence data** | `scan_benchmark/vlm/divergence_surrogate/splits` | Configuration-level data for predicting failed (diverged) configurations. |
-| **LLM performance data** | `scan_benchmark/llm/splits` | Configuration-performance datasets for LLM surrogate training. |
+| **VLM performance data** | `scan_bench/vlm/performance_surrogate/splits` | Training and test splits for VLM performance surrogate modeling. |
+| **VLM divergence data** | `scan_bench/vlm/divergence_surrogate/splits` | Configuration-level data for predicting failed (diverged) configurations. |
+| **LLM performance data** | `scan_bench/llm/splits` | Configuration-performance datasets for LLM surrogate training. |
 
 
 Additionally, we host the datasets online, with the corresponding Licenses, source dataset Licenses and corresponding downstream task Licenses:

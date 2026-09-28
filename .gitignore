@@ -5,6 +5,7 @@ __pycache__/
 *.pyd
 *.egg-info/
 .build/
+build/
 dist/
 
 # Virtual environments
