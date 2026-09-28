@@ -14,6 +14,27 @@ pip install -e .[dev]
 
 Install pytorch with CUDA, if you want to utilize the GPU.
 
+## Quick start
+
+```python
+from scan_benchmark import TabPFNBenchmark, TabPFNConfig, TabPFNTarget, PerformancePredictorType
+
+bench = TabPFNBenchmark(
+    target=TabPFNTarget.VAL_LOSS,                          # or NLL, ROC_AUC
+    predictor_type=PerformancePredictorType.ENSEMBLE_XGB,  # or TABPFN, ENSEMBLE_LIGHTGBM, ENSEMBLE_MIX, AUTOGLUON
+    device="auto",                                         # or "cpu", "cuda"
+)
+
+small = TabPFNConfig(total_cells=2**20, effective_batch_size=16, lr=1e-4,
+                     max_features=32, embedding_size=4, num_layers=2, num_datapoints_max=128)
+large = TabPFNConfig(total_cells=2**30, effective_batch_size=64, lr=1e-3,
+                     max_features=64, embedding_size=64, num_layers=8, num_datapoints_max=256)
+
+print(bench.query(small))                  # {"predictions": {"mean", "uncertainty"}, "model_stats": {"flops", ...}}
+print(bench.query_many([small, large]))    # batched, one result per config
+print(bench.flops(large), bench.model_params(large))
+```
+
 ## Training and evaluation
 
 To train and get the performance results for the surrogate benchmarks, run the provided shell scripts. Change DEVICE to 'cuda' in train_surrogates.sh to use the GPU.

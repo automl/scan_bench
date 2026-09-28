@@ -125,18 +125,19 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
         )
 
 
-tabpfn_bench = TabPFNBenchmark(predictor_type=PerformancePredictorType.ENSEMBLE_XGB,
-                                device="auto")
+if __name__ == "__main__":
+    tabpfn_bench = TabPFNBenchmark(predictor_type=PerformancePredictorType.ENSEMBLE_XGB,
+                                    device="auto")
 
-config = TabPFNConfig(
-    total_cells=1048576,
-    effective_batch_size=16,
-    lr=0.0001,
-    max_features=32,
-    embedding_size=4,
-    num_layers=2,
-    num_datapoints_max=128,
-)
+    config = TabPFNConfig(
+        total_cells=1048576,
+        effective_batch_size=16,
+        lr=0.0001,
+        max_features=32,
+        embedding_size=4,
+        num_layers=2,
+        num_datapoints_max=128,
+    )
 
-result = tabpfn_bench.query_many([config])
-pprint(result)
+    result = tabpfn_bench.query_many([config])
+    pprint(result)
