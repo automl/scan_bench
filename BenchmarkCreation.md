@@ -114,7 +114,7 @@ Add a `spaces.py` file that defines the search space of the new benchmark.
 
 This should specify the parameters and valid ranges or choices that make up a benchmark configuration.
 
-See an example [`here`](scan_benchmark/vlm/spaces.py).
+See an example [`here`](scan_bench/vlm/spaces.py).
 
 ### Step 8: Define the Configuration Class
 
@@ -122,7 +122,7 @@ Add a `config.py` file containing a configuration class that extends `BaseConfig
 
 The configuration class defines the inputs required from the user to construct a valid configuration that can be passed to the surrogate model.
 
-See an example [`here`](scan_benchmark/vlm/config.py).
+See an example [`here`](scan_bench/vlm/config.py).
 
 ### Step 9: Define the Available Targets
 
@@ -130,7 +130,7 @@ Define an `Enum` containing the prediction targets supported by the benchmark.
 
 This can, for example, be defined inside `config.py` alongside the configuration class.
 
-See an example [`here`](scan_benchmark/vlm/spaces.py).
+See an example [`here`](scan_bench/vlm/spaces.py).
 
 ### Step 10: Implement the Benchmark API
 
@@ -138,7 +138,7 @@ Add an `api.py` file and implement a benchmark class that extends `BasePerforman
 
 By extending `BasePerformanceBenchmark`, the new benchmark can reuse the existing surrogate modelling and feature-mapping functionality.
 
-See an example [`here`](scan_benchmark/vlm/api.py).
+See an example [`here`](scan_bench/vlm/api.py).
 
 ---
 
