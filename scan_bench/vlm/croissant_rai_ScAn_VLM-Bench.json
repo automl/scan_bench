@@ -1,0 +1,1372 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataBiases": "cr:dataBiases",
+    "dataCollection": "cr:dataCollection",
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isEnumeration": "cr:isEnumeration",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "personalSensitiveInformation": "cr:personalSensitiveInformation",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "wd": "https://www.wikidata.org/wiki/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "alternateName": "",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "license": "{\"@type\": \"sc:CreativeWork\", \"name\": \"CC BY-SA 4.0\", \"url\": \"https://creativecommons.org/licenses/by-sa/4.0/\"}",
+  "distribution": [
+    {
+      "contentUrl": "https://www.kaggle.com/api/v1/datasets/download/scanbench/scan-vlm-bench?datasetVersionNumber=2",
+      "contentSize": "2.601 MB",
+      "md5": "NcRvzkIec2cjDtTw7LnLTA==",
+      "encodingFormat": "application/zip",
+      "@id": "archive.zip",
+      "@type": "cr:FileObject",
+      "name": "archive.zip",
+      "description": "Archive containing all the contents of the ScAn-VLM-Bench dataset"
+    },
+    {
+      "contentUrl": "full_data.csv",
+      "containedIn": {
+        "@id": "archive.zip"
+      },
+      "encodingFormat": "text/csv",
+      "@id": "full_data.csv_fileobject",
+      "@type": "cr:FileObject",
+      "name": "full_data.csv"
+    }
+  ],
+  "recordSet": [
+    {
+      "field": [
+        {
+          "dataType": [
+            "sc:Text"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "config_id"
+            }
+          },
+          "@id": "full_data.csv/config_id",
+          "@type": "cr:Field",
+          "name": "config_id"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "epoch"
+            }
+          },
+          "@id": "full_data.csv/epoch",
+          "@type": "cr:Field",
+          "name": "epoch"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "global_batch_size"
+            }
+          },
+          "@id": "full_data.csv/global_batch_size",
+          "@type": "cr:Field",
+          "name": "global_batch_size"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "beta1"
+            }
+          },
+          "@id": "full_data.csv/beta1",
+          "@type": "cr:Field",
+          "name": "beta1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "beta2"
+            }
+          },
+          "@id": "full_data.csv/beta2",
+          "@type": "cr:Field",
+          "name": "beta2"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "eps"
+            }
+          },
+          "@id": "full_data.csv/eps",
+          "@type": "cr:Field",
+          "name": "eps"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "lr"
+            }
+          },
+          "@id": "full_data.csv/lr",
+          "@type": "cr:Field",
+          "name": "lr"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "text_width"
+            }
+          },
+          "@id": "full_data.csv/text_width",
+          "@type": "cr:Field",
+          "name": "text_width"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vision_width"
+            }
+          },
+          "@id": "full_data.csv/vision_width",
+          "@type": "cr:Field",
+          "name": "vision_width"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "warmup_fraction"
+            }
+          },
+          "@id": "full_data.csv/warmup_fraction",
+          "@type": "cr:Field",
+          "name": "warmup_fraction"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "wd"
+            }
+          },
+          "@id": "full_data.csv/wd",
+          "@type": "cr:Field",
+          "name": "wd"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "mparams"
+            }
+          },
+          "@id": "full_data.csv/mparams",
+          "@type": "cr:Field",
+          "name": "mparams"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vision_mparams"
+            }
+          },
+          "@id": "full_data.csv/vision_mparams",
+          "@type": "cr:Field",
+          "name": "vision_mparams"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "text_mparams"
+            }
+          },
+          "@id": "full_data.csv/text_mparams",
+          "@type": "cr:Field",
+          "name": "text_mparams"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "text_mparams_non_emb"
+            }
+          },
+          "@id": "full_data.csv/text_mparams_non_emb",
+          "@type": "cr:Field",
+          "name": "text_mparams_non_emb"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "epoch_diverged"
+            }
+          },
+          "@id": "full_data.csv/epoch_diverged",
+          "@type": "cr:Field",
+          "name": "epoch_diverged"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "current_lr_value"
+            }
+          },
+          "@id": "full_data.csv/current_lr_value",
+          "@type": "cr:Field",
+          "name": "current_lr_value"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "lr_ratio"
+            }
+          },
+          "@id": "full_data.csv/lr_ratio",
+          "@type": "cr:Field",
+          "name": "lr_ratio"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "global_steps_completed"
+            }
+          },
+          "@id": "full_data.csv/global_steps_completed",
+          "@type": "cr:Field",
+          "name": "global_steps_completed"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "total_global_steps"
+            }
+          },
+          "@id": "full_data.csv/total_global_steps",
+          "@type": "cr:Field",
+          "name": "total_global_steps"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "in_warmup"
+            }
+          },
+          "@id": "full_data.csv/in_warmup",
+          "@type": "cr:Field",
+          "name": "in_warmup"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "warmup_steps"
+            }
+          },
+          "@id": "full_data.csv/warmup_steps",
+          "@type": "cr:Field",
+          "name": "warmup_steps"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "warmup_progress"
+            }
+          },
+          "@id": "full_data.csv/warmup_progress",
+          "@type": "cr:Field",
+          "name": "warmup_progress"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "training_progress"
+            }
+          },
+          "@id": "full_data.csv/training_progress",
+          "@type": "cr:Field",
+          "name": "training_progress"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "val_loss"
+            }
+          },
+          "@id": "full_data.csv/val_loss",
+          "@type": "cr:Field",
+          "name": "val_loss"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "test_loss"
+            }
+          },
+          "@id": "full_data.csv/test_loss",
+          "@type": "cr:Field",
+          "name": "test_loss"
+        },
+        {
+          "dataType": [
+            "sc:Text"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "train_loss"
+            }
+          },
+          "@id": "full_data.csv/train_loss",
+          "@type": "cr:Field",
+          "name": "train_loss"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "world_size"
+            }
+          },
+          "@id": "full_data.csv/world_size",
+          "@type": "cr:Field",
+          "name": "world_size"
+        },
+        {
+          "dataType": [
+            "sc:Text"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "train_gpu_name"
+            }
+          },
+          "@id": "full_data.csv/train_gpu_name",
+          "@type": "cr:Field",
+          "name": "train_gpu_name"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "train_num_samples_per_epoch"
+            }
+          },
+          "@id": "full_data.csv/train_num_samples_per_epoch",
+          "@type": "cr:Field",
+          "name": "train_num_samples_per_epoch"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "total_epochs"
+            }
+          },
+          "@id": "full_data.csv/total_epochs",
+          "@type": "cr:Field",
+          "name": "total_epochs"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "total_samples_planned"
+            }
+          },
+          "@id": "full_data.csv/total_samples_planned",
+          "@type": "cr:Field",
+          "name": "total_samples_planned"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "samples_seen"
+            }
+          },
+          "@id": "full_data.csv/samples_seen",
+          "@type": "cr:Field",
+          "name": "samples_seen"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "samples_seen_frac"
+            }
+          },
+          "@id": "full_data.csv/samples_seen_frac",
+          "@type": "cr:Field",
+          "name": "samples_seen_frac"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "compute_seen"
+            }
+          },
+          "@id": "full_data.csv/compute_seen",
+          "@type": "cr:Field",
+          "name": "compute_seen"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "Total compute(GLOPs)"
+            }
+          },
+          "@id": "full_data.csv/Total+compute(GLOPs)",
+          "@type": "cr:Field",
+          "name": "Total compute(GLOPs)"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "total_compute_planned"
+            }
+          },
+          "@id": "full_data.csv/total_compute_planned",
+          "@type": "cr:Field",
+          "name": "total_compute_planned"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "train_duration(s)"
+            }
+          },
+          "@id": "full_data.csv/train_duration(s)",
+          "@type": "cr:Field",
+          "name": "train_duration(s)"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_caltech101_mean_per_class_recall"
+            }
+          },
+          "@id": "full_data.csv/vtab_caltech101_mean_per_class_recall",
+          "@type": "cr:Field",
+          "name": "vtab_caltech101_mean_per_class_recall"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "cifar10_mean_per_class_recall"
+            }
+          },
+          "@id": "full_data.csv/cifar10_mean_per_class_recall",
+          "@type": "cr:Field",
+          "name": "cifar10_mean_per_class_recall"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_cifar100_mean_per_class_recall"
+            }
+          },
+          "@id": "full_data.csv/vtab_cifar100_mean_per_class_recall",
+          "@type": "cr:Field",
+          "name": "vtab_cifar100_mean_per_class_recall"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_clevr_count_all_acc1"
+            }
+          },
+          "@id": "full_data.csv/vtab_clevr_count_all_acc1",
+          "@type": "cr:Field",
+          "name": "vtab_clevr_count_all_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_clevr_closest_object_distance_acc1"
+            }
+          },
+          "@id": "full_data.csv/vtab_clevr_closest_object_distance_acc1",
+          "@type": "cr:Field",
+          "name": "vtab_clevr_closest_object_distance_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "country211_acc1"
+            }
+          },
+          "@id": "full_data.csv/country211_acc1",
+          "@type": "cr:Field",
+          "name": "country211_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_dtd_acc1"
+            }
+          },
+          "@id": "full_data.csv/vtab_dtd_acc1",
+          "@type": "cr:Field",
+          "name": "vtab_dtd_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_eurosat_acc1"
+            }
+          },
+          "@id": "full_data.csv/vtab_eurosat_acc1",
+          "@type": "cr:Field",
+          "name": "vtab_eurosat_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "fgvc_aircraft_mean_per_class_recall"
+            }
+          },
+          "@id": "full_data.csv/fgvc_aircraft_mean_per_class_recall",
+          "@type": "cr:Field",
+          "name": "fgvc_aircraft_mean_per_class_recall"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "food101_acc1"
+            }
+          },
+          "@id": "full_data.csv/food101_acc1",
+          "@type": "cr:Field",
+          "name": "food101_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "gtsrb_acc1"
+            }
+          },
+          "@id": "full_data.csv/gtsrb_acc1",
+          "@type": "cr:Field",
+          "name": "gtsrb_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "imagenet1k_acc1"
+            }
+          },
+          "@id": "full_data.csv/imagenet1k_acc1",
+          "@type": "cr:Field",
+          "name": "imagenet1k_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "imagenet_sketch_acc1"
+            }
+          },
+          "@id": "full_data.csv/imagenet_sketch_acc1",
+          "@type": "cr:Field",
+          "name": "imagenet_sketch_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "imagenet-a_acc1"
+            }
+          },
+          "@id": "full_data.csv/imagenet-a_acc1",
+          "@type": "cr:Field",
+          "name": "imagenet-a_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "imagenet-o_acc1"
+            }
+          },
+          "@id": "full_data.csv/imagenet-o_acc1",
+          "@type": "cr:Field",
+          "name": "imagenet-o_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "imagenet-r_acc1"
+            }
+          },
+          "@id": "full_data.csv/imagenet-r_acc1",
+          "@type": "cr:Field",
+          "name": "imagenet-r_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_kitti_closest_vehicle_distance_acc1"
+            }
+          },
+          "@id": "full_data.csv/vtab_kitti_closest_vehicle_distance_acc1",
+          "@type": "cr:Field",
+          "name": "vtab_kitti_closest_vehicle_distance_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "mnist_acc1"
+            }
+          },
+          "@id": "full_data.csv/mnist_acc1",
+          "@type": "cr:Field",
+          "name": "mnist_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "objectnet_acc1"
+            }
+          },
+          "@id": "full_data.csv/objectnet_acc1",
+          "@type": "cr:Field",
+          "name": "objectnet_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_flowers_mean_per_class_recall"
+            }
+          },
+          "@id": "full_data.csv/vtab_flowers_mean_per_class_recall",
+          "@type": "cr:Field",
+          "name": "vtab_flowers_mean_per_class_recall"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_pets_mean_per_class_recall"
+            }
+          },
+          "@id": "full_data.csv/vtab_pets_mean_per_class_recall",
+          "@type": "cr:Field",
+          "name": "vtab_pets_mean_per_class_recall"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "voc2007_acc1"
+            }
+          },
+          "@id": "full_data.csv/voc2007_acc1",
+          "@type": "cr:Field",
+          "name": "voc2007_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_pcam_acc1"
+            }
+          },
+          "@id": "full_data.csv/vtab_pcam_acc1",
+          "@type": "cr:Field",
+          "name": "vtab_pcam_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "renderedsst2_acc1"
+            }
+          },
+          "@id": "full_data.csv/renderedsst2_acc1",
+          "@type": "cr:Field",
+          "name": "renderedsst2_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_resisc45_acc1"
+            }
+          },
+          "@id": "full_data.csv/vtab_resisc45_acc1",
+          "@type": "cr:Field",
+          "name": "vtab_resisc45_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "cars_acc1"
+            }
+          },
+          "@id": "full_data.csv/cars_acc1",
+          "@type": "cr:Field",
+          "name": "cars_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "stl10_acc1"
+            }
+          },
+          "@id": "full_data.csv/stl10_acc1",
+          "@type": "cr:Field",
+          "name": "stl10_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "sun397_acc1"
+            }
+          },
+          "@id": "full_data.csv/sun397_acc1",
+          "@type": "cr:Field",
+          "name": "sun397_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vtab_svhn_acc1"
+            }
+          },
+          "@id": "full_data.csv/vtab_svhn_acc1",
+          "@type": "cr:Field",
+          "name": "vtab_svhn_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "retrieval_flickr_1k_test_image_text_retrieval_mean_recall@1"
+            }
+          },
+          "@id": "full_data.csv/retrieval_flickr_1k_test_image_text_retrieval_mean_recall%401",
+          "@type": "cr:Field",
+          "name": "retrieval_flickr_1k_test_image_text_retrieval_mean_recall@1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "retrieval_mscoco_2014_5k_test_image_text_retrieval_mean_recall@1"
+            }
+          },
+          "@id": "full_data.csv/retrieval_mscoco_2014_5k_test_image_text_retrieval_mean_recall%401",
+          "@type": "cr:Field",
+          "name": "retrieval_mscoco_2014_5k_test_image_text_retrieval_mean_recall@1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "misc_winogavil_jaccard_score_10-12"
+            }
+          },
+          "@id": "full_data.csv/misc_winogavil_jaccard_score_10-12",
+          "@type": "cr:Field",
+          "name": "misc_winogavil_jaccard_score_10-12"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "wilds_iwildcam_F1-macro_all"
+            }
+          },
+          "@id": "full_data.csv/wilds_iwildcam_F1-macro_all",
+          "@type": "cr:Field",
+          "name": "wilds_iwildcam_F1-macro_all"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "wilds_camelyon17_acc1"
+            }
+          },
+          "@id": "full_data.csv/wilds_camelyon17_acc1",
+          "@type": "cr:Field",
+          "name": "wilds_camelyon17_acc1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "wilds_fmow_acc_worst_region"
+            }
+          },
+          "@id": "full_data.csv/wilds_fmow_acc_worst_region",
+          "@type": "cr:Field",
+          "name": "wilds_fmow_acc_worst_region"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "fairness_dollar_street_acc_top5_wg"
+            }
+          },
+          "@id": "full_data.csv/fairness_dollar_street_acc_top5_wg",
+          "@type": "cr:Field",
+          "name": "fairness_dollar_street_acc_top5_wg"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "fairness_geode_acc_wg"
+            }
+          },
+          "@id": "full_data.csv/fairness_geode_acc_wg",
+          "@type": "cr:Field",
+          "name": "fairness_geode_acc_wg"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "fairness_fairface_acc_race_avg"
+            }
+          },
+          "@id": "full_data.csv/fairness_fairface_acc_race_avg",
+          "@type": "cr:Field",
+          "name": "fairness_fairface_acc_race_avg"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "full_data.csv_fileobject"
+            },
+            "extract": {
+              "column": "fairness_utkface_acc_race_avg"
+            }
+          },
+          "@id": "full_data.csv/fairness_utkface_acc_race_avg",
+          "@type": "cr:Field",
+          "name": "fairness_utkface_acc_race_avg"
+        }
+      ],
+      "@id": "full_data.csv",
+      "@type": "cr:RecordSet",
+      "name": "full_data.csv"
+    }
+  ],
+  "version": 2,
+  "keywords": [],
+  "isAccessibleForFree": true,
+  "includedInDataCatalog": {
+    "@type": "sc:DataCatalog",
+    "name": "Kaggle",
+    "url": "https://www.kaggle.com"
+  },
+  "creator": {
+    "@type": "sc:Person",
+    "name": "ScAn-Bench",
+    "url": "/scanbench",
+    "image": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png"
+  },
+  "publisher": {
+    "@type": "sc:Organization",
+    "name": "Kaggle",
+    "url": "https://www.kaggle.com/organizations/kaggle",
+    "image": "https://storage.googleapis.com/kaggle-organizations/4/thumbnail.png"
+  },
+  "thumbnailUrl": "https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-37.png-35823511/dataset-card.png",
+  "dateModified": "2026-07-27T23:43:39.827",
+  "@type": "sc:Dataset",
+  "name": "ScAn-VLM-Bench",
+  "url": "https://www.kaggle.com/datasets/scanbench/scan-vlm-bench/versions/2",
+  "description": "ScAn-VLM-Bench dataset contains configuration-to-performance data collected from [OpenCLIP](https://github.com/mlfoundations/open_clip) Vision Language Model(VLM) training runs.\n\nThe table below shows main properties of the dataset:\n\n| Quantity| Count | Description |\n|---|---:|---|\n| Training configurations | 1,535 | Total number of collected VLM training configurations. |\n| Failed configurations | 134| Configurations that diverged during training. |\n| Successful configurations | 1366| Configurations that completed training successfully. |\n| Collected checkpoint rows | 8,024 | Total checkpoint rows collected across all runs. |\n| Successful checkpoint rows | 7,701 | Checkpoints from successful runs |\n\n# Provenance and licensing\n\nScAn-VLM-Bench was constructed by training OpenCLIP models across a predefined configuration space. During each training run, multiple checkpoints were recorded. Successfully trained checkpoints were subsequently evaluated on downstream tasks using the [DataComp](https://www.datacomp.ai/index.html) evaluation suite.\n\nFor upstream evaluation, validation and test loss are computed on held-out subsets of 100,000 [LAION-400M](https://laion.ai/blog/laion-400-open-dataset/) image-text pairs that were not used during training.\n\nThe released dataset therefore consists of derived benchmark artifacts, including training configurations, checkpoint-level information, compute information, and evaluation measurements.\n\nThe provenance of the VLM data can be summarized as:\n\n**LAION-400M → OpenCLIP training runs → collected checkpoints → upstream validation/test evaluation + DataComp downstream evaluation → ScAn-VLM-Bench**\n\nFor the complete setup, including how we downloaded LAION400M, as well as the training setup, check the accompanying ScAn-Bench paper and [ScAn-VLM-Bench repository](https://anonymous.4open.science/r/scan_vlm_bench-C6CB).\n\n## LAION-400M\n\nThe VLM training runs used to construct ScAn-VLM-Bench were trained using LAION-400M as the image-text dataset.\n\nLAION-400M is released by LAION as a metadata dataset containing references to web-hosted images together with associated text and other metadata. The LAION-400M metadata is distributed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. The underlying images referenced by the dataset are not licensed by LAION under CC BY 4.0 and remain subject to the copyright and licensing terms of their respective original sources.\n\nScAn-VLM-Bench does not redistribute LAION-400M or its underlying images. The released benchmark contains derived artifacts from the corresponding training runs.\n- Role in ScAn-VLM-Bench: Training data for VLM experiments\n- Metadata license: CC BY 4.0\n- Third-party images redistributed: No\n- Source: https://laion.ai/blog/laion-400-open-dataset/\n\n### Downstream Evaluation\n\nVLM checkpoints are evaluated using the DataComp evaluation suite, which builds on a collection of established downstream classification and retrieval benchmarks. ScAn-VLM-Bench does not redistribute these evaluation datasets, only the resulting evaluation measurements are included in the released benchmark.\n\nThe downstream datasets remain subject to the licenses, copyright, and terms of use specified by their original providers.\n\n| Dataset / benchmark | License / usage terms | Source |\n|---|---|---|\n| CIFAR-10 | No explicit standard license stated on the official dataset page, citation of the original work is requested | https://cave.cs.toronto.edu/kriz/cifar.html |\n| CIFAR-100 | No explicit standard license stated on the official dataset page, citation of the original work is requested | https://cave.cs.toronto.edu/kriz/cifar.html |\n| KITTI Closest Vehicle Distance | CC BY-NC-SA 3.0 | https://www.cvlibs.net/datasets/kitti/ |\n| Caltech-101 | CC BY 4.0 | https://data.caltech.edu/records/mzrjq-6wc02 |\n| Clevr Count All | CC BY 4.0 | https://cs.stanford.edu/people/jcjohns/clevr |\n|Clevr Closest Object Distance |CC BY 4.0 | https://cs.stanford.edu/people/jcjohns/clevr |\n| Country211 | Images are a subset of YFCC100M. Use of the underlying media is subject to the Creative Commons licenses selected by the original creators/uploaders | [OpenAI Country211 documentation](https://github.com/openai/CLIP/blob/main/data/country211.md) |\n| DTD | No explicit standard license stated. Available for research use and should be cited to the original DTD publication | [DTD](https://www.robots.ox.ac.uk/~vgg/data/dtd/) |\n| EuroSAT | MIT License | [EuroSAT](https://github.com/phelber/EuroSAT) |\n| FGVC-Aircraft | Non-commercial research use only | [FGVC-Aircraft](https://www.robots.ox.ac.uk/~vgg/data/fgvc-aircraft/) |\n| Food-101 | No explicit standard license stated | [Food-101](https://data.vision.ee.ethz.ch/cvl/datasets_extra/food-101/) |\n| GTSRB | No explicit standard license stated. Dataset is publicly available and should be cited to the original GTSRB publication | [GTSRB](https://benchmark.ini.rub.de/gtsrb_dataset.html) |\n| ImageNet-1K | Non-commercial research and educational use only. ImageNet does not own the copyright of the underlying images | [ImageNet](https://www.image-net.org/download.php) |\n| ImageNet-Sketch | No explicit dataset-wide license stated. Official repository code is MIT-licensed, and use of the dataset should cite the original ImageNet-Sketch paper | [ImageNet-Sketch](https://github.com/HaohanWang/ImageNet-Sketch) |\n| ImageNet-A | No explicit dataset-wide license stated. Official repository code is MIT-licensed, and use of the dataset should cite the original ImageNet-A paper | [ImageNet-A](https://github.com/hendrycks/natural-adv-examples) |\n| ImageNet-O | No explicit dataset-wide license stated. Official repository code is MIT-licensed, and use of the dataset should cite the original ImageNet-O paper | [ImageNet-O](https://github.com/hendrycks/natural-adv-examples) |\n| ImageNet-R | No explicit dataset-wide license stated. Official repository code is MIT-licensed, and use of the dataset should cite the original ImageNet-R paper | [ImageNet-R](https://github.com/hendrycks/imagenet-r) |\n| MNIST | No explicit standard dataset license stated on the original MNIST page. Use should cite the original MNIST work | [MNIST](https://yann.lecun.org/exdb/mnist/) |\n| ObjectNet | Custom license derived from CC BY 4.0. Research and commercial use permitted, but images may not be used for model parameter tuning. Attribution required | [ObjectNet](https://objectnet.dev/download.html) |\n| Oxford 102 Flowers | No explicit standard dataset license stated. Available for research use and should cite the original Oxford Flowers publication | [Oxford 102 Flowers](https://www.robots.ox.ac.uk/~vgg/data/flowers/102/) |\n| VTAB Pets (Oxford-IIIT Pet Dataset) | CC BY-SA 4.0 | [Oxford-IIIT Pet](https://www.robots.ox.ac.uk/~vgg/data/pets/) |\n| PASCAL VOC 2007 | No explicit standard dataset license stated. Distributed for research/benchmark use and should cite the PASCAL VOC publication. Some images are sourced from Flickr and are subject to their corresponding terms of use | [PASCAL VOC 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) |\n| PatchCamelyon (PCam) | CC0 1.0 Universal | [PCam](https://github.com/basveeling/pcam) |\n| Rendered SST2 | No explicit dataset-wide license stated. Derived from SST-2 and should cite the corresponding original work | [Rendered SST2](https://github.com/openai/CLIP/blob/main/data/rendered-sst2.md) |\n| NWPU-RESISC45 | No explicit standard dataset license stated by the original provider. Publicly available benchmark and should cite the original NWPU-RESISC45 publication | [NWPU-RESISC45](https://gcheng-nwpu.github.io/#Datasets) |\n| Stanford Cars | No explicit standard dataset license verified from the original provider. Use should cite the original Stanford Cars publication | [Krause et al., 2013](https://www.cv-foundation.org/openaccess/content_iccv_workshops_2013/W19/papers/Krause_3D_Object_Representations_2013_ICCV_paper.pdf) |\n| STL-10 | No explicit standard dataset license stated. Images were sourced from ImageNet, and use should cite the original STL-10 publication | [STL-10](https://cs.stanford.edu/~acoates/stl10/) |\n| SUN397 | Research use only. Use should cite the original SUN publication | [SUN397](https://3dvision.princeton.edu/projects/2010/SUN/) |\n| SVHN | CC0: Public Domain on the Stanford-hosted Kaggle distribution. | [Kaggle SVHN](https://www.kaggle.com/datasets/stanfordu/street-view-house-numbers) |\n| Flickr30K Retrieval | Images are subject to Flickr Terms of Use and provided for non-commercial research/educational purposes. Image copyrights remain with the original owners | [Flickr30K](https://shannon.cs.illinois.edu/DenotationGraph/data/index.html) |\n| MS COCO Retrieval | CC BY 4.0. The COCO Consortium does not own the copyright of the images. Use of the images must abide by the Flickr Terms of Use | [MS COCO](https://cocodataset.org/#termsofuse) |\n| WinoGAViL | CC BY 4.0 | [WinoGAViL](https://winogavil.github.io/) |\n| WILDS iWildCam | Community Data License Agreement – Permissive – V1.0 (CDLA-Permissive-1.0) | [WILDS iWildCam](https://wilds.stanford.edu/datasets/) |\n| WILDS Camelyon17 | CC0 1.0 Universal / Public Domain | [WILDS Camelyon17](https://wilds.stanford.edu/datasets/) |\n| WILDS FMoW | FMoW Challenge Public License | [WILDS FMoW](https://wilds.stanford.edu/datasets/) |\n| Dollar Street | Creative Commons 4.0| [Dollar Street](https://www.gapminder.org/dollar-street/about?lng=en-gb) |\n| GeoDE | CC BY 4.0 | [GeoDE](https://visualai.princeton.edu/geode/) |\n| FairFace | CC BY 4.0 | [FairFace](https://github.com/joojs/fairface) |\n| UTKFace | Non-commercial research use only. Underlying images remain copyrighted by their original owners | [UTKFace](https://susanqq.github.io/UTKFace/) |\n",
+  "rai:dataLimitations": "The dataset covers a predefined search space of OpenCLIP vision-language models, spanning selected architectural parameters, training hyperparameters, and training budgets. It does not represent the full diversity of contemporary VLM architectures or training regimes. Models that fall outside the architectural choices or parameter ranges represented in the benchmark may therefore exhibit substantially different behavior.\n\nAll performance measurements were collected using a fixed experimental pipeline, including a predefined optimizer, training dataset, learning-rate schedule, and evaluation protocol. Models were trained on LAION-400M under the benchmark's specified experimental setup. Consequently, the observed relationships between architecture, hyperparameters, training scale, and model performance may not generalize to substantially different datasets, objectives, architectures, training procedures, or large-scale frontier models.\n\nThe benchmark evaluates upstream and downstream performance using a predefined suite of evaluation tasks. Results should therefore be interpreted only with respect to the properties captured by these tasks and should not be taken as comprehensive measurements of broader model characteristics such as safety, fairness, bias, robustness, societal impact, or real-world deployment quality unless these properties are explicitly represented by the included evaluations.\n\nThe dataset is intended primarily to support research on configuration-to-performance relationships and scaling analysis within the experimental conditions represented by the benchmark. It should not be considered representative of VLM behavior beyond the architectures, parameter ranges, training procedures, datasets, and evaluation settings covered by the dataset.\n\nNot recommended uses\n\n- Estimating the performance of arbitrary VLM architectures outside the benchmark search space.\n- Making deployment, safety, or other high-stakes decisions for production models.\n- Treating models trained with substantially different datasets, objectives, architectures, or training procedures as though their behavior were directly represented by the benchmark.\n- Drawing conclusions about safety, fairness, bias, robustness, societal impact, or other properties that are not explicitly evaluated by the benchmark.",
+  "rai:dataBiases": "Unlike datasets composed of human- or population-level samples, this benchmark does not directly represent demographic populations. However, it is subject to several sources of experimental and methodological bias, including:\n\n- bias toward the selected OpenCLIP architectural search space,\n- bias introduced by the chosen optimizer, learning-rate schedule, and overall training procedure,\n- biases inherited from the LAION-400M pretraining data,\n- bias arising from the sampled hyperparameter distributions and training budgets,\n- bias toward the selected vision and text tower widths, and\n- bias introduced by the choice of upstream and downstream evaluation tasks.\n\nThese factors may shape the observed relationships between model configurations, training scale, and performance, as well as the scaling trends derived from them. They should therefore be considered when interpreting benchmark results or drawing broader conclusions, particularly when extrapolating beyond the architectures, training procedures, parameter ranges, and evaluation settings represented in the collected data.",
+  "rai:personalSensitiveInformation": "None. The dataset does not contain personal information, demographic data, or sensitive attributes.",
+  "rai:dataUseCases": "This dataset has been used to benchmark surrogate models for predicting VLM performance and, through these surrogates, to support empirical analyses of vision-language model scaling behavior. Beyond these demonstrated applications, its combination of architectural parameters, training hyperparameters, training budgets, and upstream and downstream performance measurements may enable a broader range of research tasks, including hyperparameter optimization, neural architecture search, multi-objective optimization, and scaling analysis.\n\nThese additional use cases have not all been systematically evaluated as part of this work. Nevertheless, the dataset's structure and coverage make it a potentially valuable resource for studying configuration-to-performance relationships across a range of optimization and scaling settings.",
+  "rai:dataSocialImpact": "This dataset is intended to make VLM scaling research more efficient, reproducible, and comparable by providing precomputed training and evaluation results across a diverse set of model configurations. By reducing the need to repeatedly train and evaluate large numbers of models, the benchmark can lower the computational cost of experimentation and, consequently, its associated environmental footprint.\n\nResearch enabled by the dataset may support the development of more capable vision-language models and more efficient model design and scaling strategies. At the same time, models developed, selected, or analysed using the benchmark may inherit biases from their training data and evaluation protocols, or may later be deployed in ways that introduce broader societal risks.\n\nThese concerns primarily relate to the models and methods developed using the benchmark and their downstream applications, rather than to the benchmark dataset itself. The dataset consists of model configurations, training information, compute-related measurements, and performance results, and does not contain personal or sensitive information.\n\nUsers should therefore interpret findings within the documented scope of the benchmark and consider its limitations, sources of bias, and the potential downstream implications of models or methods developed using the dataset.",
+  "rai:hasSyntheticData": false,
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://laion.ai/blog/laion-400-open-dataset/",
+      "prov:label": "LAION-400M",
+      "sc:license": "Creative Common CC-BY 4.0"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q4929239"
+      },
+      "prov:label": "VLM data collection",
+      "sc:description": "The dataset was generated by systematically sampling OpenCLIP vision-language model configurations from a predefined search space covering architectural parameters, training hyperparameters, and training budgets. Each sampled configuration was used to train a vision-language model on LAION-400M, with intermediate checkpoints evaluated on both upstream and downstream tasks. Upstream evaluation used LAION-400M-based metrics, while downstream performance was assessed using tasks from the DataComp evaluation suite.\n\nEach dataset record captures the corresponding model configuration and training setup, including vision and text tower widths, learning rate, warmup fraction, weight decay, optimizer parameters such as beta values and epsilon, and the training budget. Records also include checkpoint-level training information together with the associated upstream and downstream performance measurements.\n\nData collection was carried out automatically as part of the model training and evaluation pipeline on GPU-based compute infrastructure. The dataset does not rely on additional human annotation or labels generated by synthetic agents. Instead, all records are derived directly from the executed training runs, saved checkpoints, and benchmark evaluations."
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q5227332"
+      },
+      "prov:label": "Data processing",
+      "sc:description": "The collected VLM training runs were processed into a structured benchmark dataset by extracting and consolidating model configurations, training budgets, compute information, checkpoint metadata, and upstream and downstream evaluation results into a consistent format. Each configuration is linked to its architectural parameters, training settings, computational cost, checkpoint-level information, and measured performance across the included evaluation tasks."
+    }
+  ]
+}

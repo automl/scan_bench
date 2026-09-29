@@ -6,9 +6,9 @@ performance, enabling fast evaluation without training full models.
 
 This README describes the ScAn-Bench repository specifically.
 
-For a general overview of the paper, repository structure and artifact maps refer to [PaperOverview](https://anonymous.4open.science/r/scan_bench_suite-3E3D/PaperOverview.md).
+For a general overview of the paper, repository structure and artifact maps refer to [PaperOverview](PaperOverview.md).
 
-To create a new benchmark based on this framework refer to [BenchmarkCreation](https://anonymous.4open.science/r/scan_bench_suite-3E3D/BenchmarkCreation.md).
+To create a new benchmark based on this framework refer to [BenchmarkCreation](BenchmarkCreation.md).
 
 ## ScAn-Bench Repository
 
@@ -181,13 +181,13 @@ Additionally, we host the datasets online, with the corresponding Licenses, sour
 
 The Croissant RAI metadata files for each dataset are included in this repository:
 
-[VLM-Croissant-RAI](https://anonymous.4open.science/r/scan_bench_suite-3E3D/scan_benchmark/vlm/croissant_rai_ScAn-VLM-Bench.json)
-[LLM-Croissant-RAI](https://anonymous.4open.science/r/scan_bench_suite-3E3D/scan_benchmark/llm/croissant_rai_LLM-ScAn-Bench.json)
+[VLM-Croissant-RAI](./scan_bench/vlm/croissant_rai_ScAn_VLM-Bench.json)
+[LLM-Croissant-RAI](./scan_bench/llm/croissant_rai_ScAn_LLM-Bench.json)
 
 ### Additional
 
 ### Unit testing
-To run the unit tests provided in [tests/](https://anonymous.4open.science/r/scan_bench_suite-3E3D/tests) make sure that pytest is installed.
+To run the unit tests provided in [tests/](/tests) make sure that pytest is installed.
 
 ```bash
 pip install pytest

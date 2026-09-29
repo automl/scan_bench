@@ -1,0 +1,1196 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataBiases": "cr:dataBiases",
+    "dataCollection": "cr:dataCollection",
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isEnumeration": "cr:isEnumeration",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "personalSensitiveInformation": "cr:personalSensitiveInformation",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "wd": "https://www.wikidata.org/wiki/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "alternateName": "LLM trained on Slimpajama dataset mapping configuration to upstream performance",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "license": "{\"@type\": \"sc:CreativeWork\", \"name\": \"MIT\", \"url\": \"https://www.mit.edu/~amini/LICENSE.md\"}",
+  "distribution": [
+    {
+      "contentUrl": "https://www.kaggle.com/api/v1/datasets/download/testuserautoml/llm-scan-bench?datasetVersionNumber=5",
+      "contentSize": "392.362 KB",
+      "md5": "rLmbgkr7jdoowf3cy+I4Ow==",
+      "encodingFormat": "application/zip",
+      "@id": "archive.zip",
+      "@type": "cr:FileObject",
+      "name": "archive.zip",
+      "description": "Archive containing all the contents of the LLM-ScAn-Bench dataset"
+    },
+    {
+      "contentUrl": "data.csv",
+      "containedIn": {
+        "@id": "archive.zip"
+      },
+      "encodingFormat": "text/csv",
+      "@id": "data.csv_fileobject",
+      "@type": "cr:FileObject",
+      "name": "data.csv"
+    }
+  ],
+  "recordSet": [
+    {
+      "field": [
+        {
+          "dataType": [
+            "sc:Text"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "config_id"
+            }
+          },
+          "@id": "data.csv/config_id",
+          "@type": "cr:Field",
+          "name": "config_id"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "n_params"
+            }
+          },
+          "@id": "data.csv/n_params",
+          "@type": "cr:Field",
+          "name": "n_params"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "flops"
+            }
+          },
+          "@id": "data.csv/flops",
+          "@type": "cr:Field",
+          "name": "flops"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "deterministic"
+            }
+          },
+          "@id": "data.csv/deterministic",
+          "@type": "cr:Field",
+          "name": "deterministic"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "seed"
+            }
+          },
+          "@id": "data.csv/seed",
+          "@type": "cr:Field",
+          "name": "seed"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "vocab_size"
+            }
+          },
+          "@id": "data.csv/vocab_size",
+          "@type": "cr:Field",
+          "name": "vocab_size"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "seq_len"
+            }
+          },
+          "@id": "data.csv/seq_len",
+          "@type": "cr:Field",
+          "name": "seq_len"
+        },
+        {
+          "dataType": [
+            "sc:Text"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "sampler"
+            }
+          },
+          "@id": "data.csv/sampler",
+          "@type": "cr:Field",
+          "name": "sampler"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "sampler_seed"
+            }
+          },
+          "@id": "data.csv/sampler_seed",
+          "@type": "cr:Field",
+          "name": "sampler_seed"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "num_workers"
+            }
+          },
+          "@id": "data.csv/num_workers",
+          "@type": "cr:Field",
+          "name": "num_workers"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "eval"
+            }
+          },
+          "@id": "data.csv/eval",
+          "@type": "cr:Field",
+          "name": "eval"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "valid_tokens"
+            }
+          },
+          "@id": "data.csv/valid_tokens",
+          "@type": "cr:Field",
+          "name": "valid_tokens"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "eval_every_steps"
+            }
+          },
+          "@id": "data.csv/eval_every_steps",
+          "@type": "cr:Field",
+          "name": "eval_every_steps"
+        },
+        {
+          "dataType": [
+            "sc:Text"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "model"
+            }
+          },
+          "@id": "data.csv/model",
+          "@type": "cr:Field",
+          "name": "model"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "d_model"
+            }
+          },
+          "@id": "data.csv/d_model",
+          "@type": "cr:Field",
+          "name": "d_model"
+        },
+        {
+          "dataType": [
+            "sc:Text"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "mlp_class"
+            }
+          },
+          "@id": "data.csv/mlp_class",
+          "@type": "cr:Field",
+          "name": "mlp_class"
+        },
+        {
+          "dataType": [
+            "sc:Date"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "expand"
+            }
+          },
+          "@id": "data.csv/expand",
+          "@type": "cr:Field",
+          "name": "expand"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "n_layers"
+            }
+          },
+          "@id": "data.csv/n_layers",
+          "@type": "cr:Field",
+          "name": "n_layers"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "n_heads"
+            }
+          },
+          "@id": "data.csv/n_heads",
+          "@type": "cr:Field",
+          "name": "n_heads"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "rms_norm"
+            }
+          },
+          "@id": "data.csv/rms_norm",
+          "@type": "cr:Field",
+          "name": "rms_norm"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "tie_embeddings"
+            }
+          },
+          "@id": "data.csv/tie_embeddings",
+          "@type": "cr:Field",
+          "name": "tie_embeddings"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "torch_compile"
+            }
+          },
+          "@id": "data.csv/torch_compile",
+          "@type": "cr:Field",
+          "name": "torch_compile"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "allow_tf32"
+            }
+          },
+          "@id": "data.csv/allow_tf32",
+          "@type": "cr:Field",
+          "name": "allow_tf32"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "n_tokens"
+            }
+          },
+          "@id": "data.csv/n_tokens",
+          "@type": "cr:Field",
+          "name": "n_tokens"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "steps_budget"
+            }
+          },
+          "@id": "data.csv/steps_budget",
+          "@type": "cr:Field",
+          "name": "steps_budget"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "micro_batch_size"
+            }
+          },
+          "@id": "data.csv/micro_batch_size",
+          "@type": "cr:Field",
+          "name": "micro_batch_size"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "grad_accumulation_steps"
+            }
+          },
+          "@id": "data.csv/grad_accumulation_steps",
+          "@type": "cr:Field",
+          "name": "grad_accumulation_steps"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "auto_batch_size"
+            }
+          },
+          "@id": "data.csv/auto_batch_size",
+          "@type": "cr:Field",
+          "name": "auto_batch_size"
+        },
+        {
+          "dataType": [
+            "sc:Text"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "dtype"
+            }
+          },
+          "@id": "data.csv/dtype",
+          "@type": "cr:Field",
+          "name": "dtype"
+        },
+        {
+          "dataType": [
+            "sc:Text"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "optim"
+            }
+          },
+          "@id": "data.csv/optim",
+          "@type": "cr:Field",
+          "name": "optim"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "fused_optim"
+            }
+          },
+          "@id": "data.csv/fused_optim",
+          "@type": "cr:Field",
+          "name": "fused_optim"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "lr"
+            }
+          },
+          "@id": "data.csv/lr",
+          "@type": "cr:Field",
+          "name": "lr"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "weight_decay"
+            }
+          },
+          "@id": "data.csv/weight_decay",
+          "@type": "cr:Field",
+          "name": "weight_decay"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "beta1"
+            }
+          },
+          "@id": "data.csv/beta1",
+          "@type": "cr:Field",
+          "name": "beta1"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "beta2"
+            }
+          },
+          "@id": "data.csv/beta2",
+          "@type": "cr:Field",
+          "name": "beta2"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "grad_clip"
+            }
+          },
+          "@id": "data.csv/grad_clip",
+          "@type": "cr:Field",
+          "name": "grad_clip"
+        },
+        {
+          "dataType": [
+            "sc:Text"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "scheduler"
+            }
+          },
+          "@id": "data.csv/scheduler",
+          "@type": "cr:Field",
+          "name": "scheduler"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "warmup_steps"
+            }
+          },
+          "@id": "data.csv/warmup_steps",
+          "@type": "cr:Field",
+          "name": "warmup_steps"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "cooldown_steps"
+            }
+          },
+          "@id": "data.csv/cooldown_steps",
+          "@type": "cr:Field",
+          "name": "cooldown_steps"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "lr_start"
+            }
+          },
+          "@id": "data.csv/lr_start",
+          "@type": "cr:Field",
+          "name": "lr_start"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "lr_end"
+            }
+          },
+          "@id": "data.csv/lr_end",
+          "@type": "cr:Field",
+          "name": "lr_end"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "log_every_steps"
+            }
+          },
+          "@id": "data.csv/log_every_steps",
+          "@type": "cr:Field",
+          "name": "log_every_steps"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "print_progress"
+            }
+          },
+          "@id": "data.csv/print_progress",
+          "@type": "cr:Field",
+          "name": "print_progress"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "use_wandb"
+            }
+          },
+          "@id": "data.csv/use_wandb",
+          "@type": "cr:Field",
+          "name": "use_wandb"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "over_write"
+            }
+          },
+          "@id": "data.csv/over_write",
+          "@type": "cr:Field",
+          "name": "over_write"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "resume"
+            }
+          },
+          "@id": "data.csv/resume",
+          "@type": "cr:Field",
+          "name": "resume"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "resume_step"
+            }
+          },
+          "@id": "data.csv/resume_step",
+          "@type": "cr:Field",
+          "name": "resume_step"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "save_last_checkpoint"
+            }
+          },
+          "@id": "data.csv/save_last_checkpoint",
+          "@type": "cr:Field",
+          "name": "save_last_checkpoint"
+        },
+        {
+          "dataType": [
+            "sc:Boolean"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "save_intermediate_checkpoints"
+            }
+          },
+          "@id": "data.csv/save_intermediate_checkpoints",
+          "@type": "cr:Field",
+          "name": "save_intermediate_checkpoints"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "save_every_steps"
+            }
+          },
+          "@id": "data.csv/save_every_steps",
+          "@type": "cr:Field",
+          "name": "save_every_steps"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "total_params"
+            }
+          },
+          "@id": "data.csv/total_params",
+          "@type": "cr:Field",
+          "name": "total_params"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "total_flops"
+            }
+          },
+          "@id": "data.csv/total_flops",
+          "@type": "cr:Field",
+          "name": "total_flops"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "recommended_num_gpus"
+            }
+          },
+          "@id": "data.csv/recommended_num_gpus",
+          "@type": "cr:Field",
+          "name": "recommended_num_gpus"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "max_tokens_budget"
+            }
+          },
+          "@id": "data.csv/max_tokens_budget",
+          "@type": "cr:Field",
+          "name": "max_tokens_budget"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "step_index"
+            }
+          },
+          "@id": "data.csv/step_index",
+          "@type": "cr:Field",
+          "name": "step_index"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "eval_step"
+            }
+          },
+          "@id": "data.csv/eval_step",
+          "@type": "cr:Field",
+          "name": "eval_step"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "test_loss"
+            }
+          },
+          "@id": "data.csv/test_loss",
+          "@type": "cr:Field",
+          "name": "test_loss"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "valid_loss"
+            }
+          },
+          "@id": "data.csv/valid_loss",
+          "@type": "cr:Field",
+          "name": "valid_loss"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "objective_to_minimize"
+            }
+          },
+          "@id": "data.csv/objective_to_minimize",
+          "@type": "cr:Field",
+          "name": "objective_to_minimize"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "current_lr"
+            }
+          },
+          "@id": "data.csv/current_lr",
+          "@type": "cr:Field",
+          "name": "current_lr"
+        },
+        {
+          "dataType": [
+            "sc:Integer"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "tokens_so_far"
+            }
+          },
+          "@id": "data.csv/tokens_so_far",
+          "@type": "cr:Field",
+          "name": "tokens_so_far"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "train_loss_so_far"
+            }
+          },
+          "@id": "data.csv/train_loss_so_far",
+          "@type": "cr:Field",
+          "name": "train_loss_so_far"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "step_fraction"
+            }
+          },
+          "@id": "data.csv/step_fraction",
+          "@type": "cr:Field",
+          "name": "step_fraction"
+        },
+        {
+          "dataType": [
+            "sc:Float"
+          ],
+          "source": {
+            "fileObject": {
+              "@id": "data.csv_fileobject"
+            },
+            "extract": {
+              "column": "flops_so_far"
+            }
+          },
+          "@id": "data.csv/flops_so_far",
+          "@type": "cr:Field",
+          "name": "flops_so_far"
+        }
+      ],
+      "@id": "data.csv",
+      "@type": "cr:RecordSet",
+      "name": "data.csv"
+    }
+  ],
+  "version": 5,
+  "keywords": [
+    "data type > text",
+    "subject > science and technology",
+    "technique > benchmark"
+  ],
+  "isAccessibleForFree": true,
+  "includedInDataCatalog": {
+    "@type": "sc:DataCatalog",
+    "name": "Kaggle",
+    "url": "https://www.kaggle.com"
+  },
+  "creator": {
+    "@type": "sc:Person",
+    "name": "Test User Auto ML",
+    "url": "/testuserautoml",
+    "image": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png"
+  },
+  "publisher": {
+    "@type": "sc:Organization",
+    "name": "Kaggle",
+    "url": "https://www.kaggle.com/organizations/kaggle",
+    "image": "https://storage.googleapis.com/kaggle-organizations/4/thumbnail.png"
+  },
+  "thumbnailUrl": "https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-82.png-21981303/dataset-card.png",
+  "dateModified": "2026-07-27T17:13:04.953",
+  "@type": "sc:Dataset",
+  "name": "LLM-ScAn-Bench",
+  "url": "https://www.kaggle.com/datasets/testuserautoml/llm-scan-bench/versions/5",
+  "description": "# Dataset Overview\n\nScAn-Bench contains configuration-to-performance data collected from LLM training runs.\n\nA total of 1,194 language model training configurations were sampled from a predefined architecture and hyperparameter search space. Each configuration was trained on SlimPajama and evaluated throughout training, resulting in 4,524 checkpoint-level records containing model configurations, training states, compute budgets, and corresponding upstream language modeling metrics.\n\nThe released dataset contains only successfully completed training runs. Failed or incomplete runs were removed during dataset validation and filtering.\n\n| Quantity | Count | Description |\n|---|---:|---|\n| Training configurations | 1,194 | Total number of collected decoder-only transformer training configurations. |\n| Checkpoint rows | 4,524 | Total number of checkpoint-level records collected across training runs. |\n| Included rows | 4,524 | Checkpoints retained in the released benchmark after quality filtering. |\n\n# Provenance and Licensing\n\n## SlimPajama\n\nThe language model training runs used to construct ScAn-Bench were trained using SlimPajama as the underlying text corpus.\n\nSlimPajama is a cleaned and deduplicated version of the RedPajama dataset released by Cerebras. It contains approximately 627 billion tokens collected from multiple publicly available text sources, including Common Crawl, C4, GitHub, Books, ArXiv, Wikipedia, and StackExchange. The dataset construction process applies quality filtering and deduplication techniques to improve the quality of the resulting pretraining corpus.\n\nScAn-Bench does not redistribute SlimPajama or any of its source documents. The released benchmark contains only derived artifacts from the corresponding language model training runs, including model configuration parameters, training metadata, compute information, and measured performance metrics.\n\n- Role in ScAn-Bench: Training data for LLMs\n- Dataset license: Apache 2.0 (SlimPajama release)\n- Text documents redistributed: No\n- Source: https://huggingface.co/datasets/cerebras/SlimPajama-627B | https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama\n\n\n\n",
+  "rai:dataLimitations": "The dataset covers a predefined search space of decoder-only language models, hyperparameters, and training budgets rather than the full spectrum of modern LLM architectures. Consequently, models outside these architectural choices or parameter ranges may exhibit substantially different behavior.\nPerformance measurements were collected using a fixed training pipeline, tokenizer, optimizer, dataset, and evaluation protocol. Therefore, observed relationships between architecture, hyperparameters, and performance may not generalize to different training recipes, datasets, or large-scale frontier models.\nThe benchmark primarily targets upstream language modeling metrics and a limited set of downstream evaluation tasks. It should not be interpreted as measuring broader capabilities such as safety, fairness, robustness, instruction following, multilingual performance, or real-world deployment quality.\nSince the benchmark contains experimentally generated observations rather than exhaustive coverage of the design space, surrogate models trained on this dataset may extrapolate poorly outside the sampled configurations.\nNot recommended uses: estimating the performance of arbitrary LLM architectures outside the benchmark search space, making deployment or safety decisions for production models, comparing proprietary frontier models trained under substantially different data, objectives, or infrastructure, drawing conclusions about fairness, bias, toxicity, or societal impacts of language models.",
+  "rai:dataBiases": "Unlike human datasets, this benchmark does not contain demographic or population biases. However, it does contain experimental biases, including:\nbias toward the selected architectural search space\nbias toward the chosen optimizer and training schedule,\nbias introduced by the selected pretraining corpus,\nbias toward the sampled hyperparameter distributions,\nbias toward the chosen downstream evaluation benchmarks.\nThese biases should be considered when interpreting scaling trends or surrogate predictions.",
+  "rai:personalSensitiveInformation": "None.\nThe dataset contains no personal information, demographic information, or sensitive attributes.",
+  "rai:dataUseCases": "This dataset has been explicitly used to benchmark surrogate models for LLM performance prediction and, through these surrogate models, to support empirical analyses of language model scaling behavior. Beyond these demonstrated applications, we believe that the dataset's combination of architectural parameters, hyperparameters, training budgets, and performance metrics makes it suitable for additional research tasks, including hyperparameter optimization, neural architecture search, multi-objective optimization. While these applications have not been evaluated as part of this work, the structure and coverage of the dataset make it a promising resource for such research.",
+  "rai:dataSocialImpact": "This dataset aims to make LLM scaling research more efficient, reproducible, and comparable by providing precomputed training results across a diverse set of model configurations. By reducing the need for repeated large-scale training, it can lower computational costs and associated environmental impacts.\nInsights derived from the dataset may contribute to the development of more capable language models, which can support beneficial applications but may also be misused to generate misleading content, reinforce biases, or enable harmful applications. These risks stem from the resulting models rather than the dataset itself, which contains no personal or sensitive information. Users are encouraged to apply the dataset responsibly and within its documented scope.",
+  "rai:hasSyntheticData": false,
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://huggingface.co/datasets/cerebras/SlimPajama-627B",
+      "prov:label": "SlimPajama",
+      "sc:license": "Apache 2.0",
+      "prov:wasAttributedTo": {
+        "@id": "https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama",
+        "prov:label": "Cerebras"
+      }
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q4929239"
+      },
+      "prov:label": "LLM Configuration Evaluation Collection",
+      "sc:description": "The dataset was generated by systematically sampling decoder-only transformer model configurations from a predefined architecture and training hyperparameter search space. Each configuration was used to train a language model on the SlimPajama dataset, and the resulting models were evaluated on upstream language modeling metrics. The collected records consist of model configuration parameters (e.g., number of layers, hidden dimension, attention heads, hyperparameters, learning rate, and training budget) together with their corresponding performance metrics. Data was automatically collected from training runs executed on GPU clusters. No human annotations or synthetic agents were involved."
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q5227332"
+      },
+      "prov:label": "Dataset Processing and Validation",
+      "sc:description": "The collected training runs were processed into a structured benchmark format. Model configurations, compute budgets, and evaluation metrics were extracted from training logs and checkpoints. Duplicate or invalid runs caused by failed training procedures were removed. The final dataset was organized at the configuration level to prevent information leakage between training and evaluation splits, with each configuration associated with its corresponding model characteristics, training settings, compute cost, and measured performance."
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q3306762"
+      },
+      "prov:label": "Quality review",
+      "sc:description": "The generated benchmark records were validated to ensure consistency between model configurations, training metadata, compute budgets, and measured evaluation metrics. Training failures and incomplete runs were identified through automated checks on training logs and experiment outputs. Dataset splits were verified at the configuration level to prevent information leakage between training and evaluation subsets."
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q1172378"
+      },
+      "prov:label": "Filtering",
+      "sc:description": "The generated benchmark data was filtered to remove invalid or incomplete training runs. Experiments that failed during training, produced corrupted outputs, or did not generate the required evaluation metrics were excluded from the final dataset. This filtering step ensured that all retained configuration-performance pairs corresponded to successfully completed training runs with valid model configurations, compute measurements, and performance evaluations. Filtering was performed automatically based on experiment logs and recorded training outcomes."
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:type": {
+        "@id": "https://www.wikidata.org/wiki/Q109719325"
+      },
+      "prov:label": "Annotation",
+      "sc:description": "The dataset does not contain manually annotated samples. Instead, target values were automatically generated by evaluating each trained decoder-only transformer configuration on evaluation metrics. These metrics were collected directly from completed training runs and associated with their corresponding model configurations, training budgets, and hyperparameter settings. No human annotators, annotation platforms, or synthetic labeling agents were involved."
+    }
+  ]
+}
