@@ -2,11 +2,11 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/scan-bench?color=informational)](https://pypi.org/project/scan-bench/)
 [![Python versions](https://img.shields.io/pypi/pyversions/scan-bench)](https://pypi.org/project/scan-bench/)
-[![License](https://img.shields.io/pypi/l/scan-bench?color=informational)](LICENSE)
+[![License](https://img.shields.io/pypi/l/scan-bench?color=informational)](https://github.com/automl/scan_bench/blob/main/LICENSE)
 [![Tests](https://github.com/automl/scan_bench_suite/actions/workflows/tests.yaml/badge.svg?branch=main)](https://github.com/automl/scan_bench_suite/actions/workflows/tests.yaml)
 
 <p align="center">
-  <img src="./doc_figures/empirical_pareto_fronts.png" alt="Training runs, empirical Pareto fronts and power-law fits for the OpenCLIP, LLM and TabPFN benchmarks" width="100%">
+  <img src="https://raw.githubusercontent.com/automl/scan_bench/main/doc_figures/empirical_pareto_fronts.png" alt="Training runs, empirical Pareto fronts and power-law fits for the OpenCLIP, LLM and TabPFN benchmarks" width="100%">
 </p>
 <p align="center"><em>The three ScAn-Bench suites. Grey: training runs. Orange: empirical compute-optimal front. Dotted: power-law fit.</em></p>
 
@@ -29,9 +29,9 @@ scale, in **under 20 seconds**, with no GPU required.
 | **LLM** | Decoder-only Transformer | 1,194 | 10<sup>16</sup> – 10<sup>19</sup> | val/test loss |
 | **TabPFN** | Encoder-only Tabular foundation model | 2,623 | 10<sup>11</sup> – 10<sup>14</sup> | prior validation loss |
 
-For a general overview of the paper, repository structure and artifact maps refer to [PaperOverview](PaperOverview.md).
+For a general overview of the paper, repository structure and artifact maps refer to [PaperOverview](https://github.com/automl/scan_bench/blob/main/PaperOverview.md).
 
-To create a new benchmark based on this framework refer to [BenchmarkCreation](BenchmarkCreation.md).
+To create a new benchmark based on this framework refer to [BenchmarkCreation](https://github.com/automl/scan_bench/blob/main/BenchmarkCreation.md).
 
 ## ScAn-Bench Repository
 
@@ -69,7 +69,7 @@ print(bench.flops(large), bench.model_params(large))
 
 ### Package usage
 
-Refer to [VLM API](scan_bench/vlm/api.py), [LLM API](scan_bench/llm/api.py) and [TabPFN API](scan_bench/tabpfn/api.py) for API usages.
+Refer to [VLM API](https://github.com/automl/scan_bench/blob/main/scan_bench/vlm/api.py), [LLM API](https://github.com/automl/scan_bench/blob/main/scan_bench/llm/api.py) and [TabPFN API](https://github.com/automl/scan_bench/blob/main/scan_bench/tabpfn/api.py) for API usages.
 
 ### Local development and experiment reproduction
 
@@ -175,7 +175,7 @@ The repository includes pre-collected configuration-performance datasets used to
 
 Each configuration varies the hyperparameters (`lr`, `effective_batch_size`) and the scale parameters (`total_cells`,
 `embedding_size`, `num_layers`, `max_features`, `num_datapoints_max`); see
-[TabPFN search space](scan_bench/tabpfn/spaces.py). Available target is the prior validation loss (`val/val_loss`).
+[TabPFN search space](https://github.com/automl/scan_bench/blob/main/scan_bench/tabpfn/spaces.py). Available target is the prior validation loss (`val/val_loss`).
 
 #### Data locations
 
@@ -198,11 +198,11 @@ Additionally, we host the datasets online, with the corresponding Licenses, sour
 
 The Croissant RAI metadata files for each dataset are included in this repository:
 
-[VLM-Croissant-RAI](./scan_bench/vlm/croissant_rai_ScAn_VLM-Bench.json)
-[LLM-Croissant-RAI](./scan_bench/llm/croissant_rai_ScAn_LLM-Bench.json)
+[VLM-Croissant-RAI](https://github.com/automl/scan_bench/blob/main/scan_bench/vlm/croissant_rai_ScAn_VLM-Bench.json)
+[LLM-Croissant-RAI](https://github.com/automl/scan_bench/blob/main/scan_bench/llm/croissant_rai_ScAn_LLM-Bench.json)
 
 ### Unit testing
-To run the unit tests provided in [tests/](./tests) make sure that pytest is installed.
+To run the unit tests provided in [tests/](https://github.com/automl/scan_bench/tree/main/tests) make sure that pytest is installed.
 
 ```bash
 pip install pytest
