@@ -13,16 +13,11 @@ To create a new benchmark based on this framework refer to [BenchmarkCreation](B
 ## ScAn-Bench Repository
 
 
-### Installation
+### SDK Installation
 
-ScAn-Bench can be used in two ways: as an installed Python package for API querying, or from the cloned source
-repository for local development and experiment reproduction.
-
-We recommend using a conda environment for both package usage and local development:
+We recommend using a conda environment for installing the SDK:
 
 ```bash 
-conda create -n scan-bench python=3.11
-conda activate scan-bench
 pip install scan-bench
 ```
 
@@ -138,7 +133,6 @@ The repository includes pre-collected configuration-performance datasets used to
 | Collected checkpoint rows | 8,024 | Total checkpoint rows collected across all runs. |
 | Successful checkpoint rows | 7,701 | Checkpoints from successful runs |
 
-For raw logs on the collected VLM data, see the [ScAn-VLM-Bench repository](https://anonymous.4open.science/r/scan_vlm_bench-C6CB/README.md#Additional).
 
 
 #### LLM dataset summary
@@ -217,7 +211,7 @@ If you use ScAn-Bench, please cite:
   booktitle={Advances in Neural Information Processing Systems},
   year={2026},
   note={Evaluations and Datasets Track},
-  url={https://openreview.net/forum?id=EQd9HNVF60}
+  url={https://arxiv.org/abs/2609.35707}
 }
 ```
 and
