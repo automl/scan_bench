@@ -17,7 +17,7 @@ Create a new folder at the same level as the existing `vlm/` and `llm/` folders.
 Name the folder according to the new model family or modality, for example:
 
 ```text
-scan_benchmark/
+scan_bench/
 ├── vlm/
 ├── llm/
 └── tabpfn/
@@ -54,11 +54,11 @@ tabpfn/
 
 Inside `performance_surrogate/`, add a `data.py` file.
 
-Implement a dataset class for the new model family that extends [`BaseSurrogateDataset`](scan_benchmark/dataset.py).
+Implement a dataset class for the new model family that extends [`BaseSurrogateDataset`](scan_bench/dataset.py).
 
 This class should define how the collected benchmark data is loaded and prepared for surrogate modelling.
 
-See an example [`here`](scan_benchmark/vlm/performance_surrogate/data.py).
+See an example [`here`](scan_bench/vlm/performance_surrogate/data.py).
 
 ---
 
@@ -81,7 +81,7 @@ tabpfn/
 
 The splitting strategy should reflect the characteristics of the benchmark and provide meaningful train/test partitions for comparing different surrogate models.
 
-See an example [`here`](scan_benchmark/vlm/data_splitter.py).
+See an example [`here`](scan_bench/vlm/data_splitter.py).
 
 ### Step 6: Add the Surrogate Training Entry Point
 
@@ -100,7 +100,7 @@ The `train.py` script should call the generic `run_benchmark()` method.
 
 This method handles the training and comparison of the supported surrogate models.
 
-See an example [`here`](scan_benchmark/vlm/performance_surrogate/train/train.py).
+See an example [`here`](scan_bench/vlm/performance_surrogate/train/train.py).
 
 ---
 
