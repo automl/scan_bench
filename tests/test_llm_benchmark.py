@@ -1,7 +1,7 @@
 import numpy as np
 
-from scan_benchmark.llm.config import LLMConfig, LLMTarget
-from scan_benchmark.llm.data import LLMSurrogateDataset
+from scan_bench.llm.config import LLMConfig, LLMTarget
+from scan_bench.llm.data import LLMSurrogateDataset
 
 
 class FakePerformanceModel:
@@ -53,8 +53,8 @@ def make_llm_config(training_progress=1.0):
 
 
 def test_llm_query_returns_predictions_and_model_stats(monkeypatch):
-    import scan_benchmark.base_performance_benchmark as base_benchmark
-    import scan_benchmark.llm.api as llm_api
+    import scan_bench.base_performance_benchmark as base_benchmark
+    import scan_bench.llm.api as llm_api
 
     monkeypatch.setattr(base_benchmark, "TabPFNModel", FakePerformanceModel)
     monkeypatch.setattr(llm_api, "LLMSurrogateDataset", FakeLLMDataset)
@@ -76,8 +76,8 @@ def test_llm_query_returns_predictions_and_model_stats(monkeypatch):
 
 
 def test_llm_query_many_returns_one_result_per_config(monkeypatch):
-    import scan_benchmark.base_performance_benchmark as base_benchmark
-    import scan_benchmark.llm.api as llm_api
+    import scan_bench.base_performance_benchmark as base_benchmark
+    import scan_bench.llm.api as llm_api
 
     monkeypatch.setattr(base_benchmark, "TabPFNModel", FakePerformanceModel)
     monkeypatch.setattr(llm_api, "LLMSurrogateDataset", FakeLLMDataset)

@@ -1,6 +1,6 @@
-# ScAn-Bench: Evaluating Scaling Analysis Methodology
+# ScAn-Bench: Evaluating Scaling Analysis Methodologies
 
-This repository provides surrogate benchmarks for evaluating scaling analysis (ScAn) methodology on vision-language
+This repository provides surrogate benchmarks for evaluating scaling analysis (ScAn) methodologies on vision-language
 models (VLMs), large language models (LLMs) and tabular foundation models (TabPFN). The benchmarks approximate the mapping from training configurations to
 performance, enabling fast evaluation without training full models.
 
@@ -29,7 +29,7 @@ Install pytorch with CUDA, if you want to utilize the GPU.
 from scan_bench import TabPFNBenchmark, TabPFNConfig, TabPFNTarget, PerformancePredictorType
 
 bench = TabPFNBenchmark(
-    target=TabPFNTarget.VAL_LOSS,                          # or NLL, ROC_AUC
+    target=TabPFNTarget.VAL_LOSS,
     predictor_type=PerformancePredictorType.ENSEMBLE_XGB,  # or TABPFN, ENSEMBLE_LIGHTGBM, ENSEMBLE_MIX, AUTOGLUON
     device="auto",                                         # or "cpu", "cuda"
 )
@@ -178,10 +178,8 @@ The Croissant RAI metadata files for each dataset are included in this repositor
 [VLM-Croissant-RAI](./scan_bench/vlm/croissant_rai_ScAn_VLM-Bench.json)
 [LLM-Croissant-RAI](./scan_bench/llm/croissant_rai_ScAn_LLM-Bench.json)
 
-### Additional
-
 ### Unit testing
-To run the unit tests provided in [tests/](/tests) make sure that pytest is installed.
+To run the unit tests provided in [tests/](./tests) make sure that pytest is installed.
 
 ```bash
 pip install pytest

@@ -17,8 +17,8 @@ class VLMBenchmark(BasePerformanceBenchmark):
 
     def __init__(self, target=None, predictor_type: PerformancePredictorType = PerformancePredictorType.TABPFN,
                  autogluon_model_path: str | None = None, use_divergence_predictor: bool = True, device="auto"):
-        train_path = files("scan_bench.vlm.performance_surrogate").joinpath("splits/train_fold_1.csv")
-        test_path = files("scan_bench.vlm.performance_surrogate").joinpath("splits/test_fold_1.csv")
+        train_path = files("scan_bench.vlm.performance_surrogate").joinpath("splits/train_split_1.csv")
+        test_path = files("scan_bench.vlm.performance_surrogate").joinpath("splits/test_split_1.csv")
         additional_runs_path = files("scan_bench.vlm").joinpath("large_runs.csv")
 
         dataset = VLMSurrogateDataset(

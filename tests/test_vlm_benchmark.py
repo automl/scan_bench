@@ -1,7 +1,7 @@
 import numpy as np
 
-from scan_benchmark.vlm.config import VLMConfig, VLMTarget
-from scan_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
+from scan_bench.vlm.config import VLMConfig, VLMTarget
+from scan_bench.vlm.performance_surrogate.data import VLMSurrogateDataset
 
 
 class FakePerformanceModel:
@@ -60,8 +60,8 @@ def make_vlm_config(total_samples_planned=55_000_000):
 
 
 def test_vlm_query_returns_predictions_for_non_divergent_config(monkeypatch):
-    import scan_benchmark.base_performance_benchmark as base_benchmark
-    import scan_benchmark.vlm.api as vlm_api
+    import scan_bench.base_performance_benchmark as base_benchmark
+    import scan_bench.vlm.api as vlm_api
 
     monkeypatch.setattr(base_benchmark, "TabPFNModel", FakePerformanceModel)
     monkeypatch.setattr(vlm_api, "VLMSurrogateDataset", FakeVLMDataset)
@@ -82,8 +82,8 @@ def test_vlm_query_returns_predictions_for_non_divergent_config(monkeypatch):
 
 
 def test_vlm_query_many_skips_performance_prediction_for_failed_configs(monkeypatch):
-    import scan_benchmark.base_performance_benchmark as base_benchmark
-    import scan_benchmark.vlm.api as vlm_api
+    import scan_bench.base_performance_benchmark as base_benchmark
+    import scan_bench.vlm.api as vlm_api
 
     monkeypatch.setattr(base_benchmark, "TabPFNModel", FakePerformanceModel)
     monkeypatch.setattr(vlm_api, "VLMSurrogateDataset", FakeVLMDataset)

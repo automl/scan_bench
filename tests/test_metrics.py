@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from scan_benchmark.commons.metrics.metrics import (
+from scan_bench.commons.metrics.metrics import (
     calculate_correlation_matrix,
     compute_regression_metrics,
     mean_absolute_percentage_relative_deviation,

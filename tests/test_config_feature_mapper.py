@@ -1,8 +1,8 @@
 import numpy as np
 import pytest
 
-from scan_benchmark.base_config import BaseConfig
-from scan_benchmark.config_feature_mapper import ConfigFeatureMapper
+from scan_bench.base_config import BaseConfig
+from scan_bench.config_feature_mapper import ConfigFeatureMapper
 
 
 class TinyConfig(BaseConfig):

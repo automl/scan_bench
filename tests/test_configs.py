@@ -1,8 +1,8 @@
 import pytest
 
-from scan_benchmark.commons.query_time.query_time import sample_llm_config, sample_vlm_config
-from scan_benchmark.llm.config import LLMConfig, LLMTarget
-from scan_benchmark.vlm.config import VLMConfig, VLMTarget
+from scan_bench.commons.query_time.query_time import sample_llm_config, sample_vlm_config
+from scan_bench.llm.config import LLMConfig, LLMTarget
+from scan_bench.vlm.config import VLMConfig, VLMTarget
 
 
 def make_llm_config(**overrides):

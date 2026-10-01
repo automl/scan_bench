@@ -1,8 +1,8 @@
 import numpy as np
 import pytest
 
-from scan_benchmark.commons.predictors_core.base import MultiLabelSurrogateModel
-from scan_benchmark.commons.predictors_core.pfn import TabPFNModel
+from scan_bench.commons.predictors_core.base import MultiLabelSurrogateModel
+from scan_bench.commons.predictors_core.pfn import TabPFNModel
 
 
 class MeanModel:

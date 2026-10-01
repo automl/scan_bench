@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "scan-bench"
 version = "0.2.0"
-description = "Surrogate benchmark library"
+description = "Surrogate benchmark suite (VLM, LLM, TabPFN) for cheap evaluation of scaling analysis methods"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]

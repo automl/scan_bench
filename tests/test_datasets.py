@@ -2,9 +2,9 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from scan_benchmark.llm.data import LLMSurrogateDataset
-from scan_benchmark.vlm.divergence_surrogate.data import DivergenceDataset
-from scan_benchmark.vlm.performance_surrogate.data import VLMSurrogateDataset
+from scan_bench.llm.data import LLMSurrogateDataset
+from scan_bench.vlm.divergence_surrogate.data import DivergenceDataset
+from scan_bench.vlm.performance_surrogate.data import VLMSurrogateDataset
 
 
 def write_csv(path, rows):
