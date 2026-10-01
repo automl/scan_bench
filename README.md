@@ -1,10 +1,28 @@
 # ScAn-Bench: Evaluating Scaling Analysis Methodologies
 
-This repository provides surrogate benchmarks for evaluating scaling analysis (ScAn) methodologies on vision-language
-models (VLMs), large language models (LLMs) and tabular foundation models (TabPFN). The benchmarks approximate the mapping from training configurations to
-performance, enabling fast evaluation without training full models.
+<p align="center">
+  <img src="./doc_figures/empirical_pareto_fronts.png" alt="Training runs, empirical Pareto fronts and power-law fits for the OpenCLIP, LLM and TabPFN benchmarks" width="100%">
+</p>
+<p align="center"><em>The three ScAn-Bench suites. Grey: training runs. Orange: empirical compute-optimal front. Dotted: power-law fit.</em></p>
 
-This README describes the ScAn-Bench repository specifically.
+**Scaling studies are expensive, and every new method pays for them again.** To validate a scaling analysis method,
+groups train hundreds of models, burn thousands of GPU-hours (and the energy that comes with them), then throw the sweep
+away. The next paper repeats it from scratch.
+
+Existing benchmarks also only cover half of the problem. They either tune hyperparameters such as learning rate and
+batch size for one **fixed architecture**, or scale the **architecture** while fixing those hyperparameters to
+heuristic values. Scaling analysis needs both to vary together.
+
+**ScAn-Bench does the expensive part once.** We trained **5,352 configurations** across
+three model families, jointly varying model scale, data scale and training hyperparameters over 2–3 orders of
+magnitude of compute. Surrogate models fitted to these runs let you query any configuration in the search space, at any
+scale, in **under 20 seconds**, with no GPU required.
+
+| Benchmark | Model family | Configurations | Compute range (FLOPs) | Targets |
+|---|---|---:|---|---|
+| **VLM** | OpenCLIP | 1,535 | 10<sup>14</sup> – 10<sup>16</sup> | val/test loss, divergence report |
+| **LLM** | Decoder-only Transformer | 1,194 | 10<sup>16</sup> – 10<sup>19</sup> | val/test loss |
+| **TabPFN** | Encoder-only Tabular foundation model | 2,623 | 10<sup>11</sup> – 10<sup>14</sup> | prior validation loss |
 
 For a general overview of the paper, repository structure and artifact maps refer to [PaperOverview](PaperOverview.md).
 
