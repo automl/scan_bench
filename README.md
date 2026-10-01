@@ -1,5 +1,10 @@
 # ScAn-Bench: Surrogate Benchmarks for Scaling Analysis
 
+[![PyPI version](https://img.shields.io/pypi/v/scan-bench?color=informational)](https://pypi.org/project/scan-bench/)
+[![Python versions](https://img.shields.io/pypi/pyversions/scan-bench)](https://pypi.org/project/scan-bench/)
+[![License](https://img.shields.io/pypi/l/scan-bench?color=informational)](LICENSE)
+[![Tests](https://github.com/automl/scan_bench_suite/actions/workflows/tests.yaml/badge.svg?branch=main)](https://github.com/automl/scan_bench_suite/actions/workflows/tests.yaml)
+
 <p align="center">
   <img src="./doc_figures/empirical_pareto_fronts.png" alt="Training runs, empirical Pareto fronts and power-law fits for the OpenCLIP, LLM and TabPFN benchmarks" width="100%">
 </p>
