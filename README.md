@@ -1,4 +1,4 @@
-# ScAn-Bench: Evaluating Scaling Analysis Methodologies
+# ScAn-Bench: Surrogate Benchmarks for Scaling Analysis
 
 <p align="center">
   <img src="./doc_figures/empirical_pareto_fronts.png" alt="Training runs, empirical Pareto fronts and power-law fits for the OpenCLIP, LLM and TabPFN benchmarks" width="100%">
