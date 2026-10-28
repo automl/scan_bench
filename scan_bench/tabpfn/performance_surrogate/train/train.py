@@ -5,11 +5,15 @@ from scan_bench.tabpfn.performance_surrogate.data import TabPFNSurrogateDataset
 
 def parse_args():
     p = get_base_parser()
+
+    p.add_argument("--include_intermediate_points", action="store_true")
+    p.add_argument("--eval_on_intermediate_points", action="store_true")
+
     args = p.parse_args()
 
     defaults = {
-        "train_csv": "../splits/train.csv",
-        "test_csv": "../splits/test.csv",
+        "train_csv": "scan_bench/tabpfn/performance_surrogate/splits/train_fold_1.csv",
+        "test_csv": "scan_bench/tabpfn/performance_surrogate/splits/test_fold_1.csv",
         "labels": ["val/val_loss"],
     }
 
@@ -21,6 +25,6 @@ if __name__ == "__main__":
     run_benchmark(
         args=args,
         dataset_cls=TabPFNSurrogateDataset,
-        supports_intermediate_points=False,
+        supports_intermediate_points=True,
         model_family=args.model_family,
     )

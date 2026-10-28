@@ -27,7 +27,7 @@ scale, in **under 20 seconds**, with no GPU required.
 |---|---|---:|---|---|
 | **VLM** | OpenCLIP | 1,535 | 10<sup>14</sup> – 10<sup>16</sup> | val/test loss, divergence report |
 | **LLM** | Decoder-only Transformer | 1,194 | 10<sup>16</sup> – 10<sup>19</sup> | val/test loss |
-| **TabPFN** | Encoder-only Tabular foundation model | 2,623 | 10<sup>11</sup> – 10<sup>14</sup> | prior validation loss |
+| **TabPFN** | Encoder-only Tabular foundation model | 3,288 (30,664 checkpoints) | 10<sup>10</sup> – 10<sup>17</sup> | prior validation loss |
 
 For a general overview of the paper, repository structure and artifact maps refer to [PaperOverview](https://github.com/automl/scan_bench/blob/main/PaperOverview.md).
 
@@ -103,7 +103,13 @@ bash scan_bench/llm/train_surrogates.sh
 
 #### TabPFN pipeline
 
+The TabPFN data is rebuilt from the raw run directories (`report.yaml` for the final step, `report_<step>.yaml` for
+intermediate checkpoints) and then split into 5 FLOP-stratified folds. All checkpoints of a configuration stay in
+the same fold:
+
 ```bash
+python scan_bench/tabpfn/build_data.py        # -> scan_bench/tabpfn/data.csv
+python scan_bench/tabpfn/data_splitter.py     # -> scan_bench/tabpfn/performance_surrogate/splits/
 bash scan_bench/tabpfn/performance_surrogate/train/train_surrogates.sh
 ```
 
@@ -170,12 +176,15 @@ The repository includes pre-collected configuration-performance datasets used to
 
 | Quantity | Count | Description |
 |---|---:|---|
-| Training configurations | 2,623 | Total number of collected TabPFN pretraining configurations (one row per configuration). |
+| Training configurations | 3,288 | Total number of collected TabPFN pretraining configurations (after removing 79 diverged runs). |
+| Finished configurations | 2,771 | Configurations with a final report (`is_final` row). |
+| Collected checkpoint rows | 30,664 | Final reports plus intermediate checkpoints, including unfinished runs; checkpoints with `val/val_loss` > 2.6 are removed. |
 
 
 Each configuration varies the hyperparameters (`lr`, `effective_batch_size`) and the scale parameters (`total_cells`,
 `embedding_size`, `num_layers`, `max_features`, `num_datapoints_max`); see
-[TabPFN search space](https://github.com/automl/scan_bench/blob/main/scan_bench/tabpfn/spaces.py). Available target is the prior validation loss (`val/val_loss`).
+[TabPFN search space](https://github.com/automl/scan_bench/blob/main/scan_bench/tabpfn/spaces.py). Available target is the prior validation loss (`val/val_loss`), the mean of the small and medium prior validation
+losses, which are evaluated at every checkpoint. The previous final-only dataset is kept in `scan_bench/tabpfn/data_final.csv`.
 
 #### Data locations
 

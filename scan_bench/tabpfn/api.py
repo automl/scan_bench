@@ -19,6 +19,8 @@ class TabPFNBenchmark(BasePerformanceBenchmark):
             train_csv_path=str(train_path),
             targets=target,
             seed=42,
+            include_intermediate_points=True,
+            eval_on_intermediate_points=True,
         )
 
         if predictor_type == PerformancePredictorType.AUTOGLUON:
