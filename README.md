@@ -148,6 +148,14 @@ scan_bench/tabpfn/performance_surrogate/results/
 | Mix        | 0.33     | 0.17     | 0.07     | 7.65   | 0.66     | 0.82     | 0.86     |
 | LGB        | 0.33     | 0.17     | 0.08     | 7.97     | 0.66     | 0.83     | 0.87     |
 
+#### Surrogate Performance (TabPFN)
+
+Mean over the 5 CV folds (± std), with intermediate checkpoints used for fitting and evaluation.
+
+| Surrogate  | RMSE ↓        | MAE ↓         | MDAE ↓        | MARPD ↓     | R² ↑          | R ↑           | Corr. ↑       |
+|------------|---------------|---------------|---------------|-------------|---------------|---------------|---------------|
+| **TabPFN** | 0.091 ± 0.003 | 0.042 ± 0.002 | 0.014 ± 0.001 | 2.67 ± 0.12 | 0.948 ± 0.006 | 0.974 ± 0.003 | 0.974 ± 0.004 |
+
 ### Data
 
 The repository includes pre-collected configuration-performance datasets used to train the surrogate models.
