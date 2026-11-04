@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "scan-bench"
 version = "0.3.0"
-description = "Surrogate benchmark suite (VLM, LLM, TabPFN) for cheap evaluation of scaling analysis methods"
+description = "Surrogate benchmark suite (VLM, LLM) for cheap evaluation of scaling analysis methods"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -37,8 +37,6 @@ include = [
     "scan_bench.vlm.*",
     "scan_bench.llm",
     "scan_bench.llm.*",
-    "scan_bench.tabpfn",
-    "scan_bench.tabpfn.*",
 ]
 
 exclude = [
@@ -54,4 +52,3 @@ exclude = [
 "scan_bench.vlm.performance_surrogate" = ["splits/*.csv"]
 "scan_bench.vlm.divergence_surrogate" = ["xgb_models/*.json"]
 "scan_bench.llm" = ["splits/*.csv", "*.csv", "*.json"]
-"scan_bench.tabpfn" = ["*.json", "*.csv"]

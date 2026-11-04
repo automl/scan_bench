@@ -1,14 +1,16 @@
-# ScAn-Bench: Surrogate Benchmarks for Scaling Analysis
+# ScAn-Bench: Surrogate Benchmarks for Scaling Analysis [NeurIPS 2026]
 
+[![Paper](https://img.shields.io/badge/arXiv-2609.35707-b31b1b.svg)](https://arxiv.org/abs/2609.35707)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-AutoML--org%2Fscan-yellow)](https://huggingface.co/AutoML-org/scan)
 [![PyPI version](https://img.shields.io/pypi/v/scan-bench)](https://pypi.org/project/scan-bench/)
 [![Python versions](https://img.shields.io/pypi/pyversions/scan-bench?color=informational)](https://pypi.org/project/scan-bench/)
 [![License](https://img.shields.io/pypi/l/scan-bench?color=informational)](https://github.com/automl/scan_bench/blob/main/LICENSE)
 [![Tests](https://github.com/automl/scan_bench_suite/actions/workflows/tests.yaml/badge.svg?branch=main)](https://github.com/automl/scan_bench_suite/actions/workflows/tests.yaml)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/automl/scan_bench/main/doc_figures/empirical_pareto_fronts.png" alt="Training runs, empirical Pareto fronts and power-law fits for the OpenCLIP, LLM and TabPFN benchmarks" width="100%">
+  <img src="https://raw.githubusercontent.com/automl/scan_bench/neurips2026/doc_figures/empirical_pareto_fronts.png" alt="Training runs, empirical Pareto fronts and power-law fits for the OpenCLIP and LLM benchmarks" width="100%">
 </p>
-<p align="center"><em>The three ScAn-Bench suites. Grey: training runs. Orange: empirical compute-optimal front. Dotted: power-law fit.</em></p>
+<p align="center"><em>The ScAn-Bench suites. Grey: training runs. Orange: empirical compute-optimal front. Dotted: power-law fit.</em></p>
 
 **Scaling studies are expensive, and every new method pays for them again.** To validate a scaling analysis method,
 groups train hundreds of models, burn thousands of GPU-hours (and the energy that comes with them), then throw the sweep
@@ -18,8 +20,8 @@ Existing benchmarks also only cover half of the problem. They either tune hyperp
 batch size for one **fixed architecture**, or scale the **architecture** while fixing those hyperparameters to
 heuristic values. Scaling analysis needs both to vary together.
 
-**ScAn-Bench does the expensive part once.** We trained **5,352 configurations** across
-three model families, jointly varying model scale, data scale and training hyperparameters over 2–3 orders of
+**ScAn-Bench does the expensive part once.** We trained **2,729 configurations** across
+two model families, jointly varying model scale, data scale and training hyperparameters over 2–3 orders of
 magnitude of compute. Surrogate models fitted to these runs let you query any configuration in the search space, at any
 scale, in **under 20 seconds**, with no GPU required.
 
@@ -27,7 +29,6 @@ scale, in **under 20 seconds**, with no GPU required.
 |---|---|---:|---|---|
 | **VLM** | OpenCLIP | 1,535 | 10<sup>14</sup> – 10<sup>16</sup> | val/test loss, divergence report |
 | **LLM** | Decoder-only Transformer | 1,194 | 10<sup>16</sup> – 10<sup>19</sup> | val/test loss |
-| **TabPFN** | Encoder-only Tabular foundation model | 3,288 (30,664 checkpoints) | 10<sup>10</sup> – 10<sup>17</sup> | prior validation loss |
 
 For a general overview of the paper, repository structure and artifact maps refer to [PaperOverview](https://github.com/automl/scan_bench/blob/main/PaperOverview.md).
 
@@ -49,27 +50,26 @@ Install pytorch with CUDA, if you want to utilize the GPU.
 ### Quick start
 
 ```python
-from scan_bench import TabPFNBenchmark, TabPFNConfig, TabPFNTarget, PerformancePredictorType
+from scan_bench import LLMBenchmark, LLMConfig, LLMTarget, PerformancePredictorType
 
-bench = TabPFNBenchmark(
-    target=TabPFNTarget.VAL_LOSS,
-    predictor_type=PerformancePredictorType.ENSEMBLE_XGB,  # or TABPFN, ENSEMBLE_LIGHTGBM, ENSEMBLE_MIX, AUTOGLUON
-    device="auto",                                         # or "cpu", "cuda"
+bench = LLMBenchmark(
+    target=LLMTarget.TEST_LOSS,                       # or VAL_LOSS
+    predictor_type=PerformancePredictorType.TABPFN,
+    device="auto",                                    # or "cpu", "cuda"
 )
 
-small = TabPFNConfig(total_cells=2**20, effective_batch_size=16, lr=1e-4,
-                     max_features=32, embedding_size=4, num_layers=2, num_datapoints_max=128)
-large = TabPFNConfig(total_cells=2**30, effective_batch_size=64, lr=1e-3,
-                     max_features=64, embedding_size=64, num_layers=8, num_datapoints_max=256)
+small = LLMConfig(d_model=512, n_layers=12, n_heads=8, lr=3e-3, weight_decay=0.1,
+                  beta1=0.9, beta2=0.95, cooldown_steps=0.2, n_tokens=1_000_000_000)
+large = LLMConfig(d_model=768, n_layers=16, n_heads=12, lr=1e-3, weight_decay=0.05,
+                  beta1=0.9, beta2=0.95, cooldown_steps=0.2, n_tokens=10_000_000_000)
 
-print(bench.query(small))                  # {"predictions": {"mean", "uncertainty"}, "model_stats": {"flops", ...}}
+print(bench.query(small))                  # {"predictions": {...}, "model_stats": {"total_params", "total_training_flops", ...}}
 print(bench.query_many([small, large]))    # batched, one result per config
-print(bench.flops(large), bench.model_params(large))
 ```
 
 ### Package usage
 
-Refer to [VLM API](https://github.com/automl/scan_bench/blob/main/scan_bench/vlm/api.py), [LLM API](https://github.com/automl/scan_bench/blob/main/scan_bench/llm/api.py) and [TabPFN API](https://github.com/automl/scan_bench/blob/main/scan_bench/tabpfn/api.py) for API usages.
+Refer to [VLM API](https://github.com/automl/scan_bench/blob/main/scan_bench/vlm/api.py) and [LLM API](https://github.com/automl/scan_bench/blob/main/scan_bench/llm/api.py) for API usages.
 
 ### Local development and experiment reproduction
 
@@ -101,18 +101,6 @@ bash scan_bench/vlm/divergence_surrogate/train.sh
 bash scan_bench/llm/train_surrogates.sh
 ```
 
-#### TabPFN pipeline
-
-The TabPFN data is rebuilt from the raw run directories (`report.yaml` for the final step, `report_<step>.yaml` for
-intermediate checkpoints) and then split into 5 FLOP-stratified folds. All checkpoints of a configuration stay in
-the same fold:
-
-```bash
-python scan_bench/tabpfn/build_data.py        # -> scan_bench/tabpfn/data.csv
-python scan_bench/tabpfn/data_splitter.py     # -> scan_bench/tabpfn/performance_surrogate/splits/
-bash scan_bench/tabpfn/performance_surrogate/train/train_surrogates.sh
-```
-
 #### Results
 
 After running the surrogate training scripts, a results directory is created under the corresponding directory for each
@@ -125,8 +113,6 @@ For example:
 scan_bench/vlm/performance_surrogate/results/
 
 scan_bench/llm/results/
-
-scan_bench/tabpfn/performance_surrogate/results/
 
 #### Surrogate Performance (VLM)
 
@@ -147,14 +133,6 @@ scan_bench/tabpfn/performance_surrogate/results/
 | XGB        | 0.35     | 0.15     | 0.04     | 6.80   | 0.63    | 0.80    | 0.86     |
 | Mix        | 0.33     | 0.17     | 0.07     | 7.65   | 0.66     | 0.82     | 0.86     |
 | LGB        | 0.33     | 0.17     | 0.08     | 7.97     | 0.66     | 0.83     | 0.87     |
-
-#### Surrogate Performance (TabPFN)
-
-Mean over the 5 CV folds (± std), with intermediate checkpoints used for fitting and evaluation.
-
-| Surrogate  | RMSE ↓        | MAE ↓         | MDAE ↓        | MARPD ↓     | R² ↑          | R ↑           | Corr. ↑       |
-|------------|---------------|---------------|---------------|-------------|---------------|---------------|---------------|
-| **TabPFN** | 0.091 ± 0.003 | 0.042 ± 0.002 | 0.014 ± 0.001 | 2.67 ± 0.12 | 0.948 ± 0.006 | 0.974 ± 0.003 | 0.974 ± 0.004 |
 
 ### Data
 
@@ -180,20 +158,6 @@ The repository includes pre-collected configuration-performance datasets used to
 | Collected checkpoint rows | 4,524 | Total checkpoints collected across successful and failed runs. |
 | Performance-surrogate rows | 4,524 | Checkpoints from successful runs used for performance prediction. |
 
-#### TabPFN dataset summary
-
-| Quantity | Count | Description |
-|---|---:|---|
-| Training configurations | 3,288 | Total number of collected TabPFN pretraining configurations (after removing 79 diverged runs). |
-| Finished configurations | 2,771 | Configurations with a final report (`is_final` row). |
-| Collected checkpoint rows | 30,664 | Final reports plus intermediate checkpoints, including unfinished runs; checkpoints with `val/val_loss` > 2.6 are removed. |
-
-
-Each configuration varies the hyperparameters (`lr`, `effective_batch_size`) and the scale parameters (`total_cells`,
-`embedding_size`, `num_layers`, `max_features`, `num_datapoints_max`); see
-[TabPFN search space](https://github.com/automl/scan_bench/blob/main/scan_bench/tabpfn/spaces.py). Available target is the prior validation loss (`val/val_loss`), the mean of the small and medium prior validation
-losses, which are evaluated at every checkpoint. The previous final-only dataset is kept in `scan_bench/tabpfn/data_final.csv`.
-
 #### Data locations
 
 The table below shows where the data is located:
@@ -203,7 +167,6 @@ The table below shows where the data is located:
 | **VLM performance data** | `scan_bench/vlm/performance_surrogate/splits` | Training and test splits for VLM performance surrogate modeling. |
 | **VLM divergence data** | `scan_bench/vlm/divergence_surrogate/splits` | Configuration-level data for predicting failed (diverged) configurations. |
 | **LLM performance data** | `scan_bench/llm/splits` | Configuration-performance datasets for LLM surrogate training. |
-| **TabPFN performance data** | `scan_bench/tabpfn/performance_surrogate/splits` | Configuration-performance datasets for TabPFN surrogate training. |
 
 
 Additionally, we host the datasets online, with the corresponding Licenses, source dataset Licenses and corresponding downstream task Licenses:
@@ -250,16 +213,5 @@ If you use ScAn-Bench, please cite:
   year={2026},
   note={Evaluations and Datasets Track},
   url={https://arxiv.org/abs/2609.35707}
-}
-```
-and
-
-```bibtex
-@inproceedings{alipour2026tabpfn,
-  title={TabPFN-ScAn-Bench: A Surrogate Benchmark for Scaling Analysis Algorithms},
-  author={N. Alipour and D. Sinani and A. Sermaxhaj and J. Hog and D. Stoll},
-  booktitle={AutoML 2026 non-archival},
-  year={2026},
-  note={Late-Breaking Abstract}
 }
 ```

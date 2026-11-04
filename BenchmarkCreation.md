@@ -20,7 +20,7 @@ Name the folder according to the new model family or modality, for example:
 scan_bench/
 ├── vlm/
 ├── llm/
-└── tabpfn/
+└── new_benchmark/
 ````
 
 ### Step 2: Add the Collected Data
@@ -30,7 +30,7 @@ Add a `data.csv` file containing the collected configuration-performance data fo
 For example:
 
 ```text
-tabpfn/
+new_benchmark/
 └── data.csv
 ```
 
@@ -45,7 +45,7 @@ performance_surrogate/
 The structure should now look like:
 
 ```text
-tabpfn/
+new_benchmark/
 ├── data.csv
 └── performance_surrogate/
 ```
@@ -73,7 +73,7 @@ Implement a data splitter that defines the training and test splits used for sur
 The structure should now look like:
 
 ```text
-tabpfn/
+new_benchmark/
 ├── data.csv
 ├── performance_surrogate/
 └── data_splitter.py
@@ -147,7 +147,7 @@ See an example [`here`](scan_bench/vlm/api.py).
 After completing the steps above, the new benchmark should have a structure similar to:
 
 ```text
-tabpfn/
+new_benchmark/
 ├── data.csv
 ├── spaces.py
 ├── config.py

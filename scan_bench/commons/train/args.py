@@ -16,7 +16,7 @@ def get_base_parser():
     p.add_argument("--labels", nargs="+", default=None)
     p.add_argument("--out_dir", type=str, default=None)
     p.add_argument("--model_family", type=str, default="vlm",
-                   help="Model family for which the surrogate is being fitted: vlm, llm, or tabpfn")
+                   help="Model family for which the surrogate is being fitted: vlm or llm")
 
     p.add_argument(
         "--additional_runs_path",
