@@ -42,7 +42,7 @@ To create a new benchmark based on this framework refer to [BenchmarkCreation](h
 We recommend using a conda environment for installing the SDK:
 
 ```bash 
-pip install scan-bench
+pip install scan-bench==0.4.0
 ```
 
 Install pytorch with CUDA, if you want to utilize the GPU.
