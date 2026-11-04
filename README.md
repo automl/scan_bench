@@ -1,7 +1,8 @@
 # ScAn-Bench: Surrogate Benchmarks for Scaling Analysis [NeurIPS 2026]
 
 [![Paper](https://img.shields.io/badge/arXiv-2609.35707-b31b1b.svg)](https://arxiv.org/abs/2609.35707)
-[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-AutoML--org%2Fscan-yellow)](https://huggingface.co/AutoML-org/scan)
+[![VLM dataset](https://img.shields.io/badge/Kaggle-VLM%20dataset-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/datasets/4eca11cf1ddfee40dcc21b9dd6fc7f0f59ffd074f3691440c231ff68eb2a93bd)
+[![LLM dataset](https://img.shields.io/badge/Kaggle-LLM%20dataset-20BEFF?logo=kaggle&logoColor=white)](https://www.kaggle.com/datasets/8e8a59d2a9f9c2abfe47d22e8ce78c99e24bb524b042254e8da312262d1503eb)
 [![PyPI version](https://img.shields.io/pypi/v/scan-bench)](https://pypi.org/project/scan-bench/)
 [![Python versions](https://img.shields.io/pypi/pyversions/scan-bench?color=informational)](https://pypi.org/project/scan-bench/)
 [![License](https://img.shields.io/pypi/l/scan-bench?color=informational)](https://github.com/automl/scan_bench/blob/main/LICENSE)
