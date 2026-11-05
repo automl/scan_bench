@@ -7,7 +7,8 @@ __pycache__/
 .build/
 build/
 dist/
-
+.pytest_cache/
+.test_tmp/
 # Virtual environments
 .venv/
 venv/
