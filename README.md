@@ -70,7 +70,7 @@ print(bench.query_many([small, large]))    # batched, one result per config
 
 ### Package usage
 
-Refer to [VLM API](https://github.com/automl/scan_bench/blob/main/scan_bench/vlm/api.py) and [LLM API](https://github.com/automl/scan_bench/blob/main/scan_bench/llm/api.py) for API usages.
+Refer to [VLM API](https://github.com/automl/scan_bench/blob/neurips2026/scan_bench/vlm/api.py) and [LLM API](https://github.com/automl/scan_bench/blob/neurips2026/scan_bench/llm/api.py) for API usages.
 
 ### Local development and experiment reproduction
 
@@ -179,11 +179,11 @@ Additionally, we host the datasets online, with the corresponding Licenses, sour
 
 The Croissant RAI metadata files for each dataset are included in this repository:
 
-[VLM-Croissant-RAI](https://github.com/automl/scan_bench/blob/main/scan_bench/vlm/croissant_rai_ScAn_VLM-Bench.json)
-[LLM-Croissant-RAI](https://github.com/automl/scan_bench/blob/main/scan_bench/llm/croissant_rai_ScAn_LLM-Bench.json)
+[VLM-Croissant-RAI](https://github.com/automl/scan_bench/blob/neurips2026/scan_bench/vlm/croissant_rai_ScAn_VLM-Bench.json)
+[LLM-Croissant-RAI](https://github.com/automl/scan_bench/blob/neurips2026/scan_bench/llm/croissant_rai_ScAn_LLM-Bench.json)
 
 ### Unit testing
-To run the unit tests provided in [tests/](https://github.com/automl/scan_bench/tree/main/tests) make sure that pytest is installed.
+To run the unit tests provided in [tests/](https://github.com/automl/scan_bench/tree/neurips2026/tests) make sure that pytest is installed.
 
 ```bash
 pip install pytest
