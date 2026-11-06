@@ -8,6 +8,7 @@
 [![License](https://img.shields.io/pypi/l/scan-bench?color=informational)](https://github.com/automl/scan_bench/blob/main/LICENSE)
 [![Tests](https://github.com/automl/scan_bench_suite/actions/workflows/tests.yaml/badge.svg?branch=main)](https://github.com/automl/scan_bench_suite/actions/workflows/tests.yaml)
 
+> **Paper Branch Notice:** This repository state is frozen to match the experiments presented in our NeurIPS 2026 paper. If you are looking for general-purpose usage, newer features, or bug fixes post-publication, please switch to the [main branch](https://github.com/automl/scan_bench/tree/main).
 <p align="center">
   <img src="https://raw.githubusercontent.com/automl/scan_bench/neurips2026/doc_figures/empirical_pareto_fronts.png" alt="Training runs, empirical Pareto fronts and power-law fits for the OpenCLIP and LLM benchmarks" width="100%">
 </p>
