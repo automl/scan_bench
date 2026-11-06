@@ -2,7 +2,7 @@ import copy
 from pathlib import Path
 
 from scan_bench.commons.train.args import get_base_parser, finalize_args
-from scan_bench.commons.train.train_base import run_benchmark
+from scan_bench.commons.train.train_base import build_out_path, run_benchmark
 from scan_bench.llm.data import LLMSurrogateDataset
 
 
@@ -18,8 +18,8 @@ def parse_args():
     args = p.parse_args()
 
     defaults = {
-        "train_csv": "scan_bench/llm/splits/train_fold_1.csv",
-        "test_csv": "scan_bench/llm/splits/test_fold_1.csv",
+        "train_csv": "scan_bench/llm/splits/train_split_1.csv",
+        "test_csv": "scan_bench/llm/splits/test_split_1.csv",
         "labels": ["test_loss"],
     }
 
@@ -29,11 +29,15 @@ def parse_args():
 def run_one_fold(args, fold: int):
     fold_args = copy.copy(args)
     fold_args.fold = int(fold)
-    fold_args.train_csv = str(DEFAULT_SPLIT_DIR / f"train_fold_{fold}.csv")
-    fold_args.test_csv = str(DEFAULT_SPLIT_DIR / f"test_fold_{fold}.csv")
+    fold_args.model_family = "llm"
+    fold_args.use_fold_in_path = True
+    fold_args.train_csv = str(DEFAULT_SPLIT_DIR / f"train_split_{fold}.csv")
+    fold_args.test_csv = str(DEFAULT_SPLIT_DIR / f"test_split_{fold}.csv")
 
     if args.out_dir is not None:
-        fold_args.out_dir = str(Path(args.out_dir) / f"fold_{fold}")
+        fold_args.out_dir = str(Path(args.out_dir) / f"split_{fold}")
+    else:
+        fold_args.out_dir = str(build_out_path(fold_args) / f"split_{fold}")
 
     return run_benchmark(
         args=fold_args,

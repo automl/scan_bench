@@ -410,29 +410,29 @@ def prepare_performance_predictor_data(
         random_state=random_state,
     )
 
-    for fold_idx, (train_idx, test_idx) in enumerate(
+    for split_idx, (train_idx, test_idx) in enumerate(
             skf.split(df, df["flops_bin"]),
             start=1,
     ):
         train_last_df = df.iloc[train_idx].copy()
         test_last_df = df.iloc[test_idx].copy()
 
-        print(f"\nFold {fold_idx} performance train split:")
+        print(f"\nSplit {split_idx} performance train split:")
         print_bin_counts(train_last_df)
 
-        print(f"\nFold {fold_idx} performance test split:")
+        print(f"\nSplit {split_idx} performance test split:")
         print_bin_counts(test_last_df)
 
         train_df = enrich_with_all_eval_steps(full_df, train_last_df)
         test_df = enrich_with_all_eval_steps(full_df, test_last_df)
 
-        train_output_csv = output_dir / f"train_fold_{fold_idx}.csv"
-        test_output_csv = output_dir / f"test_fold_{fold_idx}.csv"
+        train_output_csv = output_dir / f"train_split_{split_idx}.csv"
+        test_output_csv = output_dir / f"test_split_{split_idx}.csv"
 
         train_df.to_csv(train_output_csv, index=False)
         test_df.to_csv(test_output_csv, index=False)
 
-        if fold_idx == 1:
+        if split_idx == 1:
             train_df.to_csv(output_dir / "train.csv", index=False)
             test_df.to_csv(output_dir / "test.csv", index=False)
 

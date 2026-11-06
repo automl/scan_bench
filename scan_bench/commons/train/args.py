@@ -38,6 +38,13 @@ def get_base_parser():
     p.add_argument("--device", type=str, default="cuda")
     p.add_argument("--ag_time_limit", type=int, default=4 * 60 * 60)
     p.add_argument("--fold", type=int, default=1)
+    p.add_argument(
+        "--folds",
+        nargs="+",
+        type=int,
+        default=None,
+        help="Run multiple folds in one invocation, e.g. --folds 1 2 3 4 5.",
+    )
     p.add_argument("--use_manual_ag_settings", action="store_true")
 
     return p
