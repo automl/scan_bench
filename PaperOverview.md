@@ -14,9 +14,9 @@ The paper relies on the following repositories:
 | Repository name     | URL                                                                          | Role                                                                                                      |
 |---------------------|------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | **ScAn-Bench**      | https://github.com/automl/scan_bench (current repository) | Used to train and compare surrogate models on data collected from the VLM and LLM training pipelines.     |
-| **ScAn-Algorithms** | https://anonymous.4open.science/r/scaling_studies_algorithm-DB61             | Contains the implementations and experiments for the scaling analysis methods evaluated using ScAn-Bench. |
-| **ScAn-VLM-Bench**  | https://anonymous.4open.science/r/scan_vlm_bench-C6CB                        | Contains the VLM data-collection pipeline.                                                                |
-| **ScAn-LLM-Bench**  | https://anonymous.4open.science/r/scan_llm_bench-B4B0                        | Contains the LLM data-collection pipeline.                                                                |
+| **ScAn-Algorithms** | https://github.com/automl/scaling_studies_algorithm             | Contains the implementations and experiments for the scaling analysis methods evaluated using ScAn-Bench. |
+| **ScAn-VLM-Bench**  | https://github.com/automl/scaling_studies_vlm                        | Contains the VLM data-collection pipeline.                                                                |
+| **ScAn-LLM-Bench**  | https://github.com/automl/scan_llm_bench                        | Contains the LLM data-collection pipeline.                                                            |
 
 ### Artifact Map
 
