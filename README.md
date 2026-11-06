@@ -31,9 +31,9 @@ scale, in **under 20 seconds**, with no GPU required.
 | **VLM** | OpenCLIP | 1,535 | 10<sup>13</sup> – 10<sup>18</sup> | val/test loss, divergence report |
 | **LLM** | Decoder-only Transformer | 1,194 | 10<sup>16</sup> – 10<sup>20</sup> | val/test loss |
 
-For a general overview of the paper, repository structure and artifact maps refer to [PaperOverview](https://github.com/automl/scan_bench/blob/main/PaperOverview.md).
+For a general overview of the paper, repository structure and artifact maps refer to [PaperOverview](https://github.com/automl/scan_bench/blob/neurips2026/PaperOverview.md).
 
-To create a new benchmark based on this framework refer to [BenchmarkCreation](https://github.com/automl/scan_bench/blob/main/BenchmarkCreation.md).
+To create a new benchmark based on this framework refer to [BenchmarkCreation](https://github.com/automl/scan_bench/blob/neurips2026/BenchmarkCreation.md).
 
 ## ScAn-Bench Repository
 
