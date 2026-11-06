@@ -48,7 +48,7 @@
   },
   "alternateName": "LLM trained on Slimpajama dataset mapping configuration to upstream performance",
   "conformsTo": "http://mlcommons.org/croissant/1.0",
-  "license": "{\"@type\": \"sc:CreativeWork\", \"name\": \"MIT\", \"url\": \"https://www.mit.edu/~amini/LICENSE.md\"}",
+  "license": "https://spdx.org/licenses/MIT.html",
   "distribution": [
     {
       "contentUrl": "https://www.kaggle.com/api/v1/datasets/download/testuserautoml/llm-scan-bench?datasetVersionNumber=5",
@@ -1116,12 +1116,40 @@
     "name": "Kaggle",
     "url": "https://www.kaggle.com"
   },
-  "creator": {
-    "@type": "sc:Person",
-    "name": "Test User Auto ML",
-    "url": "/testuserautoml",
-    "image": "https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png"
-  },
+  "creator": [
+    {
+      "@type": "sc:Person",
+      "name": "Artin Sermaxhaj"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Nastaran Alipour"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Donat Sinani"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Johannes Hog"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Neeratyoy Mallik"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Steven Adriaensen"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Jenia Jitsev"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Danny Stoll"
+    }
+  ],
   "publisher": {
     "@type": "sc:Organization",
     "name": "Kaggle",
@@ -1133,7 +1161,7 @@
   "@type": "sc:Dataset",
   "name": "LLM-ScAn-Bench",
   "url": "https://www.kaggle.com/datasets/testuserautoml/llm-scan-bench/versions/5",
-  "description": "# Dataset Overview\n\nScAn-Bench contains configuration-to-performance data collected from LLM training runs.\n\nA total of 1,194 language model training configurations were sampled from a predefined architecture and hyperparameter search space. Each configuration was trained on SlimPajama and evaluated throughout training, resulting in 4,524 checkpoint-level records containing model configurations, training states, compute budgets, and corresponding upstream language modeling metrics.\n\nThe released dataset contains only successfully completed training runs. Failed or incomplete runs were removed during dataset validation and filtering.\n\n| Quantity | Count | Description |\n|---|---:|---|\n| Training configurations | 1,194 | Total number of collected decoder-only transformer training configurations. |\n| Checkpoint rows | 4,524 | Total number of checkpoint-level records collected across training runs. |\n| Included rows | 4,524 | Checkpoints retained in the released benchmark after quality filtering. |\n\n# Provenance and Licensing\n\n## SlimPajama\n\nThe language model training runs used to construct ScAn-Bench were trained using SlimPajama as the underlying text corpus.\n\nSlimPajama is a cleaned and deduplicated version of the RedPajama dataset released by Cerebras. It contains approximately 627 billion tokens collected from multiple publicly available text sources, including Common Crawl, C4, GitHub, Books, ArXiv, Wikipedia, and StackExchange. The dataset construction process applies quality filtering and deduplication techniques to improve the quality of the resulting pretraining corpus.\n\nScAn-Bench does not redistribute SlimPajama or any of its source documents. The released benchmark contains only derived artifacts from the corresponding language model training runs, including model configuration parameters, training metadata, compute information, and measured performance metrics.\n\n- Role in ScAn-Bench: Training data for LLMs\n- Dataset license: Apache 2.0 (SlimPajama release)\n- Text documents redistributed: No\n- Source: https://huggingface.co/datasets/cerebras/SlimPajama-627B | https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama\n\n\n\n",
+  "description": "# Dataset Overview\n\nScAn-Bench contains configuration-to-performance data collected from LLM training runs.\n\nA total of 1,194 language model training configurations were sampled from a predefined architecture and hyperparameter search space. Each configuration was trained on SlimPajama and evaluated throughout training, resulting in 4,524 checkpoint-level records containing model configurations, training states, compute budgets, and corresponding upstream language modeling metrics.\n\nThe released dataset contains only successfully completed training runs. Failed or incomplete runs were removed during dataset validation and filtering.\n\nFor the ScAn-Bench implementation, LLM surrogate benchmarking code, and reproducibility resources, see the public [ScAn-Bench repository](https://github.com/automl/scan_bench/tree/neurips2026).\n\n| Quantity | Count | Description |\n|---|---:|---|\n| Training configurations | 1,194 | Total number of collected decoder-only transformer training configurations. |\n| Checkpoint rows | 4,524 | Total number of checkpoint-level records collected across training runs. |\n| Included rows | 4,524 | Checkpoints retained in the released benchmark after quality filtering. |\n\n# Provenance and Licensing\n\n## SlimPajama\n\nThe language model training runs used to construct ScAn-Bench were trained using SlimPajama as the underlying text corpus.\n\nSlimPajama is a cleaned and deduplicated version of the RedPajama dataset released by Cerebras. It contains approximately 627 billion tokens collected from multiple publicly available text sources, including Common Crawl, C4, GitHub, Books, ArXiv, Wikipedia, and StackExchange. The dataset construction process applies quality filtering and deduplication techniques to improve the quality of the resulting pretraining corpus.\n\nScAn-Bench does not redistribute SlimPajama or any of its source documents. The released benchmark contains only derived artifacts from the corresponding language model training runs, including model configuration parameters, training metadata, compute information, and measured performance metrics.\n\n- Role in ScAn-Bench: Training data for LLMs\n- Dataset license: Apache 2.0 (SlimPajama release)\n- Text documents redistributed: No\n- Source: https://huggingface.co/datasets/cerebras/SlimPajama-627B | https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama\n\n\n\n",
   "rai:dataLimitations": "The dataset covers a predefined search space of decoder-only language models, hyperparameters, and training budgets rather than the full spectrum of modern LLM architectures. Consequently, models outside these architectural choices or parameter ranges may exhibit substantially different behavior.\nPerformance measurements were collected using a fixed training pipeline, tokenizer, optimizer, dataset, and evaluation protocol. Therefore, observed relationships between architecture, hyperparameters, and performance may not generalize to different training recipes, datasets, or large-scale frontier models.\nThe benchmark primarily targets upstream language modeling metrics and a limited set of downstream evaluation tasks. It should not be interpreted as measuring broader capabilities such as safety, fairness, robustness, instruction following, multilingual performance, or real-world deployment quality.\nSince the benchmark contains experimentally generated observations rather than exhaustive coverage of the design space, surrogate models trained on this dataset may extrapolate poorly outside the sampled configurations.\nNot recommended uses: estimating the performance of arbitrary LLM architectures outside the benchmark search space, making deployment or safety decisions for production models, comparing proprietary frontier models trained under substantially different data, objectives, or infrastructure, drawing conclusions about fairness, bias, toxicity, or societal impacts of language models.",
   "rai:dataBiases": "Unlike human datasets, this benchmark does not contain demographic or population biases. However, it does contain experimental biases, including:\nbias toward the selected architectural search space\nbias toward the chosen optimizer and training schedule,\nbias introduced by the selected pretraining corpus,\nbias toward the sampled hyperparameter distributions,\nbias toward the chosen downstream evaluation benchmarks.\nThese biases should be considered when interpreting scaling trends or surrogate predictions.",
   "rai:personalSensitiveInformation": "None.\nThe dataset contains no personal information, demographic information, or sensitive attributes.",
@@ -1192,5 +1220,6 @@
       "prov:label": "Annotation",
       "sc:description": "The dataset does not contain manually annotated samples. Instead, target values were automatically generated by evaluating each trained decoder-only transformer configuration on evaluation metrics. These metrics were collected directly from completed training runs and associated with their corresponding model configurations, training budgets, and hyperparameter settings. No human annotators, annotation platforms, or synthetic labeling agents were involved."
     }
-  ]
+  ],
+  "citeAs": "https://openreview.net/forum?id=EQd9HNVF60"
 }
