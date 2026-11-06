@@ -28,8 +28,8 @@ scale, in **under 20 seconds**, with no GPU required.
 
 | Benchmark | Model family | Configurations | Compute range (FLOPs) | Targets |
 |---|---|---:|---|---|
-| **VLM** | OpenCLIP | 1,535 | 10<sup>14</sup> – 10<sup>16</sup> | val/test loss, divergence report |
-| **LLM** | Decoder-only Transformer | 1,194 | 10<sup>16</sup> – 10<sup>19</sup> | val/test loss |
+| **VLM** | OpenCLIP | 1,535 | 10<sup>13</sup> – 10<sup>18</sup> | val/test loss, divergence report |
+| **LLM** | Decoder-only Transformer | 1,194 | 10<sup>16</sup> – 10<sup>20</sup> | val/test loss |
 
 For a general overview of the paper, repository structure and artifact maps refer to [PaperOverview](https://github.com/automl/scan_bench/blob/main/PaperOverview.md).
 
